@@ -75,6 +75,7 @@ unsigned int __gUnknown800030C0[2] : (OS_BASE_CACHED | 0x30C0);
 
 unsigned long OSGetConsoleType(void);
 void OSInit(void);
+void OSRegisterVersion(const char *id);
 
 void *OSGetArenaHi(void);
 void *OSGetArenaLo(void);
@@ -86,6 +87,7 @@ void *OSAllocFromArenaHi(u32 size, u32 align);
 u32 OSGetPhysicalMemSize(void);
 
 void __OSPSInit();
+u32 __OSGetDIConfig();
 
 typedef struct OSCalendarTime
 {

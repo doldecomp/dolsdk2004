@@ -92,7 +92,7 @@ findcmd = $(shell type $(1) >/dev/null 2>/dev/null; echo $$?)
 # todo, please, better CROSS than this.
 CROSS := powerpc-linux-gnu-
 
-COMPILER_VERSION ?= 1.2.5
+COMPILER_VERSION ?= 1.2.5n
 
 COMPILER_DIR := mwcc_compiler/GC/$(COMPILER_VERSION)
 AS = $(CROSS)as
@@ -134,7 +134,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 default: all
 
 # TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a hio.a hioD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -191,6 +191,10 @@ build/release/src/%.o: src/%.c
 amcnotstub_c_files := $(wildcard src/amcnotstub/*.c)
 amcnotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(amcnotstub_c_files:.c=.o))
 amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
+
+hio_c_files := $(wildcard src/hio/*.c)
+hio.a  : $(addprefix $(BUILD_DIR)/release/,$(hio_c_files:.c=.o))
+hioD.a : $(addprefix $(BUILD_DIR)/debug/,$(hio_c_files:.c=.o))
 
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
