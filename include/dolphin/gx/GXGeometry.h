@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+void __GXCalculateVLim();
 void GXSetVtxDesc(GXAttr attr, GXAttrType type);
 void GXSetVtxDescv(const GXVtxDescList *attrPtr);
 void GXClearVtxDesc(void);
@@ -30,7 +31,7 @@ static inline void GXEnd(void)
     extern GXBool __GXinBegin;
     extern void OSPanic(char *file, int line, char *msg, ...);
     if (!__GXinBegin) {
-        OSPanic(__FILE__, 0x6D, "GXEnd: called without a GXBegin");
+        OSPanic(__FILE__, 0x76, "GXEnd: called without a GXBegin");
     }
     __GXinBegin = GX_FALSE;
 #endif
