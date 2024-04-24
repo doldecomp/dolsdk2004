@@ -20,6 +20,7 @@ void GXSetTevIndTile(GXTevStageID tev_stage, GXIndTexStageID ind_stage, u16 tile
 void GXSetTevIndBumpST(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexMtxID matrix_sel);
 void GXSetTevIndBumpXYZ(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexMtxID matrix_sel);
 void GXSetTevIndRepeat(GXTevStageID tev_stage);
+void __GXSetIndirectMask(u32 mask);
 
 #ifdef __cplusplus
 }
