@@ -201,6 +201,7 @@ void __GXSetGenMode(void);
 
 /* GXInit.c */
 void __GXInitGX();
+void __GXInitRevisionBits(void);
 
 struct __GXData_struct {
     // total size: 0x5B0
@@ -302,25 +303,63 @@ extern GXBool __GXinBegin;
 #define GX_SET_PE_REG(offset, val)  (*(volatile u16*)((volatile u16*)(__peReg) + (offset)) = val)
 #define GX_SET_PI_REG(offset, val)  (*(volatile u32*)((volatile u32*)(__piReg) + (offset)) = val)
 
-static inline u32 __GXReadMEMCounterU32(u32 addrLo, u32 addrHi)
-{
-	u32 hiStart, hiNew, lo;
-	hiStart = GX_GET_MEM_REG(addrHi);
-	do {
-		hiNew   = hiStart;
-		lo      = GX_GET_MEM_REG(addrLo);
-		hiStart = GX_GET_MEM_REG(addrHi);
-	} while (hiStart != hiNew);
-
-	return ((hiStart << 16) | lo);
-}
-
 /* GXMisc.c */
 
 void __GXBypass(u32 reg);
 u16 __GXReadPEReg(u32 reg);
 void __GXPEInit(void);
 void __GXAbort();
+
+/* GXPerf.c */
+void __GXSetBWDials(u16 cpDial, u16 tcDial, u16 peDial, u16 cpuRdDial, u16 cpuWrDial);
+
+static inline u32 __GXReadCPCounterU32(u32 regAddrL, u32 regAddrH) {
+    u32 ctrH0;
+    u32 ctrH1;
+    u32 ctrL;
+
+    ctrH0 = GX_GET_CP_REG(regAddrH);
+
+    do {
+        ctrH1 = ctrH0;
+        ctrL = GX_GET_CP_REG(regAddrL);
+        ctrH0 = GX_GET_CP_REG(regAddrH);
+    } while (ctrH0 != ctrH1);
+
+    return (ctrH0 << 0x10) | ctrL;
+}
+
+static inline u32 __GXReadMEMCounterU32(u32 regAddrL, u32 regAddrH) {
+    u32 ctrH0;
+    u32 ctrH1;
+    u32 ctrL;
+
+    ctrH0 = GX_GET_MEM_REG(regAddrH);
+
+    do {
+        ctrH1 = ctrH0;
+        ctrL = GX_GET_MEM_REG(regAddrL);
+        ctrH0 = GX_GET_MEM_REG(regAddrH);
+    } while (ctrH0 != ctrH1);
+
+    return (ctrH0 << 0x10) | ctrL;
+}
+
+static inline u32 __GXReadPECounterU32(u32 regAddrL, u32 regAddrH) {
+    u32 ctrH0;
+    u32 ctrH1;
+    u32 ctrL;
+
+    ctrH0 = GX_GET_PE_REG(regAddrH);
+
+    do {
+        ctrH1 = ctrH0;
+        ctrL = GX_GET_PE_REG(regAddrL);
+        ctrH0 = GX_GET_PE_REG(regAddrH);
+    } while (ctrH0 != ctrH1);
+
+    return (ctrH0 << 0x10) | ctrL;
+}
 
 /* GXSave.c */
 
