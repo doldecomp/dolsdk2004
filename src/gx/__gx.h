@@ -200,6 +200,7 @@ void __GXSendFlushPrim(void);
 void __GXSetGenMode(void);
 
 /* GXInit.c */
+void __GXInitGX();
 
 struct __GXData_struct {
     // total size: 0x5B0
@@ -283,19 +284,43 @@ struct __GXData_struct {
 };
 
 extern struct __GXData_struct * const __GXData;
-extern u16 *__memReg;
-extern u16 *__peReg;
-extern u16 *__cpReg;
-extern u32 *__piReg;
+extern void *__memReg;
+extern void *__peReg;
+extern void *__cpReg;
+extern void *__piReg;
 #if DEBUG
 extern GXBool __GXinBegin;
 #endif
+
+#define GX_GET_MEM_REG(offset) (*(volatile u16*)((volatile u16*)(__memReg) + (offset)))
+#define GX_GET_CP_REG(offset)  (*(volatile u16*)((volatile u16*)(__cpReg) + (offset)))
+#define GX_GET_PE_REG(offset)  (*(volatile u16*)((volatile u16*)(__peReg) + (offset)))
+#define GX_GET_PI_REG(offset)  (*(volatile u32*)((volatile u32*)(__piReg) + (offset)))
+
+#define GX_SET_MEM_REG(offset, val) (*(volatile u16*)((volatile u16*)(__memReg) + (offset)) = val)
+#define GX_SET_CP_REG(offset, val)  (*(volatile u16*)((volatile u16*)(__cpReg) + (offset)) = val)
+#define GX_SET_PE_REG(offset, val)  (*(volatile u16*)((volatile u16*)(__peReg) + (offset)) = val)
+#define GX_SET_PI_REG(offset, val)  (*(volatile u32*)((volatile u32*)(__piReg) + (offset)) = val)
+
+static inline u32 __GXReadMEMCounterU32(u32 addrLo, u32 addrHi)
+{
+	u32 hiStart, hiNew, lo;
+	hiStart = GX_GET_MEM_REG(addrHi);
+	do {
+		hiNew   = hiStart;
+		lo      = GX_GET_MEM_REG(addrLo);
+		hiStart = GX_GET_MEM_REG(addrHi);
+	} while (hiStart != hiNew);
+
+	return ((hiStart << 16) | lo);
+}
 
 /* GXMisc.c */
 
 void __GXBypass(u32 reg);
 u16 __GXReadPEReg(u32 reg);
 void __GXPEInit(void);
+void __GXAbort();
 
 /* GXSave.c */
 
@@ -312,6 +337,7 @@ void __GXSetRange(float nearz, float fgSideX);
 void __GetImageTileCount(GXTexFmt fmt, u16 wd, u16 ht, u32 *rowTiles, u32 *colTiles, u32 *cmpTiles);
 void __GXSetSUTexRegs(void);
 void __GXGetSUTexSize(GXTexCoordID coord, u16 *width, u16 *height);
+void __GXSetTmemConfig(u32 config);
 
 /* GXTransform.c */
 
