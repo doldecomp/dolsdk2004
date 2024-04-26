@@ -20,6 +20,7 @@ void GXSetDither(GXBool dither);
 void GXSetDstAlpha(GXBool enable, u8 alpha);
 void GXSetFieldMask(GXBool odd_mask, GXBool even_mask);
 void GXSetFieldMode(GXBool field_mode, GXBool half_aspect_ratio);
+void GXSetFogColor(GXColor color);
 
 #ifdef __cplusplus
 }
