@@ -12,7 +12,7 @@ extern "C" {
 
 void GXProject(f32 x, f32 y, f32 z, f32 mtx[3][4], f32 *pm, f32 *vp, f32 *sx, f32 *sy, f32 *sz);
 void GXSetProjection(f32 mtx[4][4], GXProjectionType type);
-void GXSetProjectionv(f32 *ptr);
+void GXSetProjectionv(const f32 *ptr);
 void GXLoadPosMtxImm(f32 mtx[3][4], u32 id);
 void GXLoadPosMtxIndx(u16 mtx_indx, u32 id);
 void GXLoadNrmMtxImm(f32 mtx[3][4], u32 id);
@@ -25,6 +25,7 @@ void GXSetViewportJitter(f32 left, f32 top, f32 wd, f32 ht, f32 nearz, f32 farz,
 void GXSetViewport(f32 left, f32 top, f32 wd, f32 ht, f32 nearz, f32 farz);
 void GXSetScissorBoxOffset(s32 x_off, s32 y_off);
 void GXSetClipMode(GXClipMode mode);
+void GXSetZScaleOffset(f32 scale, f32 offset);
 
 #ifdef __cplusplus
 }

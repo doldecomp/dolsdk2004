@@ -37,7 +37,13 @@ void GXPreLoadEntireTexture(GXTexObj *tex_obj, GXTexRegion *region);
 void GXSetTexCoordScaleManually(GXTexCoordID coord, u8 enable, u16 ss, u16 ts);
 void GXSetTexCoordCylWrap(GXTexCoordID coord, u8 s_enable, u8 t_enable);
 void GXSetTexCoordBias(GXTexCoordID coord, u8 s_enable, u8 t_enable);
-
+void GXInitTexObjFilter(GXTexObj* obj, GXTexFilter min_filt, GXTexFilter mag_filt);
+void GXInitTexObjMaxLOD(GXTexObj* obj, f32 max_lod);
+void GXInitTexObjMinLOD(GXTexObj* obj, f32 min_lod);
+void GXInitTexObjLODBias(GXTexObj* obj, f32 lod_bias);
+void GXInitTexObjBiasClamp(GXTexObj* obj, u8 bias_clamp);
+void GXInitTexObjEdgeLOD(GXTexObj* obj, u8 do_edge_lod);
+void GXInitTexObjMaxAniso(GXTexObj* obj, GXAnisotropy max_aniso);
 
 #ifdef __cplusplus
 }

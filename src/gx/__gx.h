@@ -381,6 +381,9 @@ void __GXSetTmemConfig(u32 config);
 /* GXTransform.c */
 
 void __GXSetMatrixIndex(GXAttr matIdxAttr);
+void __GXSetProjection(void);
+void __GXSetViewport();
+
 
 /* GXVerifRAS.c */
 
@@ -509,11 +512,11 @@ typedef enum {
     GXWARN_MAX = 113,
 } GXWarnID;
 
-#define __GX_WARN(id) (__gxVerif->cb(GX_WARN_SEVERE, (id), __gxvWarnings[(id)]))
+#define __GX_WARN(id) (__gxVerif->cb(__gxvWarnLev[(id)], (id), __gxvWarnings[(id)]))
 #define __GX_WARNF(id, ...) \
 do { \
     sprintf(__gxvDummyStr, __gxvWarnings[(id)], __VA_ARGS__); \
-    __gxVerif->cb(GX_WARN_SEVERE, (id), __gxvDummyStr); \
+    __gxVerif->cb(__gxvWarnLev[(id)], (id), __gxvDummyStr); \
 } while (0)
 
 #define __GX_WARN2(level, id) (__gxVerif->cb(level, (id), __gxvWarnings[(id)]))
