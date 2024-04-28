@@ -393,8 +393,8 @@ void __GXSetVAT(void)
     __GXData->dirtyVAT = 0;
 }
 
-static inline int GetFracForNrm(GXCompType type) {
-    int frac;
+static inline u8 GetFracForNrm(GXCompType type) {
+    u8 frac;
 
     switch (type) {
     case 1:
@@ -511,7 +511,7 @@ void GXGetVtxAttrFmtv(GXVtxFmt fmt, GXVtxAttrFmtList *vat)
     vat->attr = GX_VA_NULL;
 }
 
-void GXSetArray(GXAttr attr, const void *base_ptr, u8 stride)
+void GXSetArray(GXAttr attr, void *base_ptr, u8 stride)
 {
     GXAttr cpAttr;
     unsigned long phyAddr;

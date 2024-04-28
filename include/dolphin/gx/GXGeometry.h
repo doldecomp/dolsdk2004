@@ -13,7 +13,7 @@ void GXSetVtxDescv(const GXVtxDescList *attrPtr);
 void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(GXVtxFmt vtxfmt, GXAttr attr, GXCompCnt cnt, GXCompType type, u8 frac);
 void GXSetVtxAttrFmtv(GXVtxFmt vtxfmt, const GXVtxAttrFmtList *list);
-void GXSetArray(GXAttr attr, const void *base_ptr, u8 stride);
+void GXSetArray(GXAttr attr, void *base_ptr, u8 stride);
 void GXInvalidateVtxCache(void);
 void GXSetTexCoordGen2(GXTexCoordID dst_coord, GXTexGenType func, GXTexGenSrc src_param, u32 mtx, GXBool normalize, u32 pt_texmtx);
 void GXSetNumTexGens(u8 nTexGens);

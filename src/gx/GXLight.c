@@ -42,7 +42,7 @@ void GXInitLightAttnA(GXLightObj *lt_obj, f32 a0, f32 a1, f32 a2)
     obj->a[2] = a2;
 }
 
-void GXGetLightAttnA(GXLightObj *lt_obj, f32 *a0, f32 *a1, f32 *a2)
+void GXGetLightAttnA(const GXLightObj *lt_obj, f32 *a0, f32 *a1, f32 *a2)
 {
     struct __GXLightObjInt_struct *obj;
 
@@ -66,7 +66,7 @@ void GXInitLightAttnK(GXLightObj *lt_obj, f32 k0, f32 k1, f32 k2)
     obj->k[2] = k2;
 }
 
-void GXGetLightAttnK(GXLightObj *lt_obj, f32 *k0, f32 *k1, f32 *k2)
+void GXGetLightAttnK(const GXLightObj *lt_obj, f32 *k0, f32 *k1, f32 *k2)
 {
     struct __GXLightObjInt_struct *obj;
 
@@ -197,7 +197,7 @@ void GXInitLightPos(GXLightObj *lt_obj, f32 x, f32 y, f32 z)
     obj->lpos[2] = z;
 }
 
-void GXGetLightPos(GXLightObj *lt_obj, f32 *x, f32 *y, f32 *z)
+void GXGetLightPos(const GXLightObj *lt_obj, f32 *x, f32 *y, f32 *z)
 {
     struct __GXLightObjInt_struct *obj;
 
@@ -222,7 +222,7 @@ void GXInitLightDir(GXLightObj *lt_obj, f32 nx, f32 ny, f32 nz)
     obj->ldir[2] = -nz;
 }
 
-void GXGetLightDir(GXLightObj *lt_obj, f32 *nx, f32 *ny, f32 *nz)
+void GXGetLightDir(const GXLightObj *lt_obj, f32 *nx, f32 *ny, f32 *nz)
 {
     struct __GXLightObjInt_struct *obj;
 
@@ -290,7 +290,7 @@ void GXInitLightColor(GXLightObj *lt_obj, GXColor color)
     *(u32*)&obj->Color = *(u32*)&color;
 }
 
-void GXGetLightColor(GXLightObj *lt_obj, GXColor *color)
+void GXGetLightColor(const GXLightObj *lt_obj, GXColor *color)
 {
     struct __GXLightObjInt_struct *obj;
 
@@ -363,7 +363,7 @@ static inline void PushLight(const register GXLightObj* lt_obj, register void* d
 #endif  // clang-format on
 }
 
-void GXLoadLightObjImm(GXLightObj *lt_obj, GXLightID light)
+void GXLoadLightObjImm(const GXLightObj *lt_obj, GXLightID light)
 {
     u32 addr;
     u32 idx;

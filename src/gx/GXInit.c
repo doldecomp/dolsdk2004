@@ -25,7 +25,6 @@ u32 calledOnce;
 OSTime time;
 u32 peCount;
 
-// DWARF info lists all of these as "void *", but these types make more sense.
 void *__memReg;
 void *__peReg;
 void *__cpReg;
@@ -129,7 +128,7 @@ static GXTlutRegion *__GXDefaultTlutRegionCallback(u32 idx)
 }
 
 #if DEBUG
-static void __GXDefaultVerifyCallback(GXWarningLevel level, u32 id, char *msg)
+static void __GXDefaultVerifyCallback(GXWarningLevel level, u32 id, const char *msg)
 {
     OSReport("Level %1d, Warning %3d: %s\n", level, id, msg);
 }
@@ -314,7 +313,7 @@ GXFifoObj *GXInit(void *base, u32 size)
     __GXData->dirtyVAT = FALSE;
 #if DEBUG
     __gxVerif->verifyLevel = GX_WARN_NONE;
-    GXSetVerifyCallback(__GXDefaultVerifyCallback);
+    GXSetVerifyCallback((GXVerifyCallback)__GXDefaultVerifyCallback);
     for (i = 0; i < 256; i++) {
         SET_REG_FIELD(0, __gxVerif->rasRegs[i], 8, 24, 0xFF);
     }

@@ -5,7 +5,7 @@
 
 #include "__gx.h"
 
-static u8 *dlist;
+static const u8 *dlist;
 static u32 dlistSize;
 static u32 bytesRead;
 
@@ -13,7 +13,7 @@ void __GXShadowIndexState(u32 idx_reg, u32 reg_data);
 
 static u8 __ReadMem(void *ptr, u32 sz)
 {
-    u8 *src;
+    const u8 *src;
     u8 *dst;
     u32 i;
 
@@ -332,6 +332,7 @@ static void __ParseVertexData(u8 vatIdx)
     }
 }
 
+// NONMATCHING
 void __GXShadowDispList(void *list, u32 nbytes)
 {
     u8 cmd;

@@ -445,4 +445,3 @@ void __GXSetBWDials(u16 cpDial, u16 tcDial, u16 peDial, u16 cpuRdDial, u16 cpuWr
     __MEMRegs[12] = cpuRdDial;
     __MEMRegs[13] = cpuWrDial;
 }
-

@@ -123,7 +123,7 @@ void GXSetFogColor(GXColor color) {
     __GXData->bpSentNot = 0;
 }
 
-void GXInitFogAdjTable(GXFogAdjTable *table, u16 width, f32 projmtx[4][4])
+void GXInitFogAdjTable(GXFogAdjTable *table, u16 width, const f32 projmtx[4][4])
 {
     f32 xi;
     f32 iw;
@@ -154,7 +154,7 @@ void GXInitFogAdjTable(GXFogAdjTable *table, u16 width, f32 projmtx[4][4])
     }
 }
 
-void GXSetFogRangeAdj(GXBool enable, u16 center, GXFogAdjTable *table)
+void GXSetFogRangeAdj(GXBool enable, u16 center, const GXFogAdjTable *table)
 {
     u32 i;
     u32 range_adj;

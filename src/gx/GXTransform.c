@@ -5,7 +5,7 @@
 
 #include "__gx.h"
 
-void GXProject(f32 x, f32 y, f32 z, f32 mtx[3][4], f32 *pm, f32 *vp, f32 *sx, f32 *sy, f32 *sz)
+void GXProject(f32 x, f32 y, f32 z, const f32 mtx[3][4], const f32 *pm, const f32 *vp, f32 *sx, f32 *sy, f32 *sz)
 {
     Vec peye;
     f32 xc;
@@ -34,29 +34,29 @@ void GXProject(f32 x, f32 y, f32 z, f32 mtx[3][4], f32 *pm, f32 *vp, f32 *sx, f3
     *sz = vp[5] + (wc * (zc * (vp[5] - vp[4])));
 }
 
-static void WriteProjPS(const register f32 src[6], register volatile void* dst) {
+static void WriteProjPS(const register f32 proj[6], register volatile void* dest) {
     register f32 p01, p23, p45;
 
     asm {
-        psq_l  p01,  0(src), 0, 0
-        psq_l  p23,  8(src), 0, 0
-        psq_l  p45, 16(src), 0, 0
-        psq_st p01,  0(dst), 0, 0
-        psq_st p23,  0(dst), 0, 0
-        psq_st p45,  0(dst), 0, 0
+        psq_l  p01,  0(proj), 0, 0
+        psq_l  p23,  8(proj), 0, 0
+        psq_l  p45, 16(proj), 0, 0
+        psq_st p01,  0(dest), 0, 0
+        psq_st p23,  0(dest), 0, 0
+        psq_st p45,  0(dest), 0, 0
     }
 }
 
-static void Copy6Floats(const register f32 src[6], register volatile f32* dst) {
+static void Copy6Floats(const register f32 src[6], register volatile f32* dest) {
     register f32 ps01, ps23, ps45;
 
     asm {
         psq_l  ps01,  0(src), 0, 0
         psq_l  ps23,  8(src), 0, 0
         psq_l  ps45, 16(src), 0, 0
-        psq_st ps01,  0(dst), 0, 0
-        psq_st ps23,  8(dst), 0, 0
-        psq_st ps45, 16(dst), 0, 0
+        psq_st ps01,  0(dest), 0, 0
+        psq_st ps23,  8(dest), 0, 0
+        psq_st ps45, 16(dest), 0, 0
     }
 }
 
@@ -78,7 +78,7 @@ void __GXSetProjection(void) {
 #endif
 }
 
-void GXSetProjection(f32 mtx[4][4], GXProjectionType type)
+void GXSetProjection(const f32 mtx[4][4], GXProjectionType type)
 {
     CHECK_GXBEGIN(0x127, "GXSetProjection");
 
@@ -140,7 +140,7 @@ void GXGetProjectionv(f32 *ptr)
 #endif
 }
 
-static void WriteMTXPS4x3(register f32 mtx[3][4], register volatile f32 *dest)
+static void WriteMTXPS4x3(const register f32 mtx[3][4], register volatile f32 *dest)
 {
     register f32 a00_a01;
     register f32 a02_a03;
@@ -212,7 +212,7 @@ static void WriteMTXPS3x3(register f32 mtx[3][3], register volatile f32 *dest)
     }
 }
 
-static void WriteMTXPS4x2(register f32 mtx[2][4], register volatile f32 *dest)
+static void WriteMTXPS4x2(const register f32 mtx[2][4], register volatile f32 *dest)
 {
     register f32 a00_a01;
     register f32 a02_a03;
@@ -238,7 +238,7 @@ do { \
     VERIF_MTXLIGHT((addr), *(u32 *)&xfData); \
 } while (0)
 
-void GXLoadPosMtxImm(f32 mtx[3][4], u32 id)
+void GXLoadPosMtxImm(const f32 mtx[3][4], u32 id)
 {
     u32 reg;
     u32 addr;
@@ -286,7 +286,7 @@ void GXLoadPosMtxIndx(u16 mtx_indx, u32 id)
 #endif
 }
 
-void GXLoadNrmMtxImm(f32 mtx[3][4], u32 id)
+void GXLoadNrmMtxImm(const f32 mtx[3][4], u32 id)
 {
     u32 reg;
     u32 addr;
@@ -309,11 +309,11 @@ void GXLoadNrmMtxImm(f32 mtx[3][4], u32 id)
     GX_WRITE_MTX_ELEM(addr + 7, mtx[2][1]);
     GX_WRITE_MTX_ELEM(addr + 8, mtx[2][2]);
 #else
-    WriteMTXPS3x3from3x4(mtx, &GXWGFifo.f32);
+    WriteMTXPS3x3from3x4((void*)mtx, &GXWGFifo.f32);
 #endif
 }
 
-void GXLoadNrmMtxImm3x3(f32 mtx[3][3], u32 id)
+void GXLoadNrmMtxImm3x3(const f32 mtx[3][3], u32 id)
 {
     u32 reg;
     u32 addr;
@@ -336,7 +336,7 @@ void GXLoadNrmMtxImm3x3(f32 mtx[3][3], u32 id)
     GX_WRITE_MTX_ELEM(addr + 7, mtx[2][1]);
     GX_WRITE_MTX_ELEM(addr + 8, mtx[2][2]);
 #else
-    WriteMTXPS3x3(mtx, &GXWGFifo.f32);
+    WriteMTXPS3x3((void*)mtx, &GXWGFifo.f32);
 #endif
 }
 
@@ -365,7 +365,7 @@ void GXSetCurrentMtx(u32 id)
     __GXSetMatrixIndex(GX_VA_PNMTXIDX);
 }
 
-void GXLoadTexMtxImm(f32 mtx[][4], u32 id, GXTexMtxType type)
+void GXLoadTexMtxImm(const f32 mtx[][4], u32 id, GXTexMtxType type)
 {
     u32 reg;
     u32 addr;

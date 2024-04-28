@@ -594,8 +594,8 @@ void GXClearBoundingBox(void)
 
 void GXReadBoundingBox(u16 *left, u16 *top, u16 *right, u16 *bottom)
 {
-    *left = __peReg[8];
-    *top = __peReg[10];
-    *right = __peReg[9];
-    *bottom = __peReg[11];
+    *left = GX_GET_PE_REG(8);
+    *top = GX_GET_PE_REG(10);
+    *right = GX_GET_PE_REG(9);
+    *bottom = GX_GET_PE_REG(11);
 }
