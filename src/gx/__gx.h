@@ -544,7 +544,7 @@ struct __GXVerifyData {
 };
 
 extern struct __GXVerifyData *__gxVerif;
-extern char *__gxvWarnings[113];
+extern char *__gxvWarnings[125];
 extern char __gxvDummyStr[256];
 extern GXWarningLevel __gxvWarnLev[];
 
