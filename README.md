@@ -32,7 +32,7 @@ Currently this repository supports building the following libraries:
 | G2D          | :x: |
 | gd           | :x: |
 | gx           | :x: |
-| hio          | :x: |
+| hio          | :heavy_check_mark: |
 | mcc          | :x: |
 | mix          | :x: |
 | mtx          | :x: |
