@@ -13,4 +13,6 @@ typedef void (*GXVerifyCallback)(GXWarningLevel level, u32 id, char *msg);
 void GXSetVerifyLevel(GXWarningLevel level);
 GXVerifyCallback GXSetVerifyCallback(GXVerifyCallback cb);
 
+void __GXVerifyVATImm(GXAttr attr, GXCompCnt cnt, GXCompType type, u8 frac);
+
 #endif

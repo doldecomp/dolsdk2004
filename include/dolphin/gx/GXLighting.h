@@ -18,7 +18,7 @@ void GXInitLightDir(GXLightObj *lt_obj, f32 nx, f32 ny, f32 nz);
 void GXInitSpecularDir(GXLightObj *lt_obj, f32 nx, f32 ny, f32 nz);
 void GXInitSpecularDirHA(GXLightObj *lt_obj, f32 nx, f32 ny, f32 nz, f32 hx, f32 hy, f32 hz);
 void GXInitLightColor(GXLightObj *lt_obj, GXColor color);
-void GXLoadLightObjImm(GXLightObj *lt_obj, GXLightID light);
+void GXLoadLightObjImm(const GXLightObj *lt_obj, GXLightID light);
 void GXLoadLightObjIndx(u32 lt_obj_indx, GXLightID light);
 void GXSetChanAmbColor(GXChannelID chan, GXColor amb_color);
 void GXSetChanMatColor(GXChannelID chan, GXColor mat_color);

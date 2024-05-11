@@ -33,8 +33,15 @@ extern GXRenderModeObj GXPal264IntAa;
 extern GXRenderModeObj GXPal528IntDf;
 extern GXRenderModeObj GXPal528Int;
 extern GXRenderModeObj GXPal528IntAa;
+extern GXRenderModeObj GXEurgb60Hz240Ds;
+extern GXRenderModeObj GXEurgb60Hz240DsAa;
+extern GXRenderModeObj GXEurgb60Hz240Int;
+extern GXRenderModeObj GXEurgb60Hz240IntAa;
+extern GXRenderModeObj GXEurgb60Hz480IntDf;
+extern GXRenderModeObj GXEurgb60Hz480Int;
+extern GXRenderModeObj GXEurgb60Hz480IntAa;
 
-void GXAdjustForOverscan(GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor, u16 ver);
+void GXAdjustForOverscan(const GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor, u16 ver);
 void GXSetDispCopySrc(u16 left, u16 top, u16 wd, u16 ht);
 void GXSetTexCopySrc(u16 left, u16 top, u16 wd, u16 ht);
 void GXSetDispCopyDst(u16 wd, u16 ht);
@@ -49,6 +56,8 @@ void GXCopyDisp(void *dest, GXBool clear);
 void GXCopyTex(void *dest, GXBool clear);
 void GXClearBoundingBox(void);
 void GXReadBoundingBox(u16 *left, u16 *top, u16 *right, u16 *bottom);
+u16 GXGetNumXfbLines(u16 efbHeight, f32 yScale);
+f32 GXGetYScaleFactor(u16 efbHeight, u16 xfbHeight);
 
 #ifdef __cplusplus
 }

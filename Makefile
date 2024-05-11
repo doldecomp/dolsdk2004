@@ -134,7 +134,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 default: all
 
 # TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -191,6 +191,31 @@ build/release/src/%.o: src/%.c
 amcnotstub_c_files := $(wildcard src/amcnotstub/*.c)
 amcnotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(amcnotstub_c_files:.c=.o))
 amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
+
+gx_c_files := \
+	src/gx/GXInit.c \
+	src/gx/GXFifo.c \
+	src/gx/GXAttr.c \
+	src/gx/GXMisc.c \
+	src/gx/GXGeometry.c \
+	src/gx/GXFrameBuf.c \
+	src/gx/GXLight.c \
+	src/gx/GXTexture.c \
+	src/gx/GXBump.c \
+	src/gx/GXTev.c \
+	src/gx/GXPixel.c \
+	src/gx/GXDraw.c \
+	src/gx/GXStubs.c \
+	src/gx/GXDisplayList.c \
+	src/gx/GXVert.c \
+	src/gx/GXTransform.c \
+	src/gx/GXVerify.c \
+	src/gx/GXVerifXF.c \
+	src/gx/GXVerifRAS.c \
+	src/gx/GXSave.c \
+	src/gx/GXPerf.c
+gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
+gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
 
 amcstubs_c_files := $(wildcard src/amcstubs/*.c)
 amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
