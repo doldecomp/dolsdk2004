@@ -87,6 +87,7 @@ void *OSAllocFromArenaHi(u32 size, u32 align);
 u32 OSGetPhysicalMemSize(void);
 
 void __OSPSInit();
+void __OSFPRInit();
 u32 __OSGetDIConfig();
 
 typedef struct OSCalendarTime
