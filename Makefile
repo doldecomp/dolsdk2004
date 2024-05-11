@@ -134,7 +134,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 default: all
 
 # TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -217,9 +217,25 @@ gx_c_files := \
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
 gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
 
+amcstubs_c_files := $(wildcard src/amcstubs/*.c)
+amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
+amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
+
 hio_c_files := $(wildcard src/hio/*.c)
 hio.a  : $(addprefix $(BUILD_DIR)/release/,$(hio_c_files:.c=.o))
 hioD.a : $(addprefix $(BUILD_DIR)/debug/,$(hio_c_files:.c=.o))
+
+odemustubs_c_files := $(wildcard src/odemustubs/*.c)
+odemustubs.a  : $(addprefix $(BUILD_DIR)/release/,$(odemustubs_c_files:.c=.o))
+odemustubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(odemustubs_c_files:.c=.o))
+
+odenotstub_c_files := $(wildcard src/odenotstub/*.c)
+odenotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(odenotstub_c_files:.c=.o))
+odenotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(odenotstub_c_files:.c=.o))
+
+os_c_files := $(wildcard src/os/*.c)
+os.a  : $(addprefix $(BUILD_DIR)/release/,$(os_c_files:.c=.o))
+osD.a : $(addprefix $(BUILD_DIR)/debug/,$(os_c_files:.c=.o))
 
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
