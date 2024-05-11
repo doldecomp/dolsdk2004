@@ -90,7 +90,9 @@ void __fini_cpp(void);
 void _ExitProcess(void);
 
 // start.c
-void __start(void);
+__declspec(weak) void InitMetroTRK_BBA();
+
+__declspec(section ".init") void __start(void);
 
 __declspec(section ".init") extern void __start(void);
 __declspec(section ".init") void __copy_rom_section(void* dst, const void* src, unsigned long size);
