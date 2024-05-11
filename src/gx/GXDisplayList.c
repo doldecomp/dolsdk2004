@@ -50,10 +50,10 @@ unsigned long GXEndDisplayList(void)
     ASSERTMSGLINE(0xC4, __GXData->inDispList == TRUE, "GXEndDisplayList: no display list in progress");
     GXFlush();
 #ifdef DEBUG
-    reg = __piReg[5];
+    reg = GX_GET_PI_REG(5);
     ov = (reg >> 26) & 1;
 #else
-    ov = (__piReg[5] >> 26) & 1;
+    ov = (GX_GET_PI_REG(5) >> 26) & 1;
 #endif
     __GXSaveCPUFifoAux(&DisplayListFifo);
     ASSERTMSGLINE(0xD5, !ov, "GXEndDisplayList: display list commands overflowed buffer");
