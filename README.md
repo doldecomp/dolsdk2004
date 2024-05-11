@@ -38,7 +38,7 @@ Currently this repository supports building the following libraries:
 | mtx          | :x: |
 | odemustubs   | :heavy_check_mark: |
 | odenotstub   | :heavy_check_mark: |
-| os           | :x: |
+| os           | :warning: |
 | pad          | :x: |
 | perf         | :x: |
 | seq          | :x: |

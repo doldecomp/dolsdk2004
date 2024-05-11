@@ -134,7 +134,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 default: all
 
 # TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -207,6 +207,10 @@ odemustubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(odemustubs_c_files:.c=.o))
 odenotstub_c_files := $(wildcard src/odenotstub/*.c)
 odenotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(odenotstub_c_files:.c=.o))
 odenotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(odenotstub_c_files:.c=.o))
+
+os_c_files := $(wildcard src/os/*.c)
+os.a  : $(addprefix $(BUILD_DIR)/release/,$(os_c_files:.c=.o))
+osD.a : $(addprefix $(BUILD_DIR)/debug/,$(os_c_files:.c=.o))
 
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@

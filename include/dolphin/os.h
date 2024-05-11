@@ -175,6 +175,9 @@ void *OSUncachedToCached(void *ucaddr);
 #define OSUncachedToCached(ucaddr)   ((void*) ((u8*)(ucaddr) - (OS_BASE_UNCACHED - OS_BASE_CACHED)))
 #endif
 
+// unsorted externs
+extern long long __OSGetSystemTime(void);
+
 #ifdef __cplusplus
 }
 #endif
