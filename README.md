@@ -15,7 +15,7 @@ Currently this repository supports building the following libraries:
 | ai           | :x: |
 | am           | :x: |
 | amcnotstub   | :heavy_check_mark: |
-| amcstubs     | :x: |
+| amcstubs     | :heavy_check_mark: |
 | ar           | :x: |
 | ax           | :x: |
 | axart        | :x: |
@@ -36,8 +36,8 @@ Currently this repository supports building the following libraries:
 | mcc          | :x: |
 | mix          | :x: |
 | mtx          | :x: |
-| odemustubs   | :x: |
-| odenotstub   | :x: |
+| odemustubs   | :heavy_check_mark: |
+| odenotstub   | :heavy_check_mark: |
 | os           | :x: |
 | pad          | :x: |
 | perf         | :x: |
