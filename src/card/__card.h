@@ -22,6 +22,8 @@ long __CARDWrite(long chan, unsigned long addr, long length, void * dst, void (*
 // CARDRaw.c
 long __CARDRawReadAsync(long chan, void * buf, long length, long offset, void (* callback)(long, long));
 long __CARDRawRead(long chan, void * buf, long length, long offset);
+s32 __CARDRawErase(s32 chan, s32 offset);
+s32 __CARDRawEraseAsync(s32 chan, s32 offset, CARDCallback callback);
 
 // CARDOpen.c
 BOOL __CARDCompareFileName(CARDDir *ent, const char *fileName);
