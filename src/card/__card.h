@@ -29,6 +29,7 @@ s32 __CARDAccess(CARDDir *ent);
 s32 __CARDIsPublic(CARDDir *ent);
 s32 __CARDGetFileNo(CARDControl* card, const char* fileName, s32* pfileNo);
 BOOL __CARDIsOpened(CARDControl *card, s32 fileNo);
+s32 __CARDIsWritable(CARDControl* card, CARDDir* ent);
 
 // CARDMount.c
 void __CARDMountCallback(s32 chan, s32 result);

@@ -186,9 +186,24 @@ typedef struct CARDID {
 #define CARD_STAT_BANNER_RGB5A3 2
 #define CARD_STAT_BANNER_MASK 3
 
-#define CARDGetBannerFormat(stat) (((stat)->bannerFormat) & CARD_STAT_BANNER_MASK)
-#define CARDGetIconFormat(stat, n) (((stat)->iconFormat >> (2 * (n))) & CARD_STAT_ICON_MASK)
 #define CARDGetDirCheck(dir) ((CARDDirCheck *)&(dir)[CARD_MAX_FILE])
+#define CARDGetBannerFormat(stat) (((stat)->bannerFormat) & CARD_STAT_BANNER_MASK)
+#define CARDGetIconAnim(stat) (((stat)->bannerFormat) & CARD_STAT_ANIM_MASK)
+#define CARDGetIconFormat(stat, n) (((stat)->iconFormat >> (2 * (n))) & CARD_STAT_ICON_MASK)
+#define CARDGetIconSpeed(stat, n) (((stat)->iconSpeed >> (2 * (n))) & CARD_STAT_SPEED_MASK)
+#define CARDSetBannerFormat(stat, f)                                                               \
+  ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_BANNER_MASK) | (f)))
+#define CARDSetIconAnim(stat, f)                                                                   \
+  ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_ANIM_MASK) | (f)))
+#define CARDSetIconFormat(stat, n, f)                                                              \
+  ((stat)->iconFormat =                                                                            \
+       (u16)(((stat)->iconFormat & ~(CARD_STAT_ICON_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
+#define CARDSetIconSpeed(stat, n, f)                                                               \
+  ((stat)->iconSpeed =                                                                             \
+       (u16)(((stat)->iconSpeed & ~(CARD_STAT_SPEED_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
+#define CARDSetIconAddress(stat, addr) ((stat)->iconAddr = (u32)(addr))
+#define CARDSetCommentAddress(stat, addr) ((stat)->commentAddr = (u32)(addr))
+#define CARDGetFileNo(fileInfo) ((fileInfo)->fileNo)
 
 void CARDInit(void);
 s32 CARDGetResultCode(s32 chan);
