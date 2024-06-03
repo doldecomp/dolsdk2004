@@ -111,6 +111,7 @@ typedef struct CARDID {
 #include <dolphin/card/CARDErase.h>
 #include <dolphin/card/CARDFormat.h>
 #include <dolphin/card/CARDMount.h>
+#include <dolphin/card/CARDNet.h>
 #include <dolphin/card/CARDOpen.h>
 #include <dolphin/card/CARDRdwr.h>
 #include <dolphin/card/CARDRead.h>

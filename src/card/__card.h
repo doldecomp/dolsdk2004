@@ -31,6 +31,12 @@ s32 __CARDGetFileNo(CARDControl* card, const char* fileName, s32* pfileNo);
 BOOL __CARDIsOpened(CARDControl *card, s32 fileNo);
 s32 __CARDIsWritable(CARDControl* card, CARDDir* ent);
 
+// CARDNet.c
+extern u16 __CARDVendorID;
+extern u8 __CARDPermMask;
+int __CARDEnableGlobal(int enable);
+int __CARDEnableCompany(int enable);
+
 // CARDMount.c
 void __CARDMountCallback(s32 chan, s32 result);
 void __CARDDisable(BOOL disable);

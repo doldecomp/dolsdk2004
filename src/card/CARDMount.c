@@ -20,8 +20,6 @@ static u32 LatencyTable[8] =
 static s32 DoMount(s32 chan);
 static void DoUnmount(s32 chan, s32 result);
 
-extern u16 __CARDVendorID; // move later
-
 static BOOL IsCard(u32 id) {
     u32 size;
     s32 sectorSize;
