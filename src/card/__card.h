@@ -33,6 +33,7 @@ s32 __CARDIsWritable(CARDControl* card, CARDDir* ent);
 
 // CARDMount.c
 void __CARDMountCallback(s32 chan, s32 result);
+void __CARDDisable(BOOL disable);
 
 // CARDFormat.c
 s32 CARDFormatAsync(s32 chan, CARDCallback callback);
