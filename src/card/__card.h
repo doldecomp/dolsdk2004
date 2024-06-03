@@ -36,6 +36,8 @@ void __CARDMountCallback(s32 chan, s32 result);
 
 // CARDFormat.c
 s32 CARDFormatAsync(s32 chan, CARDCallback callback);
+s32 __CARDFormatRegionAsync(s32 chan, u16 encode, CARDCallback callback);
+s32 __CARDFormatRegion(s32 chan, u16 encode);
 
 // CARDDir.c
 CARDDir *__CARDGetDirBlock(CARDControl* card);

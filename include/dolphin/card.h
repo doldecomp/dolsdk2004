@@ -108,6 +108,7 @@ typedef struct CARDID {
 #include <dolphin/card/CARDCreate.h>
 #include <dolphin/card/CARDDelete.h>
 #include <dolphin/card/CARDDir.h>
+#include <dolphin/card/CARDErase.h>
 #include <dolphin/card/CARDFormat.h>
 #include <dolphin/card/CARDMount.h>
 #include <dolphin/card/CARDOpen.h>
@@ -185,6 +186,9 @@ typedef struct CARDID {
 #define CARD_STAT_BANNER_C8 1
 #define CARD_STAT_BANNER_RGB5A3 2
 #define CARD_STAT_BANNER_MASK 3
+
+#define CARD_ENCODE_ANSI 0
+#define CARD_ENCODE_SJIS 1
 
 #define CARDGetDirCheck(dir) ((CARDDirCheck *)&(dir)[CARD_MAX_FILE])
 #define CARDGetBannerFormat(stat) (((stat)->bannerFormat) & CARD_STAT_BANNER_MASK)

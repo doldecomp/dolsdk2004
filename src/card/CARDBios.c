@@ -663,8 +663,8 @@ u16 __CARDSetFontEncode(u16 encode) {
     u16 prev = __CARDEncode;
 
     switch (encode) {
-    case 0:
-    case 1:
+    case CARD_ENCODE_ANSI:
+    case CARD_ENCODE_SJIS:
         __CARDEncode = encode;
         break;
     }

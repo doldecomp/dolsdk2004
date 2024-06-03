@@ -215,7 +215,10 @@ card_c_files := \
 	src/card/CARDStat.c \
 	src/card/CARDRename.c \
 	src/card/CARDStatEx.c \
-	src/card/CARDRaw.c
+	src/card/CARDRaw.c \
+	src/card/CARDNet.c \
+	src/card/CARDErase.c \
+	src/card/CARDProgram.c
 card.a  : $(addprefix $(BUILD_DIR)/release/,$(card_c_files:.c=.o))
 cardD.a : $(addprefix $(BUILD_DIR)/debug/,$(card_c_files:.c=.o))
 
