@@ -13,12 +13,6 @@ const char * __CARDVersion = "<< Dolphin SDK - CARD\trelease build: Apr  5 2004 
 
 u32 __CARDFreq = 4;
 
-#if DEBUG
-#define CARDFreq __CARDFreq
-#else
-#define CARDFreq 4
-#endif
-
 struct CARDControl __CARDBlock[2];
 
 static u16 __CARDEncode;

@@ -13,4 +13,12 @@ BOOL CARDSetFastMode(BOOL enable);
 BOOL CARDGetFastMode(void);
 s32 CARDGetCurrentMode(s32 chan, u32* mode);
 
+extern u32 __CARDFreq;
+
+#if DEBUG
+#define CARDFreq __CARDFreq
+#else
+#define CARDFreq 4
+#endif
+
 #endif // _DOLPHIN_CARDBIOS_H_
