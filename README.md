@@ -21,7 +21,7 @@ Currently this repository supports building the following libraries:
 | axart        | :x: |
 | axfx         | :x: |
 | base         | :x: |
-| card         | :x: |
+| card         | :heavy_check_mark: |
 | db           | :x: |
 | demo         | :x: |
 | dsp          | :x: |

@@ -124,6 +124,12 @@ ASFLAGS = -mgekko -I src -I include
 
 $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS),$(shell mkdir -p build/release/$(dir) build/debug/$(dir)))
 
+# why. Did some SDK libs (like CARD) prefer char signed over unsigned? TODO: Figure out consistency behind this.
+build/debug/src/card/CARDRename.o: CHARFLAGS := -char signed
+build/release/src/card/CARDRename.o: CHARFLAGS := -char signed
+build/debug/src/card/CARDOpen.o: CHARFLAGS := -char signed
+build/release/src/card/CARDOpen.o: CHARFLAGS := -char signed
+
 ######################## Build #############################
 
 A_FILES := $(foreach dir,$(BASEROM_DIR),$(wildcard $(dir)/*.a))
@@ -134,7 +140,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 default: all
 
 # TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a card.a cardD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -191,6 +197,30 @@ build/release/src/%.o: src/%.c
 amcnotstub_c_files := $(wildcard src/amcnotstub/*.c)
 amcnotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(amcnotstub_c_files:.c=.o))
 amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
+
+card_c_files := \
+	src/card/CARDBios.c \
+	src/card/CARDUnlock.c \
+	src/card/CARDRdwr.c \
+	src/card/CARDBlock.c \
+	src/card/CARDDir.c \
+	src/card/CARDCheck.c \
+	src/card/CARDMount.c \
+	src/card/CARDFormat.c \
+	src/card/CARDOpen.c \
+	src/card/CARDCreate.c \
+	src/card/CARDRead.c \
+	src/card/CARDWrite.c \
+	src/card/CARDDelete.c \
+	src/card/CARDStat.c \
+	src/card/CARDRename.c \
+	src/card/CARDStatEx.c \
+	src/card/CARDRaw.c \
+	src/card/CARDNet.c \
+	src/card/CARDErase.c \
+	src/card/CARDProgram.c
+card.a  : $(addprefix $(BUILD_DIR)/release/,$(card_c_files:.c=.o))
+cardD.a : $(addprefix $(BUILD_DIR)/debug/,$(card_c_files:.c=.o))
 
 gx_c_files := \
 	src/gx/GXInit.c \

@@ -46,42 +46,44 @@ typedef struct CARDDir
 
 typedef struct CARDControl
 {
-    /*0x00*/ BOOL attached;
-    /*0x04*/ s32 result;
-    /*0x08*/ u16 size;
-    /*0x0A*/ u16 pageSize;
-    /*0x0C*/ s32 sectorSize;
-    /*0x10*/ u16 cBlock;
-    /*0x12*/ u16 vendorID;
-    /*0x14*/ s32 latency;
-    /*0x18*/ u8 id[12];
-    /*0x24*/ int mountStep;
-    /*0x28*/ u32 scramble;
-    /*0x2C*/ int formatStep;
-    DSPTaskInfo task;
-    void *workArea;
-    /*0x84*/ CARDDir *currentDir;
-    u16 *currentFat;
-    OSThreadQueue threadQueue;
-    u8 cmd[9];
-    s32 cmdlen;
-    volatile u32 mode;
-    int retry;
-    int repeat;
-    u32 addr;
-    void *buffer;
-    s32 xferred;
-    u16 freeNo;
-    u16 startBlock;
-    /*0xC0*/ CARDFileInfo *fileInfo;
-    CARDCallback extCallback;
-    CARDCallback txCallback;
-    CARDCallback exiCallback;
-    CARDCallback apiCallback;
-    CARDCallback xferCallback;
-    CARDCallback eraseCallback;
-    CARDCallback unlockCallback;
-    OSAlarm alarm;
+    /* 0x000 */ BOOL attached;
+    /* 0x004 */ s32 result;
+    /* 0x008 */ u16 size;
+    /* 0x00A */ u16 pageSize;
+    /* 0x00C */ s32 sectorSize;
+    /* 0x010 */ u16 cBlock;
+    /* 0x012 */ u16 vendorID;
+    /* 0x014 */ s32 latency;
+    /* 0x018 */ u8 id[12];
+    /* 0x024 */ int mountStep;
+    /* 0x028 */ int formatStep;
+    /* 0x028 */ u32 scramble;
+    /* 0x02C */ DSPTaskInfo task;
+    /* 0x080 */ void *workArea;
+    /* 0x084 */ CARDDir *currentDir;
+    /* 0x088 */ u16 *currentFat;
+    /* 0x08C */ OSThreadQueue threadQueue;
+    /* 0x094 */ u8 cmd[9];
+    /* 0x0A0 */ s32 cmdlen;
+    /* 0x0A4 */ volatile u32 mode;
+    /* 0x0A8 */ int retry;
+    /* 0x0AC */ int repeat;
+    /* 0x0B0 */ u32 addr;
+    /* 0x0B4 */ void *buffer;
+    /* 0x0B8 */ s32 xferred;
+    /* 0x0BC */ u16 freeNo;
+    /* 0x0BE */ u16 startBlock;
+    /* 0x0C0 */ CARDFileInfo *fileInfo;
+    /* 0x0C4 */ CARDCallback extCallback;
+    /* 0x0C8 */ CARDCallback txCallback;
+    /* 0x0CC */ CARDCallback exiCallback;
+    /* 0x0D0 */ CARDCallback apiCallback;
+    /* 0x0D4 */ CARDCallback xferCallback;
+    /* 0x0D8 */ CARDCallback eraseCallback;
+    /* 0x0DC */ CARDCallback unlockCallback;
+    /* 0x0E0 */ OSAlarm alarm;
+    /* 0x108 */ u32 cid;
+    /* 0x10C */ const DVDDiskID* diskID;
 } CARDControl;
 
 typedef struct CARDDecParam {
@@ -106,9 +108,12 @@ typedef struct CARDID {
 #include <dolphin/card/CARDCreate.h>
 #include <dolphin/card/CARDDelete.h>
 #include <dolphin/card/CARDDir.h>
+#include <dolphin/card/CARDErase.h>
 #include <dolphin/card/CARDFormat.h>
 #include <dolphin/card/CARDMount.h>
+#include <dolphin/card/CARDNet.h>
 #include <dolphin/card/CARDOpen.h>
+#include <dolphin/card/CARDProgram.h>
 #include <dolphin/card/CARDRdwr.h>
 #include <dolphin/card/CARDRead.h>
 #include <dolphin/card/CARDRename.h>
@@ -184,9 +189,27 @@ typedef struct CARDID {
 #define CARD_STAT_BANNER_RGB5A3 2
 #define CARD_STAT_BANNER_MASK 3
 
-#define CARDGetBannerFormat(stat) (((stat)->bannerFormat) & CARD_STAT_BANNER_MASK)
-#define CARDGetIconFormat(stat, n) (((stat)->iconFormat >> (2 * (n))) & CARD_STAT_ICON_MASK)
+#define CARD_ENCODE_ANSI 0
+#define CARD_ENCODE_SJIS 1
+
 #define CARDGetDirCheck(dir) ((CARDDirCheck *)&(dir)[CARD_MAX_FILE])
+#define CARDGetBannerFormat(stat) (((stat)->bannerFormat) & CARD_STAT_BANNER_MASK)
+#define CARDGetIconAnim(stat) (((stat)->bannerFormat) & CARD_STAT_ANIM_MASK)
+#define CARDGetIconFormat(stat, n) (((stat)->iconFormat >> (2 * (n))) & CARD_STAT_ICON_MASK)
+#define CARDGetIconSpeed(stat, n) (((stat)->iconSpeed >> (2 * (n))) & CARD_STAT_SPEED_MASK)
+#define CARDSetBannerFormat(stat, f)                                                               \
+  ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_BANNER_MASK) | (f)))
+#define CARDSetIconAnim(stat, f)                                                                   \
+  ((stat)->bannerFormat = (u8)(((stat)->bannerFormat & ~CARD_STAT_ANIM_MASK) | (f)))
+#define CARDSetIconFormat(stat, n, f)                                                              \
+  ((stat)->iconFormat =                                                                            \
+       (u16)(((stat)->iconFormat & ~(CARD_STAT_ICON_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
+#define CARDSetIconSpeed(stat, n, f)                                                               \
+  ((stat)->iconSpeed =                                                                             \
+       (u16)(((stat)->iconSpeed & ~(CARD_STAT_SPEED_MASK << (2 * (n)))) | ((f) << (2 * (n)))))
+#define CARDSetIconAddress(stat, addr) ((stat)->iconAddr = (u32)(addr))
+#define CARDSetCommentAddress(stat, addr) ((stat)->commentAddr = (u32)(addr))
+#define CARDGetFileNo(fileInfo) ((fileInfo)->fileNo)
 
 void CARDInit(void);
 s32 CARDGetResultCode(s32 chan);
