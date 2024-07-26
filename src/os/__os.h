@@ -46,6 +46,10 @@ void __OSUnlockAllMutex(struct OSThread *thread);
 int __OSCheckDeadLock(struct OSThread *thread);
 int __OSCheckMutexes(struct OSThread *thread);
 
+// OSReset.c
+void __OSDoHotReset(u32 resetCode);
+void __OSShutdownDevices(BOOL doRecal);
+
 // OSResetSW.c
 void __OSResetSWInterruptHandler(short exception, struct OSContext *context);
 

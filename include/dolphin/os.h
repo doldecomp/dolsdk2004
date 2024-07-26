@@ -32,6 +32,8 @@ typedef u32 OSTick;
 #include <dolphin/os/OSIC.h>
 #include <dolphin/os/OSLC.h>
 #include <dolphin/os/OSL2.h>
+#include <dolphin/os/OSReboot.h>
+#include <dolphin/os/OSExec.h>
 
 // private macro, maybe shouldn't be defined here?
 #define OFFSET(addr, align) (((u32)(addr) & ((align)-1)))
@@ -179,6 +181,7 @@ void *OSUncachedToCached(void *ucaddr);
 
 // unsorted externs
 extern long long __OSGetSystemTime(void);
+extern int __OSIsGcam;
 
 #ifdef __cplusplus
 }
