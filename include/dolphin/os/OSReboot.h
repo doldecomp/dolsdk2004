@@ -5,7 +5,8 @@
 extern "C" {
 #endif
 
-void OSGetSaveRegion(void* start, void* end);
+void OSGetSaveRegion(void** start, void** end);
+void __OSReboot(u32 resetCode, u32 bootDol);
 
 #ifdef __cplusplus
 }

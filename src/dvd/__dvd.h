@@ -6,6 +6,7 @@
 // dvd.c
 void __DVDAudioBufferConfig(struct DVDCommandBlock * block, unsigned long enable, unsigned long size, void (* callback)(long, struct DVDCommandBlock *));
 void __DVDPrepareResetAsync(void (* callback)(long, struct DVDCommandBlock *));
+int __DVDTestAlarm(const struct OSAlarm * alarm);
 
 // dvdfs.c
 extern struct OSThreadQueue __DVDThreadQueue;

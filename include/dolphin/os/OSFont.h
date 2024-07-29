@@ -9,6 +9,7 @@ extern "C" {
 
 #define OS_FONT_ENCODE_ANSI 0u
 #define OS_FONT_ENCODE_SJIS 1u
+#define OS_FONT_ENCODE_MAX  5u
 #define OS_FONT_SIZE_ANSI (288 + 131072)    // 9 sheets
 #define OS_FONT_SIZE_SJIS (3840 + 1179648)  // 1 sheet
 #define OS_FONT_ROM_SIZE_ANSI 0x03000
@@ -42,11 +43,13 @@ typedef struct OSFontHeader
 } OSFontHeader;
 
 u16 OSGetFontEncode(void);
+u16 OSSetFontEncode(u16 encode);
 BOOL OSInitFont(OSFontHeader *fontData);
 u32 OSLoadFont(OSFontHeader *fontData, void *temp);
-char *OSGetFontTexture(char *string, void **image, s32 *x, s32 *y, s32 *width);
-char *OSGetFontWidth(char *string, s32 *width);
-char *OSGetFontTexel(char *string, void *image, s32 pos, s32 stride, s32 *width);
+char* OSGetFontTexture(const char* string, void** image, s32* x, s32* y, s32* width);
+char *OSGetFontWidth(const char *string, s32 *width);
+char* OSGetFontTexel(const char* string, void* image, s32 pos, s32 stride, s32* width);
+int OSSetFontWidth(int fixed);
 
 #ifdef __cplusplus
 }

@@ -34,12 +34,16 @@ typedef u32 OSTick;
 #include <dolphin/os/OSL2.h>
 #include <dolphin/os/OSReboot.h>
 #include <dolphin/os/OSExec.h>
+#include <dolphin/os/OSMemory.h>
+#include <dolphin/os/OSSemaphore.h>
+#include <dolphin/os/OSUtf.h>
 
 // private macro, maybe shouldn't be defined here?
 #define OFFSET(addr, align) (((u32)(addr) & ((align)-1)))
 
 u32 OSGetPhysicalMemSize(void);
 u32 OSGetConsoleSimulatedMemSize(void);
+void OSDefaultExceptionHandler(u8 exception, struct OSContext* context);
 
 // Upper words of the masks, since UIMM is only 16 bits
 #define OS_CACHED_REGION_PREFIX 0x8000
@@ -60,6 +64,7 @@ u32 __OSBusClock  : (OS_BASE_CACHED | 0x00F8);
 u32 __OSCoreClock : (OS_BASE_CACHED | 0x00FC);
 unsigned int __gUnknown800030C0[2] : (OS_BASE_CACHED | 0x30C0);
 u8 __gUnknown800030E3 : (OS_BASE_CACHED | 0x30E3);
+u16 __OSDeviceCode : (OS_BASE_CACHED | 0x30E6);
 #else
 #define __OSBusClock  (*(u32 *)(OS_BASE_CACHED | 0x00F8))
 #define __OSCoreClock (*(u32 *)(OS_BASE_CACHED | 0x00FC))
@@ -158,8 +163,9 @@ BOOL OSRestoreInterrupts(BOOL level);
 u32 OSGetSoundMode(void);
 void OSSetSoundMode(u32 mode);
 
-void OSReport(char *, ...);
-void OSPanic(char *file, int line, char *msg, ...);
+__declspec(weak) void OSReport(char *, ...);
+__declspec(weak) void OSVReport(const char* msg, va_list list);
+__declspec(weak) void OSPanic(char *file, int line, char *msg, ...);
 
 #define OSRoundUp32B(x)   (((u32)(x) + 32 - 1) & ~(32 - 1))
 #define OSRoundDown32B(x) (((u32)(x)) & ~(32 - 1))
@@ -181,7 +187,9 @@ void *OSUncachedToCached(void *ucaddr);
 
 // unsorted externs
 extern long long __OSGetSystemTime(void);
-extern int __OSIsGcam;
+__declspec(weak) extern int __OSIsGcam;
+extern OSExecParams __OSRebootParams;
+extern long long __OSStartTime;
 
 #ifdef __cplusplus
 }

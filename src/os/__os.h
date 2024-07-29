@@ -4,7 +4,7 @@
 #include <dolphin/os.h>
 
 // OS.c
-extern char * __OSExceptionNames[15]; // D ONLY
+extern char * __OSExceptionNames[17]; // D ONLY
 
 unsigned long __OSIsDebuggerPresent(void);
 void __OSPSInit(void);
@@ -25,6 +25,12 @@ void __OSContextInit(void);
 // OSError.c
 void __OSUnhandledException(unsigned char exception, struct OSContext * context, unsigned long dsisr, unsigned long dar);
 
+// OSExec.c
+void __OSGetExecParams(OSExecParams* params);
+void __OSSetExecParams(const OSExecParams* params, OSExecParams* addr);
+void __OSBootDolSimple(u32 doloffset, u32 restartCode, void* regionStart, void* regionEnd, BOOL argsUseDefault, s32 argc, char** argv);
+void __OSBootDol(u32 doloffset, u32 restartCode, const char** argv);
+
 // OSInterrupt.c
 extern void __RAS_OSDisableInterrupts_begin(void);
 extern void __RAS_OSDisableInterrupts_end(void);
@@ -41,6 +47,9 @@ OSInterruptMask __OSUnmaskInterrupts(OSInterruptMask global);
 void __OSDispatchInterrupt(__OSException exception, OSContext* context);
 void __OSModuleInit(void);
 
+// OSMemory.c
+void __OSInitMemoryProtection();
+
 // OSMutex.c
 void __OSUnlockAllMutex(struct OSThread *thread);
 int __OSCheckDeadLock(struct OSThread *thread);
@@ -49,9 +58,11 @@ int __OSCheckMutexes(struct OSThread *thread);
 // OSReset.c
 void __OSDoHotReset(u32 resetCode);
 void __OSShutdownDevices(BOOL doRecal);
+int __OSCallResetFunctions(int final);
 
 // OSResetSW.c
 void __OSResetSWInterruptHandler(short exception, struct OSContext *context);
+void __OSSetResetButtonTimer(u8 min);
 
 // OSRtc.c
 int __OSGetRTC(unsigned long * rtc);
@@ -84,6 +95,7 @@ void __OSReschedule(void);
 void __OSSetTime(long long time);
 long long __OSGetSystemTime();
 void __OSSetTick(register unsigned long newTicks);
+long long __OSTimeToSystemTime(long long time);
 
 // ppc_eabi_init.c
 __declspec(section ".init") asm void __init_hardware(void);

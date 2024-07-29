@@ -6,11 +6,6 @@
 
 static int Prepared;
 
-void __OSSetExecParams(const OSExecParams* params, OSExecParams* addr);
-void __OSGetExecParams(OSExecParams* params);
-void __OSBootDolSimple(u32 doloffset, u32 restartCode, void* regionStart, void* regionEnd, BOOL argsUseDefault, s32 argc, char** argv);
-void __OSBootDol(u32 doloffset, u32 restartCode, const char** argv);
-
 static int PackArgs(void* addr, s32 argc, char** argv) {
     s32 numArgs;
     char* bootInfo2;
