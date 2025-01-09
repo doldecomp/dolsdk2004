@@ -52,6 +52,8 @@ typedef struct OSThread
     /*0x2FC*/ struct OSThreadLink linkActive;             
     /*0x304*/ u8 *stackBase; 
     /*0x308*/ u32 *stackEnd;  
+    /*0x30C*/ s32 error;
+    /*0x310*/ void* specific[2];
 } OSThread;
 
 enum OS_THREAD_STATE
@@ -66,9 +68,13 @@ enum OS_THREAD_STATE
 #define OS_PRIORITY_MAX 31 // lowest
 #define OS_PRIORITY_IDLE OS_PRIORITY_MAX
 
+#define OS_THREAD_SPECIFIC_MAX 2
+
 #define OS_THREAD_ATTR_DETACH 0x0001u
 
 #define OS_THREAD_STACK_MAGIC 0xDEADBABE
+
+typedef void (*OSSwitchThreadCallback)(OSThread*, OSThread*);
 
 void OSInitThreadQueue(OSThreadQueue *queue);
 void OSSleepThread(OSThreadQueue *queue);
@@ -78,6 +84,8 @@ s32 OSResumeThread(OSThread* thread);
 OSThread* OSGetCurrentThread(void);
 s32 OSEnableScheduler(void);
 s32 OSDisableScheduler(void);
+void OSCancelThread(OSThread* thread);
+void OSClearStack(u8 val);
 
 #define IsSuspended(suspend) (suspend > 0)
 

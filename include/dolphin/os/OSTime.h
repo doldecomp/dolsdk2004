@@ -31,4 +31,6 @@
 
 #define BIAS 0xB2575
 
+#define __OSSystemTime (OSTime*)0x800030D8
+
 #endif // _DOLPHIN_OSTIME_H_

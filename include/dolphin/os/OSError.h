@@ -28,6 +28,8 @@ typedef void (*OSErrorHandler)(OSError error, OSContext *context, ...);
 #define OS_ERROR_MAX                (OS_ERROR_THERMAL_INTERRUPT + 1)
 
 OSErrorHandler OSSetErrorHandler(OSError error, OSErrorHandler handler);
+extern unsigned long __OSFpscrEnableBits;
+extern OSErrorHandler __OSErrorTable[17];
 
 #ifdef __cplusplus
 }

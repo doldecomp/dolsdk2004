@@ -149,7 +149,8 @@ typedef struct OSContext
     /*0x1A0*/ u16 mode;
     /*0x1A2*/ u16 state;
     /*0x1A4*/ u32 gqr[8];
-    /*0x1C4*/ f64 psf[32];
+    /*0x1C4*/ u32 psf_pad;
+    /*0x1C8*/ f64 psf[32];
 } OSContext;
 
 u32 OSGetStackPointer(void);

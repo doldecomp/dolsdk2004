@@ -140,7 +140,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 default: all
 
 # TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a os.a osD.a card.a cardD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -254,6 +254,14 @@ amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
 hio_c_files := $(wildcard src/hio/*.c)
 hio.a  : $(addprefix $(BUILD_DIR)/release/,$(hio_c_files:.c=.o))
 hioD.a : $(addprefix $(BUILD_DIR)/debug/,$(hio_c_files:.c=.o))
+
+vi_c_files := \
+	src/vi/vi.c \
+	src/vi/i2c.c \
+	src/vi/initphilips.c \
+	src/vi/gpioexi.c
+vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))
+viD.a : $(addprefix $(BUILD_DIR)/debug/,$(vi_c_files:.c=.o))
 
 odemustubs_c_files := $(wildcard src/odemustubs/*.c)
 odemustubs.a  : $(addprefix $(BUILD_DIR)/release/,$(odemustubs_c_files:.c=.o))

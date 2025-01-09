@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-#define OS_MODULE_VERSION 1
+#define OS_MODULE_VERSION 3
 typedef struct OSModuleHeader OSModuleHeader;
 
 typedef u32 OSModuleID;

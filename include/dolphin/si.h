@@ -59,6 +59,6 @@ u32 SIDisablePolling(u32 poll);
 u32 SISetXY(u32 x, u32 y);
 void SITransferCommands(void);
 BOOL SIBusy(void);
-
+void SIRefreshSamplingRate(void);
 
 #endif // _DOLPHIN_SI_H_
