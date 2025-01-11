@@ -1,0 +1,4029 @@
+{
+  "custom_make": "make",
+  "build_base": true,
+  "build_target": false,
+  "watch_patterns": [
+    "*.c",
+    "*.cp",
+    "*.cpp",
+    "*.cxx",
+    "*.h",
+    "*.hp",
+    "*.hpp",
+    "*.hxx",
+    "*.s",
+    "*.S",
+    "*.asm",
+    "*.inc",
+    "*.py",
+    "*.yml",
+    "*.txt",
+    "*.json"
+  ],
+  "units": [
+    {
+      "name": "debug/src/ai/ai",
+      "target_path": "baserom/debug/src/ai/ai.o",
+      "base_path": "build/debug/src/ai/ai.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/am/am",
+      "target_path": "baserom/debug/src/am/am.o",
+      "base_path": "build/debug/src/am/am.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/amcnotstub/amcnotstub",
+      "target_path": "baserom/debug/src/amcnotstub/amcnotstub.o",
+      "base_path": "build/debug/src/amcnotstub/amcnotstub.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/amcstubs/AmcExi2Stubs",
+      "target_path": "baserom/debug/src/amcstubs/AmcExi2Stubs.o",
+      "base_path": "build/debug/src/amcstubs/AmcExi2Stubs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ar/ar",
+      "target_path": "baserom/debug/src/ar/ar.o",
+      "base_path": "build/debug/src/ar/ar.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ar/arq",
+      "target_path": "baserom/debug/src/ar/arq.o",
+      "base_path": "build/debug/src/ar/arq.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AX",
+      "target_path": "baserom/debug/src/ax/AX.o",
+      "base_path": "build/debug/src/ax/AX.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXAlloc",
+      "target_path": "baserom/debug/src/ax/AXAlloc.o",
+      "base_path": "build/debug/src/ax/AXAlloc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXAux",
+      "target_path": "baserom/debug/src/ax/AXAux.o",
+      "base_path": "build/debug/src/ax/AXAux.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXCL",
+      "target_path": "baserom/debug/src/ax/AXCL.o",
+      "base_path": "build/debug/src/ax/AXCL.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXComp",
+      "target_path": "baserom/debug/src/ax/AXComp.o",
+      "base_path": "build/debug/src/ax/AXComp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXOut",
+      "target_path": "baserom/debug/src/ax/AXOut.o",
+      "base_path": "build/debug/src/ax/AXOut.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXProf",
+      "target_path": "baserom/debug/src/ax/AXProf.o",
+      "base_path": "build/debug/src/ax/AXProf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXSPB",
+      "target_path": "baserom/debug/src/ax/AXSPB.o",
+      "base_path": "build/debug/src/ax/AXSPB.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/AXVPB",
+      "target_path": "baserom/debug/src/ax/AXVPB.o",
+      "base_path": "build/debug/src/ax/AXVPB.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/ax/DSPCode",
+      "target_path": "baserom/debug/src/ax/DSPCode.o",
+      "base_path": "build/debug/src/ax/DSPCode.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axart",
+      "target_path": "baserom/debug/src/axart/axart.o",
+      "base_path": "build/debug/src/axart/axart.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axart3d",
+      "target_path": "baserom/debug/src/axart/axart3d.o",
+      "base_path": "build/debug/src/axart/axart3d.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axartcents",
+      "target_path": "baserom/debug/src/axart/axartcents.o",
+      "base_path": "build/debug/src/axart/axartcents.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axartenv",
+      "target_path": "baserom/debug/src/axart/axartenv.o",
+      "base_path": "build/debug/src/axart/axartenv.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axartlfo",
+      "target_path": "baserom/debug/src/axart/axartlfo.o",
+      "base_path": "build/debug/src/axart/axartlfo.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axartlpf",
+      "target_path": "baserom/debug/src/axart/axartlpf.o",
+      "base_path": "build/debug/src/axart/axartlpf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axart/axartsound",
+      "target_path": "baserom/debug/src/axart/axartsound.o",
+      "base_path": "build/debug/src/axart/axartsound.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axfx/axfx",
+      "target_path": "baserom/debug/src/axfx/axfx.o",
+      "base_path": "build/debug/src/axfx/axfx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axfx/chorus",
+      "target_path": "baserom/debug/src/axfx/chorus.o",
+      "base_path": "build/debug/src/axfx/chorus.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axfx/delay",
+      "target_path": "baserom/debug/src/axfx/delay.o",
+      "base_path": "build/debug/src/axfx/delay.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axfx/reverb_hi_4ch",
+      "target_path": "baserom/debug/src/axfx/reverb_hi_4ch.o",
+      "base_path": "build/debug/src/axfx/reverb_hi_4ch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axfx/reverb_hi",
+      "target_path": "baserom/debug/src/axfx/reverb_hi.o",
+      "base_path": "build/debug/src/axfx/reverb_hi.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/axfx/reverb_std",
+      "target_path": "baserom/debug/src/axfx/reverb_std.o",
+      "base_path": "build/debug/src/axfx/reverb_std.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/base/PPCArch",
+      "target_path": "baserom/debug/src/base/PPCArch.o",
+      "base_path": "build/debug/src/base/PPCArch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/base/PPCPm",
+      "target_path": "baserom/debug/src/base/PPCPm.o",
+      "base_path": "build/debug/src/base/PPCPm.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDBios",
+      "target_path": "baserom/debug/src/card/CARDBios.o",
+      "base_path": "build/debug/src/card/CARDBios.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDBlock",
+      "target_path": "baserom/debug/src/card/CARDBlock.o",
+      "base_path": "build/debug/src/card/CARDBlock.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDCheck",
+      "target_path": "baserom/debug/src/card/CARDCheck.o",
+      "base_path": "build/debug/src/card/CARDCheck.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDCreate",
+      "target_path": "baserom/debug/src/card/CARDCreate.o",
+      "base_path": "build/debug/src/card/CARDCreate.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDDelete",
+      "target_path": "baserom/debug/src/card/CARDDelete.o",
+      "base_path": "build/debug/src/card/CARDDelete.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDDir",
+      "target_path": "baserom/debug/src/card/CARDDir.o",
+      "base_path": "build/debug/src/card/CARDDir.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDErase",
+      "target_path": "baserom/debug/src/card/CARDErase.o",
+      "base_path": "build/debug/src/card/CARDErase.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDFormat",
+      "target_path": "baserom/debug/src/card/CARDFormat.o",
+      "base_path": "build/debug/src/card/CARDFormat.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDMount",
+      "target_path": "baserom/debug/src/card/CARDMount.o",
+      "base_path": "build/debug/src/card/CARDMount.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDNet",
+      "target_path": "baserom/debug/src/card/CARDNet.o",
+      "base_path": "build/debug/src/card/CARDNet.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDOpen",
+      "target_path": "baserom/debug/src/card/CARDOpen.o",
+      "base_path": "build/debug/src/card/CARDOpen.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDProgram",
+      "target_path": "baserom/debug/src/card/CARDProgram.o",
+      "base_path": "build/debug/src/card/CARDProgram.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDRaw",
+      "target_path": "baserom/debug/src/card/CARDRaw.o",
+      "base_path": "build/debug/src/card/CARDRaw.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDRdwr",
+      "target_path": "baserom/debug/src/card/CARDRdwr.o",
+      "base_path": "build/debug/src/card/CARDRdwr.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDRead",
+      "target_path": "baserom/debug/src/card/CARDRead.o",
+      "base_path": "build/debug/src/card/CARDRead.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDRename",
+      "target_path": "baserom/debug/src/card/CARDRename.o",
+      "base_path": "build/debug/src/card/CARDRename.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDStat",
+      "target_path": "baserom/debug/src/card/CARDStat.o",
+      "base_path": "build/debug/src/card/CARDStat.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDStatEx",
+      "target_path": "baserom/debug/src/card/CARDStatEx.o",
+      "base_path": "build/debug/src/card/CARDStatEx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDUnlock",
+      "target_path": "baserom/debug/src/card/CARDUnlock.o",
+      "base_path": "build/debug/src/card/CARDUnlock.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/card/CARDWrite",
+      "target_path": "baserom/debug/src/card/CARDWrite.o",
+      "base_path": "build/debug/src/card/CARDWrite.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/db/db",
+      "target_path": "baserom/debug/src/db/db.o",
+      "base_path": "build/debug/src/db/db.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOAVX",
+      "target_path": "baserom/debug/src/demo/DEMOAVX.o",
+      "base_path": "build/debug/src/demo/DEMOAVX.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOFont",
+      "target_path": "baserom/debug/src/demo/DEMOFont.o",
+      "base_path": "build/debug/src/demo/DEMOFont.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOInit",
+      "target_path": "baserom/debug/src/demo/DEMOInit.o",
+      "base_path": "build/debug/src/demo/DEMOInit.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOPad",
+      "target_path": "baserom/debug/src/demo/DEMOPad.o",
+      "base_path": "build/debug/src/demo/DEMOPad.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOPuts",
+      "target_path": "baserom/debug/src/demo/DEMOPuts.o",
+      "base_path": "build/debug/src/demo/DEMOPuts.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOStats",
+      "target_path": "baserom/debug/src/demo/DEMOStats.o",
+      "base_path": "build/debug/src/demo/DEMOStats.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/demo/DEMOWin",
+      "target_path": "baserom/debug/src/demo/DEMOWin.o",
+      "base_path": "build/debug/src/demo/DEMOWin.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dsp/dsp",
+      "target_path": "baserom/debug/src/dsp/dsp.o",
+      "base_path": "build/debug/src/dsp/dsp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dsp/dsp_debug",
+      "target_path": "baserom/debug/src/dsp/dsp_debug.o",
+      "base_path": "build/debug/src/dsp/dsp_debug.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dsp/dsp_perf",
+      "target_path": "baserom/debug/src/dsp/dsp_perf.o",
+      "base_path": "build/debug/src/dsp/dsp_perf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dsp/dsp_task",
+      "target_path": "baserom/debug/src/dsp/dsp_task.o",
+      "base_path": "build/debug/src/dsp/dsp_task.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dtk/dtk",
+      "target_path": "baserom/debug/src/dtk/dtk.o",
+      "base_path": "build/debug/src/dtk/dtk.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvd",
+      "target_path": "baserom/debug/src/dvd/dvd.o",
+      "base_path": "build/debug/src/dvd/dvd.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvderror",
+      "target_path": "baserom/debug/src/dvd/dvderror.o",
+      "base_path": "build/debug/src/dvd/dvderror.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvdFatal",
+      "target_path": "baserom/debug/src/dvd/dvdFatal.o",
+      "base_path": "build/debug/src/dvd/dvdFatal.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvdfs",
+      "target_path": "baserom/debug/src/dvd/dvdfs.o",
+      "base_path": "build/debug/src/dvd/dvdfs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvdidutils",
+      "target_path": "baserom/debug/src/dvd/dvdidutils.o",
+      "base_path": "build/debug/src/dvd/dvdidutils.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvdlow",
+      "target_path": "baserom/debug/src/dvd/dvdlow.o",
+      "base_path": "build/debug/src/dvd/dvdlow.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/dvdqueue",
+      "target_path": "baserom/debug/src/dvd/dvdqueue.o",
+      "base_path": "build/debug/src/dvd/dvdqueue.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/dvd/fstload",
+      "target_path": "baserom/debug/src/dvd/fstload.o",
+      "base_path": "build/debug/src/dvd/fstload.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/exi/EXIAd16",
+      "target_path": "baserom/debug/src/exi/EXIAd16.o",
+      "base_path": "build/debug/src/exi/EXIAd16.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/exi/EXIBios",
+      "target_path": "baserom/debug/src/exi/EXIBios.o",
+      "base_path": "build/debug/src/exi/EXIBios.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/exi/EXIUart",
+      "target_path": "baserom/debug/src/exi/EXIUart.o",
+      "base_path": "build/debug/src/exi/EXIUart.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/fileCache/fileCache",
+      "target_path": "baserom/debug/src/fileCache/fileCache.o",
+      "base_path": "build/debug/src/fileCache/fileCache.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/G2D/G2D",
+      "target_path": "baserom/debug/src/G2D/G2D.o",
+      "base_path": "build/debug/src/G2D/G2D.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDBase",
+      "target_path": "baserom/debug/src/gd/GDBase.o",
+      "base_path": "build/debug/src/gd/GDBase.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDFile",
+      "target_path": "baserom/debug/src/gd/GDFile.o",
+      "base_path": "build/debug/src/gd/GDFile.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDGeometry",
+      "target_path": "baserom/debug/src/gd/GDGeometry.o",
+      "base_path": "build/debug/src/gd/GDGeometry.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDIndirect",
+      "target_path": "baserom/debug/src/gd/GDIndirect.o",
+      "base_path": "build/debug/src/gd/GDIndirect.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDLight",
+      "target_path": "baserom/debug/src/gd/GDLight.o",
+      "base_path": "build/debug/src/gd/GDLight.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDPixel",
+      "target_path": "baserom/debug/src/gd/GDPixel.o",
+      "base_path": "build/debug/src/gd/GDPixel.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDTev",
+      "target_path": "baserom/debug/src/gd/GDTev.o",
+      "base_path": "build/debug/src/gd/GDTev.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDTexture",
+      "target_path": "baserom/debug/src/gd/GDTexture.o",
+      "base_path": "build/debug/src/gd/GDTexture.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gd/GDTransform",
+      "target_path": "baserom/debug/src/gd/GDTransform.o",
+      "base_path": "build/debug/src/gd/GDTransform.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXAttr",
+      "target_path": "baserom/debug/src/gx/GXAttr.o",
+      "base_path": "build/debug/src/gx/GXAttr.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXBump",
+      "target_path": "baserom/debug/src/gx/GXBump.o",
+      "base_path": "build/debug/src/gx/GXBump.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXDisplayList",
+      "target_path": "baserom/debug/src/gx/GXDisplayList.o",
+      "base_path": "build/debug/src/gx/GXDisplayList.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXDraw",
+      "target_path": "baserom/debug/src/gx/GXDraw.o",
+      "base_path": "build/debug/src/gx/GXDraw.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXFifo",
+      "target_path": "baserom/debug/src/gx/GXFifo.o",
+      "base_path": "build/debug/src/gx/GXFifo.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXFrameBuf",
+      "target_path": "baserom/debug/src/gx/GXFrameBuf.o",
+      "base_path": "build/debug/src/gx/GXFrameBuf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXGeometry",
+      "target_path": "baserom/debug/src/gx/GXGeometry.o",
+      "base_path": "build/debug/src/gx/GXGeometry.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXInit",
+      "target_path": "baserom/debug/src/gx/GXInit.o",
+      "base_path": "build/debug/src/gx/GXInit.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXLight",
+      "target_path": "baserom/debug/src/gx/GXLight.o",
+      "base_path": "build/debug/src/gx/GXLight.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXMisc",
+      "target_path": "baserom/debug/src/gx/GXMisc.o",
+      "base_path": "build/debug/src/gx/GXMisc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXPerf",
+      "target_path": "baserom/debug/src/gx/GXPerf.o",
+      "base_path": "build/debug/src/gx/GXPerf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXPixel",
+      "target_path": "baserom/debug/src/gx/GXPixel.o",
+      "base_path": "build/debug/src/gx/GXPixel.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXSave",
+      "target_path": "baserom/debug/src/gx/GXSave.o",
+      "base_path": "build/debug/src/gx/GXSave.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXStubs",
+      "target_path": "baserom/debug/src/gx/GXStubs.o",
+      "base_path": "build/debug/src/gx/GXStubs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXTev",
+      "target_path": "baserom/debug/src/gx/GXTev.o",
+      "base_path": "build/debug/src/gx/GXTev.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXTexture",
+      "target_path": "baserom/debug/src/gx/GXTexture.o",
+      "base_path": "build/debug/src/gx/GXTexture.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXTransform",
+      "target_path": "baserom/debug/src/gx/GXTransform.o",
+      "base_path": "build/debug/src/gx/GXTransform.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXVerifRAS",
+      "target_path": "baserom/debug/src/gx/GXVerifRAS.o",
+      "base_path": "build/debug/src/gx/GXVerifRAS.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXVerifXF",
+      "target_path": "baserom/debug/src/gx/GXVerifXF.o",
+      "base_path": "build/debug/src/gx/GXVerifXF.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXVerify",
+      "target_path": "baserom/debug/src/gx/GXVerify.o",
+      "base_path": "build/debug/src/gx/GXVerify.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/gx/GXVert",
+      "target_path": "baserom/debug/src/gx/GXVert.o",
+      "base_path": "build/debug/src/gx/GXVert.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/hio/hio",
+      "target_path": "baserom/debug/src/hio/hio.o",
+      "base_path": "build/debug/src/hio/hio.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mcc/fio",
+      "target_path": "baserom/debug/src/mcc/fio.o",
+      "base_path": "build/debug/src/mcc/fio.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mcc/mcc",
+      "target_path": "baserom/debug/src/mcc/mcc.o",
+      "base_path": "build/debug/src/mcc/mcc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mcc/tty",
+      "target_path": "baserom/debug/src/mcc/tty.o",
+      "base_path": "build/debug/src/mcc/tty.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mix/mix",
+      "target_path": "baserom/debug/src/mix/mix.o",
+      "base_path": "build/debug/src/mix/mix.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/mtx",
+      "target_path": "baserom/debug/src/mtx/mtx.o",
+      "base_path": "build/debug/src/mtx/mtx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/mtx44",
+      "target_path": "baserom/debug/src/mtx/mtx44.o",
+      "base_path": "build/debug/src/mtx/mtx44.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/mtx44vec",
+      "target_path": "baserom/debug/src/mtx/mtx44vec.o",
+      "base_path": "build/debug/src/mtx/mtx44vec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/mtxstack",
+      "target_path": "baserom/debug/src/mtx/mtxstack.o",
+      "base_path": "build/debug/src/mtx/mtxstack.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/mtxvec",
+      "target_path": "baserom/debug/src/mtx/mtxvec.o",
+      "base_path": "build/debug/src/mtx/mtxvec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/psmtx",
+      "target_path": "baserom/debug/src/mtx/psmtx.o",
+      "base_path": "build/debug/src/mtx/psmtx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/quat",
+      "target_path": "baserom/debug/src/mtx/quat.o",
+      "base_path": "build/debug/src/mtx/quat.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/mtx/vec",
+      "target_path": "baserom/debug/src/mtx/vec.o",
+      "base_path": "build/debug/src/mtx/vec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/odemustubs/odemustubs",
+      "target_path": "baserom/debug/src/odemustubs/odemustubs.o",
+      "base_path": "build/debug/src/odemustubs/odemustubs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/odenotstub/odenotstub",
+      "target_path": "baserom/debug/src/odenotstub/odenotstub.o",
+      "base_path": "build/debug/src/odenotstub/odenotstub.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OS",
+      "target_path": "baserom/debug/src/os/OS.o",
+      "base_path": "build/debug/src/os/OS.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSAddress",
+      "target_path": "baserom/debug/src/os/OSAddress.o",
+      "base_path": "build/debug/src/os/OSAddress.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSAlarm",
+      "target_path": "baserom/debug/src/os/OSAlarm.o",
+      "base_path": "build/debug/src/os/OSAlarm.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSAlloc",
+      "target_path": "baserom/debug/src/os/OSAlloc.o",
+      "base_path": "build/debug/src/os/OSAlloc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSArena",
+      "target_path": "baserom/debug/src/os/OSArena.o",
+      "base_path": "build/debug/src/os/OSArena.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSAudioSystem",
+      "target_path": "baserom/debug/src/os/OSAudioSystem.o",
+      "base_path": "build/debug/src/os/OSAudioSystem.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSCache",
+      "target_path": "baserom/debug/src/os/OSCache.o",
+      "base_path": "build/debug/src/os/OSCache.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSContext",
+      "target_path": "baserom/debug/src/os/OSContext.o",
+      "base_path": "build/debug/src/os/OSContext.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSError",
+      "target_path": "baserom/debug/src/os/OSError.o",
+      "base_path": "build/debug/src/os/OSError.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSExec",
+      "target_path": "baserom/debug/src/os/OSExec.o",
+      "base_path": "build/debug/src/os/OSExec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSFatal",
+      "target_path": "baserom/debug/src/os/OSFatal.o",
+      "base_path": "build/debug/src/os/OSFatal.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSFont",
+      "target_path": "baserom/debug/src/os/OSFont.o",
+      "base_path": "build/debug/src/os/OSFont.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSInterrupt",
+      "target_path": "baserom/debug/src/os/OSInterrupt.o",
+      "base_path": "build/debug/src/os/OSInterrupt.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSLink",
+      "target_path": "baserom/debug/src/os/OSLink.o",
+      "base_path": "build/debug/src/os/OSLink.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSMemory",
+      "target_path": "baserom/debug/src/os/OSMemory.o",
+      "base_path": "build/debug/src/os/OSMemory.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSMessage",
+      "target_path": "baserom/debug/src/os/OSMessage.o",
+      "base_path": "build/debug/src/os/OSMessage.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSMutex",
+      "target_path": "baserom/debug/src/os/OSMutex.o",
+      "base_path": "build/debug/src/os/OSMutex.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSReboot",
+      "target_path": "baserom/debug/src/os/OSReboot.o",
+      "base_path": "build/debug/src/os/OSReboot.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSReset",
+      "target_path": "baserom/debug/src/os/OSReset.o",
+      "base_path": "build/debug/src/os/OSReset.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSResetSW",
+      "target_path": "baserom/debug/src/os/OSResetSW.o",
+      "base_path": "build/debug/src/os/OSResetSW.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSRtc",
+      "target_path": "baserom/debug/src/os/OSRtc.o",
+      "base_path": "build/debug/src/os/OSRtc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSSemaphore",
+      "target_path": "baserom/debug/src/os/OSSemaphore.o",
+      "base_path": "build/debug/src/os/OSSemaphore.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSStopwatch",
+      "target_path": "baserom/debug/src/os/OSStopwatch.o",
+      "base_path": "build/debug/src/os/OSStopwatch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSSync",
+      "target_path": "baserom/debug/src/os/OSSync.o",
+      "base_path": "build/debug/src/os/OSSync.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSThread",
+      "target_path": "baserom/debug/src/os/OSThread.o",
+      "base_path": "build/debug/src/os/OSThread.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSTime",
+      "target_path": "baserom/debug/src/os/OSTime.o",
+      "base_path": "build/debug/src/os/OSTime.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSTimer",
+      "target_path": "baserom/debug/src/os/OSTimer.o",
+      "base_path": "build/debug/src/os/OSTimer.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/OSUtf",
+      "target_path": "baserom/debug/src/os/OSUtf.o",
+      "base_path": "build/debug/src/os/OSUtf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/ppc_eabi_init",
+      "target_path": "baserom/debug/src/os/ppc_eabi_init.o",
+      "base_path": "build/debug/src/os/ppc_eabi_init.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/start",
+      "target_path": "baserom/debug/src/os/start.o",
+      "base_path": "build/debug/src/os/start.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/os/time.dolphin",
+      "target_path": "baserom/debug/src/os/time.dolphin.o",
+      "base_path": "build/debug/src/os/time.dolphin.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/pad/Pad",
+      "target_path": "baserom/debug/src/pad/Pad.o",
+      "base_path": "build/debug/src/pad/Pad.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/pad/Padclamp",
+      "target_path": "baserom/debug/src/pad/Padclamp.o",
+      "base_path": "build/debug/src/pad/Padclamp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/perf/perf",
+      "target_path": "baserom/debug/src/perf/perf.o",
+      "base_path": "build/debug/src/perf/perf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/perf/perfdraw",
+      "target_path": "baserom/debug/src/perf/perfdraw.o",
+      "base_path": "build/debug/src/perf/perfdraw.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/seq/seq",
+      "target_path": "baserom/debug/src/seq/seq.o",
+      "base_path": "build/debug/src/seq/seq.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/si/SIBios",
+      "target_path": "baserom/debug/src/si/SIBios.o",
+      "base_path": "build/debug/src/si/SIBios.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/si/SISamplingRate",
+      "target_path": "baserom/debug/src/si/SISamplingRate.o",
+      "base_path": "build/debug/src/si/SISamplingRate.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/si/SISteering",
+      "target_path": "baserom/debug/src/si/SISteering.o",
+      "base_path": "build/debug/src/si/SISteering.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/si/SISteeringAuto",
+      "target_path": "baserom/debug/src/si/SISteeringAuto.o",
+      "base_path": "build/debug/src/si/SISteeringAuto.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/si/SISteeringXfer",
+      "target_path": "baserom/debug/src/si/SISteeringXfer.o",
+      "base_path": "build/debug/src/si/SISteeringXfer.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/sp/sp",
+      "target_path": "baserom/debug/src/sp/sp.o",
+      "base_path": "build/debug/src/sp/sp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/support/HTable",
+      "target_path": "baserom/debug/src/support/HTable.o",
+      "base_path": "build/debug/src/support/HTable.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/support/List",
+      "target_path": "baserom/debug/src/support/List.o",
+      "base_path": "build/debug/src/support/List.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/support/string",
+      "target_path": "baserom/debug/src/support/string.o",
+      "base_path": "build/debug/src/support/string.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/support/Tree",
+      "target_path": "baserom/debug/src/support/Tree.o",
+      "base_path": "build/debug/src/support/Tree.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/syn",
+      "target_path": "baserom/debug/src/syn/syn.o",
+      "base_path": "build/debug/src/syn/syn.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synctrl",
+      "target_path": "baserom/debug/src/syn/synctrl.o",
+      "base_path": "build/debug/src/syn/synctrl.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synenv",
+      "target_path": "baserom/debug/src/syn/synenv.o",
+      "base_path": "build/debug/src/syn/synenv.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synlfo",
+      "target_path": "baserom/debug/src/syn/synlfo.o",
+      "base_path": "build/debug/src/syn/synlfo.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synmix",
+      "target_path": "baserom/debug/src/syn/synmix.o",
+      "base_path": "build/debug/src/syn/synmix.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synpitch",
+      "target_path": "baserom/debug/src/syn/synpitch.o",
+      "base_path": "build/debug/src/syn/synpitch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synsample",
+      "target_path": "baserom/debug/src/syn/synsample.o",
+      "base_path": "build/debug/src/syn/synsample.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synvoice",
+      "target_path": "baserom/debug/src/syn/synvoice.o",
+      "base_path": "build/debug/src/syn/synvoice.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/syn/synwt",
+      "target_path": "baserom/debug/src/syn/synwt.o",
+      "base_path": "build/debug/src/syn/synwt.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/texPalette/texPalette",
+      "target_path": "baserom/debug/src/texPalette/texPalette.o",
+      "base_path": "build/debug/src/texPalette/texPalette.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/vi/gpioexi",
+      "target_path": "baserom/debug/src/vi/gpioexi.o",
+      "base_path": "build/debug/src/vi/gpioexi.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/vi/i2c",
+      "target_path": "baserom/debug/src/vi/i2c.o",
+      "base_path": "build/debug/src/vi/i2c.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/vi/initphilips",
+      "target_path": "baserom/debug/src/vi/initphilips.o",
+      "base_path": "build/debug/src/vi/initphilips.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "debug/src/vi/vi",
+      "target_path": "baserom/debug/src/vi/vi.o",
+      "base_path": "build/debug/src/vi/vi.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-opt level=0 -inline off -schedule off -sym on -enum int -DDEBUG=1 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ai/ai",
+      "target_path": "baserom/release/src/ai/ai.o",
+      "base_path": "build/release/src/ai/ai.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/am/am",
+      "target_path": "baserom/release/src/am/am.o",
+      "base_path": "build/release/src/am/am.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/amcnotstub/amcnotstub",
+      "target_path": "baserom/release/src/amcnotstub/amcnotstub.o",
+      "base_path": "build/release/src/amcnotstub/amcnotstub.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/amcstubs/AmcExi2Stubs",
+      "target_path": "baserom/release/src/amcstubs/AmcExi2Stubs.o",
+      "base_path": "build/release/src/amcstubs/AmcExi2Stubs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ar/ar",
+      "target_path": "baserom/release/src/ar/ar.o",
+      "base_path": "build/release/src/ar/ar.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ar/arq",
+      "target_path": "baserom/release/src/ar/arq.o",
+      "base_path": "build/release/src/ar/arq.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AX",
+      "target_path": "baserom/release/src/ax/AX.o",
+      "base_path": "build/release/src/ax/AX.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXAlloc",
+      "target_path": "baserom/release/src/ax/AXAlloc.o",
+      "base_path": "build/release/src/ax/AXAlloc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXAux",
+      "target_path": "baserom/release/src/ax/AXAux.o",
+      "base_path": "build/release/src/ax/AXAux.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXCL",
+      "target_path": "baserom/release/src/ax/AXCL.o",
+      "base_path": "build/release/src/ax/AXCL.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXComp",
+      "target_path": "baserom/release/src/ax/AXComp.o",
+      "base_path": "build/release/src/ax/AXComp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXOut",
+      "target_path": "baserom/release/src/ax/AXOut.o",
+      "base_path": "build/release/src/ax/AXOut.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXProf",
+      "target_path": "baserom/release/src/ax/AXProf.o",
+      "base_path": "build/release/src/ax/AXProf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXSPB",
+      "target_path": "baserom/release/src/ax/AXSPB.o",
+      "base_path": "build/release/src/ax/AXSPB.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/AXVPB",
+      "target_path": "baserom/release/src/ax/AXVPB.o",
+      "base_path": "build/release/src/ax/AXVPB.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/ax/DSPCode",
+      "target_path": "baserom/release/src/ax/DSPCode.o",
+      "base_path": "build/release/src/ax/DSPCode.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axart",
+      "target_path": "baserom/release/src/axart/axart.o",
+      "base_path": "build/release/src/axart/axart.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axart3d",
+      "target_path": "baserom/release/src/axart/axart3d.o",
+      "base_path": "build/release/src/axart/axart3d.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axartcents",
+      "target_path": "baserom/release/src/axart/axartcents.o",
+      "base_path": "build/release/src/axart/axartcents.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axartenv",
+      "target_path": "baserom/release/src/axart/axartenv.o",
+      "base_path": "build/release/src/axart/axartenv.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axartlfo",
+      "target_path": "baserom/release/src/axart/axartlfo.o",
+      "base_path": "build/release/src/axart/axartlfo.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axartlpf",
+      "target_path": "baserom/release/src/axart/axartlpf.o",
+      "base_path": "build/release/src/axart/axartlpf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axart/axartsound",
+      "target_path": "baserom/release/src/axart/axartsound.o",
+      "base_path": "build/release/src/axart/axartsound.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axfx/axfx",
+      "target_path": "baserom/release/src/axfx/axfx.o",
+      "base_path": "build/release/src/axfx/axfx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axfx/chorus",
+      "target_path": "baserom/release/src/axfx/chorus.o",
+      "base_path": "build/release/src/axfx/chorus.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axfx/delay",
+      "target_path": "baserom/release/src/axfx/delay.o",
+      "base_path": "build/release/src/axfx/delay.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axfx/reverb_hi_4ch",
+      "target_path": "baserom/release/src/axfx/reverb_hi_4ch.o",
+      "base_path": "build/release/src/axfx/reverb_hi_4ch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axfx/reverb_hi",
+      "target_path": "baserom/release/src/axfx/reverb_hi.o",
+      "base_path": "build/release/src/axfx/reverb_hi.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/axfx/reverb_std",
+      "target_path": "baserom/release/src/axfx/reverb_std.o",
+      "base_path": "build/release/src/axfx/reverb_std.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/base/PPCArch",
+      "target_path": "baserom/release/src/base/PPCArch.o",
+      "base_path": "build/release/src/base/PPCArch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/base/PPCPm",
+      "target_path": "baserom/release/src/base/PPCPm.o",
+      "base_path": "build/release/src/base/PPCPm.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDBios",
+      "target_path": "baserom/release/src/card/CARDBios.o",
+      "base_path": "build/release/src/card/CARDBios.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDBlock",
+      "target_path": "baserom/release/src/card/CARDBlock.o",
+      "base_path": "build/release/src/card/CARDBlock.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDCheck",
+      "target_path": "baserom/release/src/card/CARDCheck.o",
+      "base_path": "build/release/src/card/CARDCheck.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDCreate",
+      "target_path": "baserom/release/src/card/CARDCreate.o",
+      "base_path": "build/release/src/card/CARDCreate.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDDelete",
+      "target_path": "baserom/release/src/card/CARDDelete.o",
+      "base_path": "build/release/src/card/CARDDelete.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDDir",
+      "target_path": "baserom/release/src/card/CARDDir.o",
+      "base_path": "build/release/src/card/CARDDir.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDErase",
+      "target_path": "baserom/release/src/card/CARDErase.o",
+      "base_path": "build/release/src/card/CARDErase.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDFormat",
+      "target_path": "baserom/release/src/card/CARDFormat.o",
+      "base_path": "build/release/src/card/CARDFormat.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDMount",
+      "target_path": "baserom/release/src/card/CARDMount.o",
+      "base_path": "build/release/src/card/CARDMount.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDNet",
+      "target_path": "baserom/release/src/card/CARDNet.o",
+      "base_path": "build/release/src/card/CARDNet.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDOpen",
+      "target_path": "baserom/release/src/card/CARDOpen.o",
+      "base_path": "build/release/src/card/CARDOpen.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDProgram",
+      "target_path": "baserom/release/src/card/CARDProgram.o",
+      "base_path": "build/release/src/card/CARDProgram.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDRaw",
+      "target_path": "baserom/release/src/card/CARDRaw.o",
+      "base_path": "build/release/src/card/CARDRaw.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDRdwr",
+      "target_path": "baserom/release/src/card/CARDRdwr.o",
+      "base_path": "build/release/src/card/CARDRdwr.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDRead",
+      "target_path": "baserom/release/src/card/CARDRead.o",
+      "base_path": "build/release/src/card/CARDRead.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDRename",
+      "target_path": "baserom/release/src/card/CARDRename.o",
+      "base_path": "build/release/src/card/CARDRename.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDStat",
+      "target_path": "baserom/release/src/card/CARDStat.o",
+      "base_path": "build/release/src/card/CARDStat.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDStatEx",
+      "target_path": "baserom/release/src/card/CARDStatEx.o",
+      "base_path": "build/release/src/card/CARDStatEx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDUnlock",
+      "target_path": "baserom/release/src/card/CARDUnlock.o",
+      "base_path": "build/release/src/card/CARDUnlock.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/card/CARDWrite",
+      "target_path": "baserom/release/src/card/CARDWrite.o",
+      "base_path": "build/release/src/card/CARDWrite.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/db/db",
+      "target_path": "baserom/release/src/db/db.o",
+      "base_path": "build/release/src/db/db.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOAVX",
+      "target_path": "baserom/release/src/demo/DEMOAVX.o",
+      "base_path": "build/release/src/demo/DEMOAVX.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOFont",
+      "target_path": "baserom/release/src/demo/DEMOFont.o",
+      "base_path": "build/release/src/demo/DEMOFont.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOInit",
+      "target_path": "baserom/release/src/demo/DEMOInit.o",
+      "base_path": "build/release/src/demo/DEMOInit.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOPad",
+      "target_path": "baserom/release/src/demo/DEMOPad.o",
+      "base_path": "build/release/src/demo/DEMOPad.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOPuts",
+      "target_path": "baserom/release/src/demo/DEMOPuts.o",
+      "base_path": "build/release/src/demo/DEMOPuts.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOStats",
+      "target_path": "baserom/release/src/demo/DEMOStats.o",
+      "base_path": "build/release/src/demo/DEMOStats.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/demo/DEMOWin",
+      "target_path": "baserom/release/src/demo/DEMOWin.o",
+      "base_path": "build/release/src/demo/DEMOWin.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dsp/dsp",
+      "target_path": "baserom/release/src/dsp/dsp.o",
+      "base_path": "build/release/src/dsp/dsp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dsp/dsp_debug",
+      "target_path": "baserom/release/src/dsp/dsp_debug.o",
+      "base_path": "build/release/src/dsp/dsp_debug.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dsp/dsp_perf",
+      "target_path": "baserom/release/src/dsp/dsp_perf.o",
+      "base_path": "build/release/src/dsp/dsp_perf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dsp/dsp_task",
+      "target_path": "baserom/release/src/dsp/dsp_task.o",
+      "base_path": "build/release/src/dsp/dsp_task.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dtk/dtk",
+      "target_path": "baserom/release/src/dtk/dtk.o",
+      "base_path": "build/release/src/dtk/dtk.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvd",
+      "target_path": "baserom/release/src/dvd/dvd.o",
+      "base_path": "build/release/src/dvd/dvd.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvderror",
+      "target_path": "baserom/release/src/dvd/dvderror.o",
+      "base_path": "build/release/src/dvd/dvderror.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvdFatal",
+      "target_path": "baserom/release/src/dvd/dvdFatal.o",
+      "base_path": "build/release/src/dvd/dvdFatal.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvdfs",
+      "target_path": "baserom/release/src/dvd/dvdfs.o",
+      "base_path": "build/release/src/dvd/dvdfs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvdidutils",
+      "target_path": "baserom/release/src/dvd/dvdidutils.o",
+      "base_path": "build/release/src/dvd/dvdidutils.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvdlow",
+      "target_path": "baserom/release/src/dvd/dvdlow.o",
+      "base_path": "build/release/src/dvd/dvdlow.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/dvdqueue",
+      "target_path": "baserom/release/src/dvd/dvdqueue.o",
+      "base_path": "build/release/src/dvd/dvdqueue.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/dvd/fstload",
+      "target_path": "baserom/release/src/dvd/fstload.o",
+      "base_path": "build/release/src/dvd/fstload.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/exi/EXIAd16",
+      "target_path": "baserom/release/src/exi/EXIAd16.o",
+      "base_path": "build/release/src/exi/EXIAd16.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/exi/EXIBios",
+      "target_path": "baserom/release/src/exi/EXIBios.o",
+      "base_path": "build/release/src/exi/EXIBios.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/exi/EXIUart",
+      "target_path": "baserom/release/src/exi/EXIUart.o",
+      "base_path": "build/release/src/exi/EXIUart.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/fileCache/fileCache",
+      "target_path": "baserom/release/src/fileCache/fileCache.o",
+      "base_path": "build/release/src/fileCache/fileCache.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/G2D/G2D",
+      "target_path": "baserom/release/src/G2D/G2D.o",
+      "base_path": "build/release/src/G2D/G2D.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDBase",
+      "target_path": "baserom/release/src/gd/GDBase.o",
+      "base_path": "build/release/src/gd/GDBase.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDFile",
+      "target_path": "baserom/release/src/gd/GDFile.o",
+      "base_path": "build/release/src/gd/GDFile.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDGeometry",
+      "target_path": "baserom/release/src/gd/GDGeometry.o",
+      "base_path": "build/release/src/gd/GDGeometry.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDIndirect",
+      "target_path": "baserom/release/src/gd/GDIndirect.o",
+      "base_path": "build/release/src/gd/GDIndirect.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDLight",
+      "target_path": "baserom/release/src/gd/GDLight.o",
+      "base_path": "build/release/src/gd/GDLight.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDPixel",
+      "target_path": "baserom/release/src/gd/GDPixel.o",
+      "base_path": "build/release/src/gd/GDPixel.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDTev",
+      "target_path": "baserom/release/src/gd/GDTev.o",
+      "base_path": "build/release/src/gd/GDTev.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDTexture",
+      "target_path": "baserom/release/src/gd/GDTexture.o",
+      "base_path": "build/release/src/gd/GDTexture.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gd/GDTransform",
+      "target_path": "baserom/release/src/gd/GDTransform.o",
+      "base_path": "build/release/src/gd/GDTransform.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXAttr",
+      "target_path": "baserom/release/src/gx/GXAttr.o",
+      "base_path": "build/release/src/gx/GXAttr.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXBump",
+      "target_path": "baserom/release/src/gx/GXBump.o",
+      "base_path": "build/release/src/gx/GXBump.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXDisplayList",
+      "target_path": "baserom/release/src/gx/GXDisplayList.o",
+      "base_path": "build/release/src/gx/GXDisplayList.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXDraw",
+      "target_path": "baserom/release/src/gx/GXDraw.o",
+      "base_path": "build/release/src/gx/GXDraw.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXFifo",
+      "target_path": "baserom/release/src/gx/GXFifo.o",
+      "base_path": "build/release/src/gx/GXFifo.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXFrameBuf",
+      "target_path": "baserom/release/src/gx/GXFrameBuf.o",
+      "base_path": "build/release/src/gx/GXFrameBuf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXGeometry",
+      "target_path": "baserom/release/src/gx/GXGeometry.o",
+      "base_path": "build/release/src/gx/GXGeometry.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXInit",
+      "target_path": "baserom/release/src/gx/GXInit.o",
+      "base_path": "build/release/src/gx/GXInit.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXLight",
+      "target_path": "baserom/release/src/gx/GXLight.o",
+      "base_path": "build/release/src/gx/GXLight.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXMisc",
+      "target_path": "baserom/release/src/gx/GXMisc.o",
+      "base_path": "build/release/src/gx/GXMisc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXPerf",
+      "target_path": "baserom/release/src/gx/GXPerf.o",
+      "base_path": "build/release/src/gx/GXPerf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXPixel",
+      "target_path": "baserom/release/src/gx/GXPixel.o",
+      "base_path": "build/release/src/gx/GXPixel.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXSave",
+      "target_path": "baserom/release/src/gx/GXSave.o",
+      "base_path": "build/release/src/gx/GXSave.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXStubs",
+      "target_path": "baserom/release/src/gx/GXStubs.o",
+      "base_path": "build/release/src/gx/GXStubs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXTev",
+      "target_path": "baserom/release/src/gx/GXTev.o",
+      "base_path": "build/release/src/gx/GXTev.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXTexture",
+      "target_path": "baserom/release/src/gx/GXTexture.o",
+      "base_path": "build/release/src/gx/GXTexture.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXTransform",
+      "target_path": "baserom/release/src/gx/GXTransform.o",
+      "base_path": "build/release/src/gx/GXTransform.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXVerifRAS",
+      "target_path": "baserom/release/src/gx/GXVerifRAS.o",
+      "base_path": "build/release/src/gx/GXVerifRAS.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXVerifXF",
+      "target_path": "baserom/release/src/gx/GXVerifXF.o",
+      "base_path": "build/release/src/gx/GXVerifXF.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXVerify",
+      "target_path": "baserom/release/src/gx/GXVerify.o",
+      "base_path": "build/release/src/gx/GXVerify.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/gx/GXVert",
+      "target_path": "baserom/release/src/gx/GXVert.o",
+      "base_path": "build/release/src/gx/GXVert.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/hio/hio",
+      "target_path": "baserom/release/src/hio/hio.o",
+      "base_path": "build/release/src/hio/hio.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mcc/fio",
+      "target_path": "baserom/release/src/mcc/fio.o",
+      "base_path": "build/release/src/mcc/fio.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mcc/mcc",
+      "target_path": "baserom/release/src/mcc/mcc.o",
+      "base_path": "build/release/src/mcc/mcc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mcc/tty",
+      "target_path": "baserom/release/src/mcc/tty.o",
+      "base_path": "build/release/src/mcc/tty.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mix/mix",
+      "target_path": "baserom/release/src/mix/mix.o",
+      "base_path": "build/release/src/mix/mix.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/mtx",
+      "target_path": "baserom/release/src/mtx/mtx.o",
+      "base_path": "build/release/src/mtx/mtx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/mtx44",
+      "target_path": "baserom/release/src/mtx/mtx44.o",
+      "base_path": "build/release/src/mtx/mtx44.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/mtx44vec",
+      "target_path": "baserom/release/src/mtx/mtx44vec.o",
+      "base_path": "build/release/src/mtx/mtx44vec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/mtxstack",
+      "target_path": "baserom/release/src/mtx/mtxstack.o",
+      "base_path": "build/release/src/mtx/mtxstack.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/mtxvec",
+      "target_path": "baserom/release/src/mtx/mtxvec.o",
+      "base_path": "build/release/src/mtx/mtxvec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/psmtx",
+      "target_path": "baserom/release/src/mtx/psmtx.o",
+      "base_path": "build/release/src/mtx/psmtx.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/quat",
+      "target_path": "baserom/release/src/mtx/quat.o",
+      "base_path": "build/release/src/mtx/quat.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/mtx/vec",
+      "target_path": "baserom/release/src/mtx/vec.o",
+      "base_path": "build/release/src/mtx/vec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/odemustubs/odemustubs",
+      "target_path": "baserom/release/src/odemustubs/odemustubs.o",
+      "base_path": "build/release/src/odemustubs/odemustubs.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/odenotstub/odenotstub",
+      "target_path": "baserom/release/src/odenotstub/odenotstub.o",
+      "base_path": "build/release/src/odenotstub/odenotstub.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OS",
+      "target_path": "baserom/release/src/os/OS.o",
+      "base_path": "build/release/src/os/OS.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSAddress",
+      "target_path": "baserom/release/src/os/OSAddress.o",
+      "base_path": "build/release/src/os/OSAddress.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSAlarm",
+      "target_path": "baserom/release/src/os/OSAlarm.o",
+      "base_path": "build/release/src/os/OSAlarm.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSAlloc",
+      "target_path": "baserom/release/src/os/OSAlloc.o",
+      "base_path": "build/release/src/os/OSAlloc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSArena",
+      "target_path": "baserom/release/src/os/OSArena.o",
+      "base_path": "build/release/src/os/OSArena.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSAudioSystem",
+      "target_path": "baserom/release/src/os/OSAudioSystem.o",
+      "base_path": "build/release/src/os/OSAudioSystem.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSCache",
+      "target_path": "baserom/release/src/os/OSCache.o",
+      "base_path": "build/release/src/os/OSCache.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSContext",
+      "target_path": "baserom/release/src/os/OSContext.o",
+      "base_path": "build/release/src/os/OSContext.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSError",
+      "target_path": "baserom/release/src/os/OSError.o",
+      "base_path": "build/release/src/os/OSError.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSExec",
+      "target_path": "baserom/release/src/os/OSExec.o",
+      "base_path": "build/release/src/os/OSExec.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSFatal",
+      "target_path": "baserom/release/src/os/OSFatal.o",
+      "base_path": "build/release/src/os/OSFatal.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSFont",
+      "target_path": "baserom/release/src/os/OSFont.o",
+      "base_path": "build/release/src/os/OSFont.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSInterrupt",
+      "target_path": "baserom/release/src/os/OSInterrupt.o",
+      "base_path": "build/release/src/os/OSInterrupt.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSLink",
+      "target_path": "baserom/release/src/os/OSLink.o",
+      "base_path": "build/release/src/os/OSLink.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSMemory",
+      "target_path": "baserom/release/src/os/OSMemory.o",
+      "base_path": "build/release/src/os/OSMemory.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSMessage",
+      "target_path": "baserom/release/src/os/OSMessage.o",
+      "base_path": "build/release/src/os/OSMessage.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSMutex",
+      "target_path": "baserom/release/src/os/OSMutex.o",
+      "base_path": "build/release/src/os/OSMutex.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSReboot",
+      "target_path": "baserom/release/src/os/OSReboot.o",
+      "base_path": "build/release/src/os/OSReboot.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSReset",
+      "target_path": "baserom/release/src/os/OSReset.o",
+      "base_path": "build/release/src/os/OSReset.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSResetSW",
+      "target_path": "baserom/release/src/os/OSResetSW.o",
+      "base_path": "build/release/src/os/OSResetSW.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSRtc",
+      "target_path": "baserom/release/src/os/OSRtc.o",
+      "base_path": "build/release/src/os/OSRtc.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSSemaphore",
+      "target_path": "baserom/release/src/os/OSSemaphore.o",
+      "base_path": "build/release/src/os/OSSemaphore.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSStopwatch",
+      "target_path": "baserom/release/src/os/OSStopwatch.o",
+      "base_path": "build/release/src/os/OSStopwatch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSSync",
+      "target_path": "baserom/release/src/os/OSSync.o",
+      "base_path": "build/release/src/os/OSSync.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSThread",
+      "target_path": "baserom/release/src/os/OSThread.o",
+      "base_path": "build/release/src/os/OSThread.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSTime",
+      "target_path": "baserom/release/src/os/OSTime.o",
+      "base_path": "build/release/src/os/OSTime.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSTimer",
+      "target_path": "baserom/release/src/os/OSTimer.o",
+      "base_path": "build/release/src/os/OSTimer.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/OSUtf",
+      "target_path": "baserom/release/src/os/OSUtf.o",
+      "base_path": "build/release/src/os/OSUtf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/ppc_eabi_init",
+      "target_path": "baserom/release/src/os/ppc_eabi_init.o",
+      "base_path": "build/release/src/os/ppc_eabi_init.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/start",
+      "target_path": "baserom/release/src/os/start.o",
+      "base_path": "build/release/src/os/start.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/os/time.dolphin",
+      "target_path": "baserom/release/src/os/time.dolphin.o",
+      "base_path": "build/release/src/os/time.dolphin.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/pad/Pad",
+      "target_path": "baserom/release/src/pad/Pad.o",
+      "base_path": "build/release/src/pad/Pad.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/pad/Padclamp",
+      "target_path": "baserom/release/src/pad/Padclamp.o",
+      "base_path": "build/release/src/pad/Padclamp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/perf/perf",
+      "target_path": "baserom/release/src/perf/perf.o",
+      "base_path": "build/release/src/perf/perf.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/perf/perfdraw",
+      "target_path": "baserom/release/src/perf/perfdraw.o",
+      "base_path": "build/release/src/perf/perfdraw.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/seq/seq",
+      "target_path": "baserom/release/src/seq/seq.o",
+      "base_path": "build/release/src/seq/seq.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/si/SIBios",
+      "target_path": "baserom/release/src/si/SIBios.o",
+      "base_path": "build/release/src/si/SIBios.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/si/SISamplingRate",
+      "target_path": "baserom/release/src/si/SISamplingRate.o",
+      "base_path": "build/release/src/si/SISamplingRate.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/si/SISteering",
+      "target_path": "baserom/release/src/si/SISteering.o",
+      "base_path": "build/release/src/si/SISteering.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/si/SISteeringAuto",
+      "target_path": "baserom/release/src/si/SISteeringAuto.o",
+      "base_path": "build/release/src/si/SISteeringAuto.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/si/SISteeringXfer",
+      "target_path": "baserom/release/src/si/SISteeringXfer.o",
+      "base_path": "build/release/src/si/SISteeringXfer.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/sp/sp",
+      "target_path": "baserom/release/src/sp/sp.o",
+      "base_path": "build/release/src/sp/sp.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/support/HTable",
+      "target_path": "baserom/release/src/support/HTable.o",
+      "base_path": "build/release/src/support/HTable.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/support/List",
+      "target_path": "baserom/release/src/support/List.o",
+      "base_path": "build/release/src/support/List.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/support/string",
+      "target_path": "baserom/release/src/support/string.o",
+      "base_path": "build/release/src/support/string.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/support/Tree",
+      "target_path": "baserom/release/src/support/Tree.o",
+      "base_path": "build/release/src/support/Tree.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/syn",
+      "target_path": "baserom/release/src/syn/syn.o",
+      "base_path": "build/release/src/syn/syn.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synctrl",
+      "target_path": "baserom/release/src/syn/synctrl.o",
+      "base_path": "build/release/src/syn/synctrl.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synenv",
+      "target_path": "baserom/release/src/syn/synenv.o",
+      "base_path": "build/release/src/syn/synenv.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synlfo",
+      "target_path": "baserom/release/src/syn/synlfo.o",
+      "base_path": "build/release/src/syn/synlfo.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synmix",
+      "target_path": "baserom/release/src/syn/synmix.o",
+      "base_path": "build/release/src/syn/synmix.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synpitch",
+      "target_path": "baserom/release/src/syn/synpitch.o",
+      "base_path": "build/release/src/syn/synpitch.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synsample",
+      "target_path": "baserom/release/src/syn/synsample.o",
+      "base_path": "build/release/src/syn/synsample.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synvoice",
+      "target_path": "baserom/release/src/syn/synvoice.o",
+      "base_path": "build/release/src/syn/synvoice.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/syn/synwt",
+      "target_path": "baserom/release/src/syn/synwt.o",
+      "base_path": "build/release/src/syn/synwt.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/texPalette/texPalette",
+      "target_path": "baserom/release/src/texPalette/texPalette.o",
+      "base_path": "build/release/src/texPalette/texPalette.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/vi/gpioexi",
+      "target_path": "baserom/release/src/vi/gpioexi.o",
+      "base_path": "build/release/src/vi/gpioexi.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/vi/i2c",
+      "target_path": "baserom/release/src/vi/i2c.o",
+      "base_path": "build/release/src/vi/i2c.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/vi/initphilips",
+      "target_path": "baserom/release/src/vi/initphilips.o",
+      "base_path": "build/release/src/vi/initphilips.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    },
+    {
+      "name": "release/src/vi/vi",
+      "target_path": "baserom/release/src/vi/vi.o",
+      "base_path": "build/release/src/vi/vi.o",
+      "scratch": {
+        "platform": "gc_wii",
+        "compiler": "mwcc_233_163n",
+        "c_flags": "-O4,p -inline auto -sym on -enum int -DDEBUG=0 -fp hard"
+      },
+      "metadata": {}
+    }
+  ]
+}
