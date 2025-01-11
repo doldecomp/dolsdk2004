@@ -53,11 +53,24 @@ typedef struct PADStatus
     /*0x0A*/ s8 err;
 } PADStatus;
 
+typedef struct PADClampRegion {
+    u8 minTrigger; // offset 0x0, size 0x1
+    u8 maxTrigger; // offset 0x1, size 0x1
+    s8 minStick; // offset 0x2, size 0x1
+    s8 maxStick; // offset 0x3, size 0x1
+    s8 xyStick; // offset 0x4, size 0x1
+    s8 minSubstick; // offset 0x5, size 0x1
+    s8 maxSubstick; // offset 0x6, size 0x1
+    s8 xySubstick; // offset 0x7, size 0x1
+    s8 radStick; // offset 0x8, size 0x1
+    s8 radSubstick; // offset 0x9, size 0x1
+} PADClampRegion;
+
 // PAD.c
 int PADReset(unsigned long mask);
 BOOL PADRecalibrate(u32 mask);
 BOOL PADInit();
-void PADRead(struct PADStatus * status);
+u32 PADRead(struct PADStatus * status);
 void PADSetSamplingRate(unsigned long msec);
 void __PADTestSamplingRate(unsigned long tvmode);
 void PADControlAllMotors(const u32 *commandArray);
