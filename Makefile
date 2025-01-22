@@ -66,6 +66,7 @@ TARGET_LIBS := G2D              \
                card             \
                db               \
                demo             \
+               dolformat        \
                dsp              \
                dtk              \
                dvd              \
@@ -168,7 +169,8 @@ CC        = $(MWCC)
 
 ######################## Flags #############################
 
-CHARFLAGS := -char unsigned
+CHARFLAGS          := -char unsigned
+RELEASE_OPTLEVEL   := -O4,p
 
 # why. Did some SDK libs (like CARD) prefer char signed over unsigned? TODO: Figure out consistency behind this.
 build/debug/src/card/CARDRename.o: CHARFLAGS := -char signed
@@ -176,7 +178,11 @@ build/release/src/card/CARDRename.o: CHARFLAGS := -char signed
 build/debug/src/card/CARDOpen.o: CHARFLAGS := -char signed
 build/release/src/card/CARDOpen.o: CHARFLAGS := -char signed
 
-CFLAGS = $(CHARFLAGS) -nodefaults -proc gekko -fp hard -Cpp_exceptions off -enum int -warn pragmas -requireprotos -pragma 'cats off' -nostdinc -msgstyle gcc -cwd source -warn pragmas -pragma "cats off" -nowraplines -maxerrors 0 -nofail
+build/release/src/exi/EXIBios.o: RELEASE_OPTLEVEL := -O3,p
+
+%/stub.o: CFLAGS += -warn off
+
+CFLAGS = $(CHARFLAGS) -nodefaults -proc gekko -fp hard -Cpp_exceptions off -enum int -warn pragmas -requireprotos -pragma 'cats off'
 INCLUDES := -Iinclude -Iinclude/libc -ir src
 
 ASFLAGS = -mgekko -I src -I include
@@ -194,8 +200,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-# TODO: Start decomp
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -245,7 +250,7 @@ build/debug/src/%.o: src/%.c
 
 build/release/src/%.o: src/%.c
 	@echo 'Compiling $< (release)'
-	$(QUIET)$(CC) -c -O4,p -inline auto -sym on $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
+	$(QUIET)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto -sym on $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
 
 ################################ Build AR Files ###############################
 
