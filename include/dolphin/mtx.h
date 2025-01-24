@@ -24,6 +24,7 @@ typedef struct
 
 typedef f32 Mtx[3][4];
 typedef f32 Mtx44[4][4];
+typedef f32 (*Mtx44Ptr)[4];
 
 typedef f32 ROMtx[4][3];
 
@@ -48,6 +49,9 @@ void C_MTXLookAt(Mtx m, Point3dPtr camPos, VecPtr camUp, Point3dPtr target);
 #define MTXInverse C_MTXInverse
 #define MTXTranspose C_MTXTranspose
 #define MTXIdentity  C_MTXIdentity
+
+#define MTX44Copy C_MTX44Copy
+#define MTX44Identity C_MTX44Identity
 #else
 #define VECSquareMag PSVECSquareMag
 #define VECNormalize PSVECNormalize
@@ -62,6 +66,9 @@ void C_MTXLookAt(Mtx m, Point3dPtr camPos, VecPtr camUp, Point3dPtr target);
 #define MTXInverse PSMTXInverse
 #define MTXTranspose PSMTXTranspose
 #define MTXIdentity  PSMTXIdentity
+
+#define MTX44Copy PSMTX44Copy
+#define MTX44Identity PSMTX44Identity
 #endif
 
 // asm only
@@ -73,8 +80,10 @@ void C_MTXLookAt(Mtx m, Point3dPtr camPos, VecPtr camUp, Point3dPtr target);
 
 // mtx.c
 // functions
+void PSMTXRotTrig(register Mtx m, register char axis, register f32 sinA, register f32 cosA);
+
 void MTXRotRad(Mtx m, char axis, f32 rad);
-void MTXRotTrig(Mtx m, char axis, f32 sinA, f32 cosA);
+void C_MTXRotTrig(Mtx m, char axis, f32 sinA, f32 cosA);
 void MTXRotAxisRad(Mtx m, Vec *axis, f32 rad);
 void MTXTrans(Mtx m, f32 xT, f32 yT, f32 zT);
 void MTXTransApply(Mtx src, Mtx dst, f32 xT, f32 yT, f32 zT);
@@ -90,7 +99,7 @@ void MTXLightOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f3
 // C functions
 void C_MTXIdentity(Mtx m);
 void C_MTXCopy(Mtx src, Mtx dst);
-void C_MTXConcat(Mtx a, Mtx b, Mtx ab);
+void C_MTXConcat(const Mtx a, const Mtx b, Mtx ab);
 void C_MTXTranspose(Mtx src, Mtx xPose);
 u32 C_MTXInverse(Mtx src, Mtx inv);
 u32 C_MTXInvXpose(Mtx src, Mtx invX);
@@ -131,7 +140,7 @@ void PSMTXMultVec(Mtx44 m, Vec *src, Vec *dst);
 void PSMTXMultVecArray(Mtx m, Vec *srcBase, Vec *dstBase, u32 count);
 
 // psmtx.c
-void PSMTXReorder(Mtx44 *src, ROMtx *dest);
+void PSMTXReorder(Mtx src, ROMtx dest);
 void PSMTXROMultVecArray(ROMtx *m, Vec *srcBase, Vec *dstBase, u32 count);
 void PSMTXROSkin2VecArray(ROMtx *m0, ROMtx *m1, f32 * wtBase, Vec *srcBase, Vec *dstBase, u32 count);
 void PSMTXROMultS16VecArray(ROMtx *m, S16Vec *srcBase, Vec *dstBase, u32 count);
@@ -162,6 +171,9 @@ f32 PSVECSquareMag(Vec *vec1);
 f32 PSVECDotProduct(Vec *vec1, Vec *vec2);
 void PSVECCrossProduct(Vec *vec1, Vec *vec2, Vec *dst);
 f32 PSVECSquareDistance(Vec *vec1, Vec *vec2);
+
+void C_MTX44RotTrig(Mtx44 m, char axis, f32 sinA, f32 cosA);
+void PSMTX44RotTrig(Mtx44 m, char axis, f32 sinA, f32 cosA);
 
 #ifdef __cplusplus
 }

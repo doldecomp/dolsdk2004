@@ -66,7 +66,6 @@ TARGET_LIBS := G2D              \
                card             \
                db               \
                demo             \
-               dolformat        \
                dsp              \
                dtk              \
                dvd              \
@@ -178,6 +177,11 @@ build/release/src/card/CARDRename.o: CHARFLAGS := -char signed
 build/debug/src/card/CARDOpen.o: CHARFLAGS := -char signed
 build/release/src/card/CARDOpen.o: CHARFLAGS := -char signed
 
+build/debug/src/mtx/mtx.o: CHARFLAGS := -char signed
+build/release/src/mtx/mtx.o: CHARFLAGS := -char signed
+build/debug/src/mtx/mtx44.o: CHARFLAGS := -char signed
+build/release/src/mtx/mtx44.o: CHARFLAGS := -char signed
+
 build/release/src/exi/EXIBios.o: RELEASE_OPTLEVEL := -O3,p
 
 %/stub.o: CFLAGS += -warn off
@@ -200,7 +204,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -293,6 +297,14 @@ odenotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(odenotstub_c_files:.c=.o))
 os_c_files := $(wildcard src/os/*.c)
 os.a  : $(addprefix $(BUILD_DIR)/release/,$(os_c_files:.c=.o))
 osD.a : $(addprefix $(BUILD_DIR)/debug/,$(os_c_files:.c=.o))
+
+exi_c_files := $(wildcard src/exi/*.c)
+exi.a  : $(addprefix $(BUILD_DIR)/release/,$(exi_c_files:.c=.o))
+exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
+
+mtx_c_files := $(wildcard src/mtx/*.c)
+mtx.a  : $(addprefix $(BUILD_DIR)/release/,$(mtx_c_files:.c=.o))
+mtxD.a : $(addprefix $(BUILD_DIR)/debug/,$(mtx_c_files:.c=.o))
 
 build/release/baserom.elf: build/release/src/stub.o $(foreach l,$(VERIFY_LIBS),baserom/$(l).a)
 build/release/test.elf:    build/release/src/stub.o $(foreach l,$(VERIFY_LIBS),$(l).a)

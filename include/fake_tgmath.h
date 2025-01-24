@@ -50,6 +50,10 @@ extern inline float fabs(float x)
 #endif
             }
 
+extern inline float fabsf(float x) {
+  return __fabsf(x);
+}
+
 inline float floor(float x)
 			{
 			 int i=(int)x;   
