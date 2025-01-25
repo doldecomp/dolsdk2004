@@ -186,7 +186,7 @@ build/release/src/exi/EXIBios.o: RELEASE_OPTLEVEL := -O3,p
 
 %/stub.o: CFLAGS += -warn off
 
-CFLAGS = $(CHARFLAGS) -nodefaults -proc gekko -fp hard -Cpp_exceptions off -enum int -warn pragmas -requireprotos -pragma 'cats off'
+CFLAGS = $(CHARFLAGS) -nodefaults -proc gekko -fp hard -Cpp_exceptions off -enum int -warn pragmas -requireprotos -pragma 'cats off' -D__GEKKO__
 INCLUDES := -Iinclude -Iinclude/libc -ir src
 
 ASFLAGS = -mgekko -I src -I include

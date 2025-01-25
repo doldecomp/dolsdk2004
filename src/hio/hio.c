@@ -2,7 +2,6 @@
 #include <dolphin/hio.h>
 #include <dolphin/os.h>
 #include <dolphin/hw_regs.h>
-#include <macros.h>
 
 #define OS_DVD_DEVICECODE  (*(volatile u16 *)(0x800030E6))
 

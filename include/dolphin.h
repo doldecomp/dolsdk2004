@@ -20,6 +20,4 @@
 #include <dolphin/demo.h>
 #include <dolphin/exi.h>
 
-#include "macros.h"
-
 #endif
