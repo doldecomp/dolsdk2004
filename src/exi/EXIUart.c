@@ -7,9 +7,11 @@ static u32 Dev;
 static u32 Enabled;
 static u32 BarnacleEnabled;
 
-int InitializeUART();
-int ReadUARTN();
+// prototypes
+int InitializeUART(void);
+int ReadUARTN(void);
 int WriteUARTN(void *buf, u32 len);
+void __OSEnableBarnacle(s32 chan, u32 dev);
 
 static BOOL ProbeBarnacle(s32 chan, u32 dev, u32* revision) {
     int err;
@@ -21,13 +23,13 @@ static BOOL ProbeBarnacle(s32 chan, u32 dev, u32* revision) {
 
     err = !EXILock(chan, dev, NULL);
     if (!err) {
-        err = !EXISelect(chan, dev, 0);
+        err = !EXISelect(chan, dev, EXI_FREQ_1M);
         if (!err) {
             cmd = 0x20011300;
             err = FALSE;
-            err |= !EXIImm(chan, &cmd, sizeof(cmd), 1, NULL);
+            err |= !EXIImm(chan, &cmd, sizeof(cmd), EXI_WRITE, NULL);
             err |= !EXISync(chan);
-            err |= !EXIImm(chan, revision, sizeof(revision), 0, NULL);
+            err |= !EXIImm(chan, revision, sizeof(revision), EXI_READ, NULL);
             err |= !EXISync(chan);
             err |= !EXIDeselect(chan);
         }
@@ -58,39 +60,39 @@ void __OSEnableBarnacle(s32 chan, u32 dev) {
     }
 
     switch (id) {
-        case 0x00000004:
-        case 0x00000008:
-        case 0x00000010:
-        case 0x00000020:
-        case 0x01010000:
-        case 0x01020000:
-        case 0x02020000:
-        case 0x03010000:
-        case 0x04020100:
-        case 0x04020200:
-        case 0x04020300:
-        case 0x04220000:
-        case 0x04040404:
-        case 0x04060000:
-        case 0x04120000:
-        case 0x04130000:
-        case 0x80000004:
-        case 0x80000008:
-        case 0x80000010:
-        case 0x80000020:
-        case 0xFFFFFFFF:
+    case EXI_MEMORY_CARD_59:
+    case EXI_MEMORY_CARD_123:
+    case EXI_MEMORY_CARD_251:
+    case EXI_MEMORY_CARD_507:
+    case EXI_USB_ADAPTER:
+    case EXI_NPDP_GDEV:
+    case EXI_MODEM:
+    case 0x03010000:
+    case 0x04020100:
+    case EXI_ETHER:
+    case 0x04020300:
+    case 0x04220000:
+    case EXI_RS232C:
+    case EXI_MIC:
+    case EXI_AD16:
+    case EXI_STREAM_HANGER:
+    case 0x80000004:
+    case 0x80000008:
+    case 0x80000010:
+    case 0x80000020:
+    case 0xFFFFFFFF:
+        break;
+    default:
+        if (ProbeBarnacle(chan, dev, &id)) {
+            Chan = chan;
+            Dev = dev;
+            Enabled = BarnacleEnabled = 0xA5FF005A;
             break;
-        default:
-            if (ProbeBarnacle(chan, dev, &id)) {
-                Chan = chan;
-                Dev = dev;
-                Enabled = BarnacleEnabled = 0xA5FF005A;
-                break;
-            }
+        }
     }
 }
 
-int InitializeUART() {
+int InitializeUART(void) {
     if (BarnacleEnabled == 0xA5FF005A) {
         return 0;
     }
@@ -106,42 +108,42 @@ int InitializeUART() {
     return 0;
 }
 
-int ReadUARTN() {
+int ReadUARTN(void) {
     return 4;
 }
 
 static int QueueLength(void) {
-    unsigned long cmd;
+    u32 cmd;
 
     if (EXISelect(Chan, Dev, 3) == 0) {
         return -1;
     }
+
     cmd = 0x20010000;
-    EXIImm(Chan, &cmd, sizeof(cmd), 1, 0);
+    EXIImm(Chan, &cmd, sizeof(cmd), EXI_WRITE, 0);
     EXISync(Chan);
-    EXIImm(Chan, &cmd, 1, 0, 0);
+    EXIImm(Chan, &cmd, 1, EXI_READ, 0);
     EXISync(Chan);
     EXIDeselect(Chan);
     return 0x10 - (cmd >> 0x18);
 }
 
 int WriteUARTN(void *buf, u32 len) {
-    unsigned long cmd;
-    long xLen;
+    u32 cmd;
+    s32 xLen;
     int qLen;
     char* ptr;
     int locked;
     int error;
 
-    if ((Enabled -0xA5FF0000) != 0x5A) {
+    if ((Enabled - 0xA5FF0000) != 0x5A) {
         return 2;
     }
 
     locked = EXILock(Chan, Dev, 0);
     if (locked == 0) {
         return 0;
-    }
-    else {
+    } else {
         ptr = (char*)buf;
     }
 
@@ -162,12 +164,12 @@ int WriteUARTN(void *buf, u32 len) {
         }
         
         if ((qLen >= 0xC) || (qLen >= len)) {
-            if (EXISelect(Chan, Dev, 3) == 0) {
+            if (EXISelect(Chan, Dev, EXI_FREQ_8M) == 0) {
                 error = 3;
                 break;
             }
             
-            EXIImm(Chan, &cmd, sizeof(cmd), 1, 0);
+            EXIImm(Chan, &cmd, sizeof(cmd), EXI_WRITE, 0);
             EXISync(Chan);
 
             while((qLen != 0) && (len != 0)) {
@@ -177,7 +179,7 @@ int WriteUARTN(void *buf, u32 len) {
 
                 xLen = len < 4 ? (long)len : 4;
                 
-                EXIImm(Chan, buf, xLen, 1, 0);
+                EXIImm(Chan, buf, xLen, EXI_WRITE, 0);
                 (char*)buf += xLen;
                 len -= xLen;
                 qLen -= xLen;
@@ -186,6 +188,7 @@ int WriteUARTN(void *buf, u32 len) {
             EXIDeselect(Chan);
         }
     }
+
     EXIUnlock(Chan);
     return error;
 }

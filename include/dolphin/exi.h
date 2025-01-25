@@ -1,7 +1,11 @@
 #ifndef _DOLPHIN_EXI_H_
 #define _DOLPHIN_EXI_H_
 
-#include <dolphin/os/OSContext.h>
+#include <dolphin/os.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define EXI_MEMORY_CARD_59 0x00000004
 #define EXI_MEMORY_CARD_123 0x00000008
@@ -30,8 +34,11 @@
 #define EXI_USB_ADAPTER 0x01010000
 #define EXI_NPDP_GDEV 0x01020000
 
-#define EXI_MODEM 0x02020000
-#define EXI_ETHER 0x04020200
+#define EXI_MODEM  0x02020000
+#define EXI_ETHER  0x04020200
+#define EXI_MIC    0x04060000
+#define EXI_AD16   0x04120000
+#define EXI_RS232C 0x04040404
 #define EXI_ETHER_VIEWER 0x04220001
 #define EXI_STREAM_HANGER 0x04130000
 
@@ -49,33 +56,22 @@
 #define EXI_FREQ_16M 4
 #define EXI_FREQ_32M 5
 
-#define EXI_STATE_IDLE 0x00
-#define EXI_STATE_DMA 0x01
-#define EXI_STATE_IMM 0x02
-#define EXI_STATE_BUSY (EXI_STATE_DMA | EXI_STATE_IMM)
-#define EXI_STATE_SELECTED 0x04
-#define EXI_STATE_ATTACHED 0x08
-#define EXI_STATE_LOCKED 0x10
-
-typedef void (*EXICallback)(s32 chan, OSContext *context);
-
-typedef struct EXIControl {
-    // total size: 0x40
-    void (* exiCallback)(long, struct OSContext *); // offset 0x0, size 0x4
-    void (* tcCallback)(long, struct OSContext *); // offset 0x4, size 0x4
-    void (* extCallback)(long, struct OSContext *); // offset 0x8, size 0x4
-    volatile unsigned long state; // offset 0xC, size 0x4
-    int immLen; // offset 0x10, size 0x4
-    unsigned char * immBuf; // offset 0x14, size 0x4
-    unsigned long dev; // offset 0x18, size 0x4
-    unsigned long id; // offset 0x1C, size 0x4
-    long idTime; // offset 0x20, size 0x4
-    int items; // offset 0x24, size 0x4
+typedef void (*EXICallback)(s32 chan, OSContext* context);
+typedef struct EXIControl {    
+    EXICallback exiCallback;
+    EXICallback tcCallback;
+    EXICallback extCallback;
+    volatile u32 state;
+    int immLen;
+    u8* immBuf;
+    u32 dev;
+    u32 id;
+    s32 idTime;
+    int items;
     struct {
-        // total size: 0x8
-        unsigned long dev; // offset 0x0, size 0x4
-        void (* callback)(long, struct OSContext *); // offset 0x4, size 0x4
-    } queue[3]; // offset 0x28, size 0x18
+        u32 dev;
+        EXICallback callback;
+    } queue[3];
 } EXIControl;
 
 EXICallback EXISetExiCallback(s32 channel, EXICallback callback);
@@ -85,9 +81,9 @@ BOOL EXILock(s32 channel, u32 device, EXICallback callback);
 BOOL EXIUnlock(s32 channel);
 BOOL EXISelect(s32 channel, u32 device, u32 frequency);
 BOOL EXIDeselect(s32 channel);
-BOOL EXIImm(s32 channel, void *buffer, s32 length, u32 type, EXICallback callback);
-BOOL EXIImmEx(s32 channel, void *buffer, s32 length, u32 type);
-BOOL EXIDma(s32 channel, void *buffer, s32 length, u32 type, EXICallback callback);
+BOOL EXIImm(s32 channel, void* buffer, s32 length, u32 type, EXICallback callback);
+BOOL EXIImmEx(s32 channel, void* buffer, s32 length, u32 type);
+BOOL EXIDma(s32 channel, void* buffer, s32 length, u32 type, EXICallback callback);
 BOOL EXISync(s32 channel);
 BOOL EXIProbe(s32 channel);
 s32 EXIProbeEx(s32 channel);
@@ -96,5 +92,12 @@ BOOL EXIDetach(s32 channel);
 u32 EXIGetState(s32 channel);
 s32 EXIGetID(s32 channel, u32 device, u32* id);
 void EXIProbeReset(void);
+int EXISelectSD(s32 chan, u32 dev, u32 freq);
+s32 EXIGetType(s32 chan, u32 dev, u32* type);
+char* EXIGetTypeString(u32 type);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -60,7 +60,7 @@ OSThread* __OSCurrentThread AT_ADDRESS(OS_BASE_CACHED | 0x00E4);
 u32 __OSSimulatedMemSize AT_ADDRESS(OS_BASE_CACHED | 0x00F0);
 u32 __OSBusClock AT_ADDRESS(OS_BASE_CACHED | 0x00F8);
 u32 __OSCoreClock AT_ADDRESS(OS_BASE_CACHED | 0x00FC);
-u16 __OSDeviceCode AT_ADDRESS(OS_BASE_CACHED | 0x30E6);
+volatile u16 __OSDeviceCode AT_ADDRESS(OS_BASE_CACHED | 0x30E6);
 
 // unknowns
 OSThread* __gUnkThread1 AT_ADDRESS(OS_BASE_CACHED | 0x00D8);
@@ -211,6 +211,7 @@ extern OSTime __OSGetSystemTime(void);
 __declspec(weak) extern int __OSIsGcam;
 extern OSExecParams __OSRebootParams;
 extern OSTime __OSStartTime;
+extern int __OSInIPL;
 
 #ifdef DEBUG
 #define ASSERTLINE(line, cond) \

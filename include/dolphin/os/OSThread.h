@@ -3,6 +3,10 @@
 
 #include <dolphin/os/OSContext.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef s32 OSPriority;
 
 typedef struct OSThread OSThread;
@@ -100,5 +104,9 @@ void* OSGetThreadSpecific(s32 index);
 OSSwitchThreadCallback OSSetSwitchThreadCallback(OSSwitchThreadCallback callback);
 
 #define IsSuspended(suspend) (suspend > 0)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

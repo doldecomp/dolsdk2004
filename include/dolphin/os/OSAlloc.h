@@ -3,6 +3,10 @@
 
 #include <dolphin/types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef int OSHeapHandle;
 
 extern volatile OSHeapHandle __OSCurrHeap;
@@ -22,5 +26,9 @@ void OSVisitAllocated(void (*visitor)(void*, u32));
 
 #define OSAlloc(size) OSAllocFromHeap(__OSCurrHeap, (size))
 #define OSFree(ptr)   OSFreeToHeap(__OSCurrHeap, (ptr))
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
