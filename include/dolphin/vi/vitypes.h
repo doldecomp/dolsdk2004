@@ -16,8 +16,7 @@
 #define VI_DEBUG_PAL 4
 #define VI_EURGB60   5
 
-typedef enum
-{
+typedef enum {
     VI_TVMODE_NTSC_INT      = VI_TVMODE(VI_NTSC,        VI_INTERLACE),
     VI_TVMODE_NTSC_DS       = VI_TVMODE(VI_NTSC,        VI_NON_INTERLACE),
     VI_TVMODE_NTSC_PROG     = VI_TVMODE(VI_NTSC,        VI_PROGRESSIVE),
@@ -32,8 +31,7 @@ typedef enum
     VI_TVMODE_DEBUG_PAL_DS  = VI_TVMODE(VI_DEBUG_PAL,   VI_NON_INTERLACE)
 } VITVMode;
 
-typedef enum
-{
+typedef enum {
     VI_XFBMODE_SF = 0,
     VI_XFBMODE_DF
 } VIXFBMode;

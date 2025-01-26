@@ -22,8 +22,9 @@ static const PADClampRegion ClampRegion = {
     44,
 };
 
-// functions
+// prototypes
 static void ClampStick(s8* px, s8* py, s8 max, s8 xy, s8 min);
+static void ClampCircle(s8* px, s8* py, s8 radius, s8 min);
 static void ClampTrigger(u8* trigger, u8 min, u8 max);
 
 static void ClampStick(s8* px, s8* py, s8 max, s8 xy, s8 min) {
@@ -81,7 +82,7 @@ static void ClampStick(s8* px, s8* py, s8 max, s8 xy, s8 min) {
     *py = (s8)(signY * y);
 }
 
-void ClampCircle(s8* px, s8* py, s8 radius, s8 min) {
+static void ClampCircle(s8* px, s8* py, s8 radius, s8 min) {
     int x = *px;
     int y = *py;
     int squared;
