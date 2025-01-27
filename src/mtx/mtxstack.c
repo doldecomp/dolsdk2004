@@ -2,101 +2,107 @@
 #include <dolphin/mtx.h>
 #include "fake_tgmath.h"
 
-// TODO: A bunch of pointless void casts because of Mtx type-ness.
-// Dunno how to resolve this at the moment.
+void MTXInitStack(MTXStack* sPtr, u32 numMtx) {
+    ASSERTMSGLINE(74, sPtr, "MTXInitStack():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(75, sPtr->stackBase, "MTXInitStack():  'sPtr' contains a NULL ptr to stack memory ");
+    ASSERTMSGLINE(76, numMtx, "MTXInitStack():  'numMtx' is 0 ");
 
-void MTXInitStack(MTXStack *sPtr, u32 numMtx) {
-    ASSERTMSGLINE(0x4A, sPtr, "MTXInitStack():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0x4B, sPtr->stackBase, "MTXInitStack():  'sPtr' contains a NULL ptr to stack memory ");
-    ASSERTMSGLINE(0x4C, numMtx, "MTXInitStack():  'numMtx' is 0 ");
     sPtr->numMtx = numMtx;
     sPtr->stackPtr = 0;
 }
 
-Mtx *MTXPush(MTXStack *sPtr, Mtx m) {
-    ASSERTMSGLINE(0x68, sPtr, "MTXPush():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0x69, sPtr->stackBase, "MTXPush():  'sPtr' contains a NULL ptr to stack memory ");
-    ASSERTMSGLINE(0x6A, m, "MTXPush():  NULL MtxPtr 'm' ");
-    if (sPtr->stackPtr == NULL) {
-        sPtr->stackPtr = sPtr->stackBase;
-        MTXCopy((void*)m, (void*)sPtr->stackPtr);
-    } else {
-        ASSERTMSGLINE(0x79, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPush():  stack overflow ");
-        MTXCopy((void*)m, (void*)(sPtr->stackPtr + 1));
-        sPtr->stackPtr++;
-    }
-    return sPtr->stackPtr;
-}
-
-Mtx *MTXPushFwd(MTXStack *sPtr, Mtx m) {
-    ASSERTMSGLINE(0x9D, sPtr, "MTXPushFwd():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0x9E, sPtr->stackBase, "MTXPushFwd():  'sPtr' contains a NULL ptr to stack memory ");
-    ASSERTMSGLINE(0x9F, m, "MTXPushFwd():  NULL MtxPtr 'm' ");
+MtxPtr MTXPush(MTXStack* sPtr, const Mtx m) {
+    ASSERTMSGLINE(104, sPtr, "MTXPush():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(105, sPtr->stackBase, "MTXPush():  'sPtr' contains a NULL ptr to stack memory ");
+    ASSERTMSGLINE(106, m, "MTXPush():  NULL MtxPtr 'm' ");
 
     if (sPtr->stackPtr == NULL) {
         sPtr->stackPtr = sPtr->stackBase;
-        MTXCopy((void*)m, (void*)sPtr->stackPtr);
+        MTXCopy(m, sPtr->stackPtr);
     } else {
-        ASSERTMSGLINE(0xAE, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPushFwd():  stack overflow");
-        MTXConcat((void*)sPtr->stackPtr, (void*)m, (void*)(sPtr->stackPtr + 1));
-        sPtr->stackPtr++;
+        ASSERTMSGLINE(121, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPush():  stack overflow ");
+        MTXCopy(m, sPtr->stackPtr + 3);
+        sPtr->stackPtr += 3;
     }
+
     return sPtr->stackPtr;
 }
 
-Mtx *MTXPushInv(MTXStack *sPtr, Mtx m) {
+MtxPtr MTXPushFwd(MTXStack* sPtr, const Mtx m) {
+    ASSERTMSGLINE(157, sPtr, "MTXPushFwd():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(158, sPtr->stackBase, "MTXPushFwd():  'sPtr' contains a NULL ptr to stack memory ");
+    ASSERTMSGLINE(159, m, "MTXPushFwd():  NULL MtxPtr 'm' ");
+
+    if (sPtr->stackPtr == NULL) {
+        sPtr->stackPtr = sPtr->stackBase;
+        MTXCopy(m, sPtr->stackPtr);
+    } else {
+        ASSERTMSGLINE(174, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPushFwd():  stack overflow");
+        MTXConcat(sPtr->stackPtr, m, sPtr->stackPtr + 3);
+        sPtr->stackPtr += 3;
+    }
+
+    return sPtr->stackPtr;
+}
+
+MtxPtr MTXPushInv(MTXStack* sPtr, const Mtx m) {
     Mtx mInv;
+    ASSERTMSGLINE(216, sPtr, "MTXPushInv():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(217, sPtr->stackBase, "MTXPushInv():  'sPtr' contains a NULL ptr to stack memory ");
+    ASSERTMSGLINE(218, m, "MTXPushInv():  NULL MtxPtr 'm' ");
 
-    ASSERTMSGLINE(0xD8, sPtr, "MTXPushInv():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0xD9, sPtr->stackBase, "MTXPushInv():  'sPtr' contains a NULL ptr to stack memory ");
-    ASSERTMSGLINE(0xDA, m, "MTXPushInv():  NULL MtxPtr 'm' ");
-    MTXInverse((void*)m, (void*)&mInv);
+    MTXInverse(m, mInv);
     if (sPtr->stackPtr == NULL) {
         sPtr->stackPtr = sPtr->stackBase;
-        MTXCopy((void*)&mInv, (void*)sPtr->stackPtr);
+        MTXCopy(mInv, sPtr->stackPtr);
     } else {
-        ASSERTMSGLINE(0xEC, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPushInv():  stack overflow");
-        MTXConcat((void*)&mInv, (void*)sPtr->stackPtr, (void*)(sPtr->stackPtr + 1));
-        sPtr->stackPtr++;
+        ASSERTMSGLINE(236, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPushInv():  stack overflow");
+        MTXConcat(mInv, sPtr->stackPtr, sPtr->stackPtr + 3);
+        sPtr->stackPtr += 3;
     }
+
     return sPtr->stackPtr;
 }
 
-Mtx *MTXPushInvXpose(MTXStack *sPtr, Mtx m) {
+MtxPtr MTXPushInvXpose(MTXStack* sPtr, const Mtx m) {
     Mtx mIT;
+    ASSERTMSGLINE(279, sPtr, "MTXPushInvXpose():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(280, sPtr->stackBase, "MTXPushInvXpose():  'sPtr' contains a NULL ptr to stack memory ");
+    ASSERTMSGLINE(281, m, "MTXPushInvXpose():  NULL MtxPtr 'm' ");
 
-    ASSERTMSGLINE(0x117, sPtr, "MTXPushInvXpose():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0x118, sPtr->stackBase, "MTXPushInvXpose():  'sPtr' contains a NULL ptr to stack memory ");
-    ASSERTMSGLINE(0x119, m, "MTXPushInvXpose():  NULL MtxPtr 'm' ");
-    MTXInverse((void*)m, (void*)&mIT);
-    MTXTranspose((void*)&mIT, (void*)&mIT);
+    MTXInverse(m, mIT);
+    MTXTranspose(mIT, mIT);
     if (sPtr->stackPtr == NULL) {
         sPtr->stackPtr = sPtr->stackBase;
-        MTXCopy((void*)&mIT, (void*)sPtr->stackPtr);
+        MTXCopy(mIT, sPtr->stackPtr);
     } else {
-        ASSERTMSGLINE(0x12C, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPushInvXpose():  stack overflow ");
-        MTXConcat((void*)sPtr->stackPtr, (void*)&mIT, (void*)(sPtr->stackPtr + 1));
-        sPtr->stackPtr++;
+        ASSERTMSGLINE(300, ((((s32)sPtr->stackPtr - (s32)sPtr->stackBase) / 16) / 3) < (sPtr->numMtx - 1), "MTXPushInvXpose():  stack overflow ");
+        MTXConcat(sPtr->stackPtr, mIT, sPtr->stackPtr + 3);
+        sPtr->stackPtr += 3;
     }
+
     return sPtr->stackPtr;
 }
 
-Mtx *MTXPop(MTXStack *sPtr) {
-    ASSERTMSGLINE(0x148, sPtr, "MTXPop():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0x149, sPtr->stackBase, "MTXPop():  'sPtr' contains a NULL ptr to stack memory ");
+MtxPtr MTXPop(MTXStack* sPtr) {
+    ASSERTMSGLINE(328, sPtr, "MTXPop():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(329, sPtr->stackBase, "MTXPop():  'sPtr' contains a NULL ptr to stack memory ");
+    
     if (sPtr->stackPtr == NULL) {
         return NULL;
     }
+
     if (sPtr->stackBase == sPtr->stackPtr) {
         sPtr->stackPtr = NULL;
         return NULL;
     }
-    sPtr->stackPtr--;
+
+    sPtr->stackPtr -= 3;
     return sPtr->stackPtr;
 }
 
-Mtx *MTXGetStackPtr(MTXStack *sPtr) {
-    ASSERTMSGLINE(0x16E, sPtr, "MTXGetStackPtr():  NULL MtxStackPtr 'sPtr' ");
-    ASSERTMSGLINE(0x16F, sPtr->stackBase, "MTXGetStackPtr():  'sPtr' contains a NULL ptr to stack memory ");
+MtxPtr MTXGetStackPtr(const MTXStack* sPtr) {
+    ASSERTMSGLINE(366, sPtr, "MTXGetStackPtr():  NULL MtxStackPtr 'sPtr' ");
+    ASSERTMSGLINE(367, sPtr->stackBase, "MTXGetStackPtr():  'sPtr' contains a NULL ptr to stack memory ");
     return sPtr->stackPtr;
 }

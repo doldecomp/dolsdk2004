@@ -2,24 +2,15 @@
 #include <dolphin/mtx.h>
 #include "fake_tgmath.h"
 
-// unsorted externs
-extern f32 sinf(f32);
-extern f32 cosf(f32);
-
 static f32 mtxUnit[] = {0.0f, 1.0f, 0.5f, 3.0f};
 
-// functions
-void C_MTXFrustum(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f);
-void C_MTXPerspective(Mtx m, f32 fovY, f32 aspect, f32 n, f32 f);
-void C_MTXOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f);
-
-void C_MTXFrustum(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) {
+void C_MTXFrustum(Mtx44 m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) {
     f32 tmp;
 
-    ASSERTMSGLINE(0x69, m, "MTXFrustum():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0x6A, t != b, "MTXFrustum():  't' and 'b' clipping planes are equal ");
-    ASSERTMSGLINE(0x6B, l != r, "MTXFrustum():  'l' and 'r' clipping planes are equal ");
-    ASSERTMSGLINE(0x6C, n != f, "MTXFrustum():  'n' and 'f' clipping planes are equal ");
+    ASSERTMSGLINE(105, m, "MTXFrustum():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(106, t != b, "MTXFrustum():  't' and 'b' clipping planes are equal ");
+    ASSERTMSGLINE(107, l != r, "MTXFrustum():  'l' and 'r' clipping planes are equal ");
+    ASSERTMSGLINE(108, n != f, "MTXFrustum():  'n' and 'f' clipping planes are equal ");
     tmp = 1 / (r - l);
     m[0][0] = (2 * n * tmp);
     m[0][1] = 0;
@@ -41,17 +32,17 @@ void C_MTXFrustum(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) {
     m[3][3] = 0;
 }
 
-void C_MTXPerspective(Mtx m, f32 fovY, f32 aspect, f32 n, f32 f) {
+void C_MTXPerspective(Mtx44 m, f32 fovY, f32 aspect, f32 n, f32 f) {
     f32 angle;
     f32 cot;
     f32 tmp;
 
-    ASSERTMSGLINE(0xB3, m, "MTXPerspective():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0xB4, (fovY > 0.0) && (fovY < 180.0), "MTXPerspective():  'fovY' out of range ");
-    ASSERTMSGLINE(0xB5, 0.0f != aspect, "MTXPerspective():  'aspect' is 0 ");
+    ASSERTMSGLINE(179, m, "MTXPerspective():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(180, (fovY > 0.0) && (fovY < 180.0), "MTXPerspective():  'fovY' out of range ");
+    ASSERTMSGLINE(181, 0.0f != aspect, "MTXPerspective():  'aspect' is 0 ");
 
     angle = (0.5f * fovY);
-    angle = angle * 0.017453293f;
+    angle = MTXDegToRad(angle);
     cot = 1 / tanf(angle);
     m[0][0] = (cot / aspect);
     m[0][1] = 0;
@@ -72,13 +63,13 @@ void C_MTXPerspective(Mtx m, f32 fovY, f32 aspect, f32 n, f32 f) {
     m[3][3] = 0;
 }
 
-void C_MTXOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) {
+void C_MTXOrtho(Mtx44 m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) {
     f32 tmp;
 
-    ASSERTMSGLINE(0xFE, m, "MTXOrtho():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0xFF, t != b, "MTXOrtho():  't' and 'b' clipping planes are equal ");
-    ASSERTMSGLINE(0x100, l != r, "MTXOrtho():  'l' and 'r' clipping planes are equal ");
-    ASSERTMSGLINE(0x101, n != f, "MTXOrtho():  'n' and 'f' clipping planes are equal ");
+    ASSERTMSGLINE(254, m, "MTXOrtho():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(255, t != b, "MTXOrtho():  't' and 'b' clipping planes are equal ");
+    ASSERTMSGLINE(256, l != r, "MTXOrtho():  'l' and 'r' clipping planes are equal ");
+    ASSERTMSGLINE(257, n != f, "MTXOrtho():  'n' and 'f' clipping planes are equal ");
     tmp = 1 / (r - l);
     m[0][0] = 2 * tmp;
     m[0][1] = 0;
@@ -101,7 +92,7 @@ void C_MTXOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) {
 }
 
 void C_MTX44Identity(Mtx44 m) {
-    ASSERTMSGLINE(0x144, m != 0, "MTX44Identity():  NULL Mtx44 'm' ");
+    ASSERTMSGLINE(324, m != 0, "MTX44Identity():  NULL Mtx44 'm' ");
 
     m[0][0] = 1.0f;
     m[0][1] = 0.0f;
@@ -140,8 +131,8 @@ void PSMTX44Identity(register Mtx44 m) {
 }
 
 void C_MTX44Copy(const Mtx44 src, Mtx44 dst) {
-    ASSERTMSGLINE(0x17E, src != 0, "MTX44Copy():  NULL Mtx44Ptr 'src' ");
-    ASSERTMSGLINE(0x17F, dst != 0, "MTX44Copy():  NULL Mtx44Ptr 'dst' ");
+    ASSERTMSGLINE(382, src != 0, "MTX44Copy():  NULL Mtx44Ptr 'src' ");
+    ASSERTMSGLINE(383, dst != 0, "MTX44Copy():  NULL Mtx44Ptr 'dst' ");
 
     if (src != dst) {
         dst[0][0] = src[0][0];
@@ -188,9 +179,9 @@ void C_MTX44Concat(const Mtx44 a, const Mtx44 b, Mtx44 ab) {
     Mtx44 mTmp;
     Mtx44Ptr m;
 
-    ASSERTMSGLINE(0x1C6, a, "MTX44Concat():  NULL Mtx44Ptr 'a'  ");
-    ASSERTMSGLINE(0x1C7, b, "MTX44Concat():  NULL Mtx44Ptr 'b'  ");
-    ASSERTMSGLINE(0x1C8, ab, "MTX44Concat():  NULL Mtx44Ptr 'ab' ");
+    ASSERTMSGLINE(454, a, "MTX44Concat():  NULL Mtx44Ptr 'a'  ");
+    ASSERTMSGLINE(455, b, "MTX44Concat():  NULL Mtx44Ptr 'b'  ");
+    ASSERTMSGLINE(456, ab, "MTX44Concat():  NULL Mtx44Ptr 'ab' ");
 
     if (ab == a || ab == b) {
         m = mTmp;
@@ -296,8 +287,8 @@ void C_MTX44Transpose(const Mtx44 src, Mtx44 xPose) {
     Mtx44 mTmp;
     Mtx44Ptr m;
 
-    ASSERTMSGLINE(0x27D, src, "MTX44Transpose():  NULL Mtx44Ptr 'src' ");
-    ASSERTMSGLINE(0x27E, xPose, "MTX44Transpose():  NULL Mtx44Ptr 'xPose' ");
+    ASSERTMSGLINE(637, src, "MTX44Transpose():  NULL Mtx44Ptr 'src' ");
+    ASSERTMSGLINE(638, xPose, "MTX44Transpose():  NULL Mtx44Ptr 'xPose' ");
 
     if (src == xPose) {
         m = mTmp;
@@ -364,7 +355,7 @@ asm void PSMTX44Transpose(const register Mtx44 src, register Mtx44 xPose) {
         b = tmp;   \
     }
 
-unsigned long C_MTX44Inverse(const Mtx44 src, Mtx44 inv) {
+u32 C_MTX44Inverse(const Mtx44 src, Mtx44 inv) {
     Mtx44 gjm;
     s32 i;
     s32 j;
@@ -374,8 +365,8 @@ unsigned long C_MTX44Inverse(const Mtx44 src, Mtx44 inv) {
     s32 swp;
     f32 ftmp;
 
-    ASSERTMSGLINE(0x2DE, src, "MTX44Inverse():  NULL Mtx44Ptr 'src' ");
-    ASSERTMSGLINE(0x2DF, inv, "MTX44Inverse():  NULL Mtx44Ptr 'inv' ");
+    ASSERTMSGLINE(734, src, "MTX44Inverse():  NULL Mtx44Ptr 'src' ");
+    ASSERTMSGLINE(735, inv, "MTX44Inverse():  NULL Mtx44Ptr 'inv' ");
 
     MTX44Copy(src, gjm);
     MTX44Identity(inv);
@@ -424,7 +415,7 @@ unsigned long C_MTX44Inverse(const Mtx44 src, Mtx44 inv) {
 }
 
 void C_MTX44Trans(Mtx44 m, f32 xT, f32 yT, f32 zT) {
-    ASSERTMSGLINE(0x343, m, "MTX44Trans():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(835, m, "MTX44Trans():  NULL Mtx44Ptr 'm' ");
 
     m[0][0] = 1.0f;
     m[0][1] = 0.0f;
@@ -469,8 +460,8 @@ void PSMTX44Trans(register Mtx44 m, register f32 xT, register f32 yT, register f
 }
 
 void C_MTX44TransApply(const Mtx44 src, Mtx44 dst, f32 xT, f32 yT, f32 zT) {
-    ASSERTMSGLINE(0x383, src, "MTX44TransApply(): NULL Mtx44Ptr 'src' ");
-    ASSERTMSGLINE(0x384, dst, "MTX44TransApply(): NULL Mtx44Ptr 'src' "); //! wrong assert string
+    ASSERTMSGLINE(899, src, "MTX44TransApply(): NULL Mtx44Ptr 'src' ");
+    ASSERTMSGLINE(900, dst, "MTX44TransApply(): NULL Mtx44Ptr 'src' "); //! wrong assert string
 
     if (src != dst) {
         dst[0][0] = src[0][0];
@@ -525,7 +516,7 @@ asm void PSMTX44TransApply(const register Mtx44 src, register Mtx44 dst, registe
 }
 
 void C_MTX44Scale(Mtx44 m, f32 xS, f32 yS, f32 zS) {
-    ASSERTMSGLINE(0x3D0, m, "MTX44Scale():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(976, m, "MTX44Scale():  NULL Mtx44Ptr 'm' ");
     m[0][0] = xS;
     m[0][1] = 0.0f;
     m[0][2] = 0.0f;
@@ -566,8 +557,8 @@ void PSMTX44Scale(register Mtx44 m, register f32 xS, register f32 yS, register f
 }
 
 void C_MTX44ScaleApply(const Mtx44 src, Mtx44 dst, f32 xS, f32 yS, f32 zS) {
-    ASSERTMSGLINE(0x40C, src, "MTX44ScaleApply(): NULL Mtx44Ptr 'src' ");
-    ASSERTMSGLINE(0x40D, dst, "MTX44ScaleApply(): NULL Mtx44Ptr 'dst' ");
+    ASSERTMSGLINE(1036, src, "MTX44ScaleApply(): NULL Mtx44Ptr 'src' ");
+    ASSERTMSGLINE(1037, dst, "MTX44ScaleApply(): NULL Mtx44Ptr 'dst' ");
 
     dst[0][0] = (src[0][0] * xS);
     dst[0][1] = (src[0][1] * xS);
@@ -624,7 +615,7 @@ void C_MTX44RotRad(Mtx44 m, char axis, f32 rad) {
     f32 sinA;
     f32 cosA;
 
-    ASSERTMSGLINE(0x45E, m, "MTX44RotRad():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(1118, m, "MTX44RotRad():  NULL Mtx44Ptr 'm' ");
     sinA = sinf(rad);
     cosA = cosf(rad);
     C_MTX44RotTrig(m, axis, sinA, cosA);
@@ -640,11 +631,11 @@ void PSMTX44RotRad(Mtx44 m, char axis, f32 rad) {
 }
 
 void C_MTX44RotTrig(Mtx44 m, char axis, f32 sinA, f32 cosA) {
-    ASSERTMSGLINE(0x48B, m, "MTX44RotTrig():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(1163, m, "MTX44RotTrig():  NULL Mtx44Ptr 'm' ");
 
     axis |= 0x20;
     switch(axis) {
-    case 120:
+    case 'x':
         m[0][0] = 1.0f;
         m[0][1] = 0.0f;
         m[0][2] = 0.0f;
@@ -662,7 +653,7 @@ void C_MTX44RotTrig(Mtx44 m, char axis, f32 sinA, f32 cosA) {
         m[3][2] = 0.0f;
         m[3][3] = 1.0f;
         break;
-    case 121:
+    case 'y':
         m[0][0] = cosA;
         m[0][1] = 0.0f;
         m[0][2] = sinA;
@@ -680,7 +671,7 @@ void C_MTX44RotTrig(Mtx44 m, char axis, f32 sinA, f32 cosA) {
         m[3][2] = 0.0f;
         m[3][3] = 1.0f;
         break;
-    case 122:
+    case 'z':
         m[0][0] = cosA;
         m[0][1] = -sinA;
         m[0][2] = 0.0f;
@@ -699,7 +690,7 @@ void C_MTX44RotTrig(Mtx44 m, char axis, f32 sinA, f32 cosA) {
         m[3][3] = 1.0f;
         break;
     default:
-        ASSERTMSGLINE(0x4A7, FALSE, "MTX44RotTrig():  invalid 'axis' value ");
+        ASSERTMSGLINE(1191, FALSE, "MTX44RotTrig():  invalid 'axis' value ");
         break;
     }
 }
@@ -718,11 +709,11 @@ void PSMTX44RotTrig(register Mtx44 m, register char axis, register f32 sinA, reg
         frsp sinA, sinA
         ori axis, axis, 0x20
         frsp cosA, cosA
-        cmplwi axis, 0x78
+        cmplwi axis, 'x'
         beq L_00001AB4
-        cmplwi axis, 0x79
+        cmplwi axis, 'y'
         beq L_00001AE8
-        cmplwi axis, 0x7a
+        cmplwi axis, 'z'
         beq L_00001B20
         b L_00001B54
     L_00001AB4:
@@ -784,8 +775,8 @@ void C_MTX44RotAxisRad(Mtx44 m, const Vec* axis, f32 rad) {
     f32 ySq;
     f32 zSq;
 
-    ASSERTMSGLINE(0x514, m, "MTX44RotAxisRad():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0x515, axis, "MTX44RotAxisRad():  NULL VecPtr 'axis' ");
+    ASSERTMSGLINE(1300, m, "MTX44RotAxisRad():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(1301, axis, "MTX44RotAxisRad():  NULL VecPtr 'axis' ");
 
     s = sinf(rad);
     c = cosf(rad);

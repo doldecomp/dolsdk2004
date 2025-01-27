@@ -2,15 +2,13 @@
 #include <dolphin/mtx.h>
 #include "fake_tgmath.h"
 
-#define qr0 0
-
-void C_MTX44MultVec(Mtx44 m, Vec *src, Vec *dst) {
+void C_MTX44MultVec(const Mtx44 m, const Vec* src, Vec* dst) {
     Vec vTmp;
     f32 w;
 
-    ASSERTMSGLINE(0x43, m, "MTX44MultVec():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0x44, src, "MTX44MultVec():  NULL VecPtr 'src' ");
-    ASSERTMSGLINE(0x45, dst, "MTX44MultVec():  NULL VecPtr 'dst' ");
+    ASSERTMSGLINE(67, m, "MTX44MultVec():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(68, src, "MTX44MultVec():  NULL VecPtr 'src' ");
+    ASSERTMSGLINE(69, dst, "MTX44MultVec():  NULL VecPtr 'dst' ");
 
     vTmp.x = m[0][0] * src->x + m[0][1] * src->y + m[0][2] * src->z + m[0][3];
     vTmp.y = m[1][0] * src->x + m[1][1] * src->y + m[1][2] * src->z + m[1][3];
@@ -23,7 +21,7 @@ void C_MTX44MultVec(Mtx44 m, Vec *src, Vec *dst) {
     dst->z = vTmp.z * w;
 }
 
-asm void PSMTX44MultVec(register Mtx44 m, register Vec *src, register Vec *dst) {
+asm void PSMTX44MultVec(const register Mtx44 m, const register Vec* src, register Vec* dst) {
     nofralloc
     psq_l f0, 0x0(src), 0, 0
     psq_l f2, 0x30(m), 0, 0
@@ -57,14 +55,14 @@ asm void PSMTX44MultVec(register Mtx44 m, register Vec *src, register Vec *dst) 
     blr
 }
 
-void C_MTX44MultVecArray(Mtx m, Vec *srcBase, Vec *dstBase, u32 count) {
+void C_MTX44MultVecArray(const Mtx44 m, const Vec* srcBase, Vec* dstBase, u32 count) {
     u32 i;
     Vec vTmp;
     f32 w;
 
-    ASSERTMSGLINE(0x9A, m, "MTX44MultVecArray():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0x9B, srcBase, "MTX44MultVecArray():  NULL VecPtr 'srcBase' ");
-    ASSERTMSGLINE(0x9C, dstBase, "MTX44MultVecArray():  NULL VecPtr 'dstBase' ");
+    ASSERTMSGLINE(154, m, "MTX44MultVecArray():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(155, srcBase, "MTX44MultVecArray():  NULL VecPtr 'srcBase' ");
+    ASSERTMSGLINE(156, dstBase, "MTX44MultVecArray():  NULL VecPtr 'dstBase' ");
 
     for(i = 0; i < count; i++) {
         vTmp.x = m[0][0] * srcBase->x + m[0][1] * srcBase->y + m[0][2] * srcBase->z + m[0][3];
@@ -80,7 +78,7 @@ void C_MTX44MultVecArray(Mtx m, Vec *srcBase, Vec *dstBase, u32 count) {
     }
 }
 
-asm void PSMTX44MultVecArray(register Mtx m, register Vec *srcBase, register Vec *dstBase, register u32 count) {
+asm void PSMTX44MultVecArray(const register Mtx44 m, const register Vec* srcBase, register Vec* dstBase, register u32 count) {
     nofralloc
     stwu r1, -0x10(r1)
     subi count, count, 0x1
@@ -145,12 +143,12 @@ L_00000468:
     blr
 }
 
-void C_MTX44MultVecSR(Mtx44 m, Vec *src, Vec *dst) {
+void C_MTX44MultVecSR(const Mtx44 m, const Vec* src, Vec* dst) {
     Vec vTmp;
 
-    ASSERTMSGLINE(0x120, m, "MTX44MultVecSR():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0x121, src, "MTX44MultVecSR():  NULL VecPtr 'src' ");
-    ASSERTMSGLINE(0x122, dst, "MTX44MultVecSR():  NULL VecPtr 'dst' ");
+    ASSERTMSGLINE(288, m, "MTX44MultVecSR():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(289, src, "MTX44MultVecSR():  NULL VecPtr 'src' ");
+    ASSERTMSGLINE(290, dst, "MTX44MultVecSR():  NULL VecPtr 'dst' ");
     vTmp.x = (m[0][2] * src->z) + ((m[0][0] * src->x) + (m[0][1] * src->y));
     vTmp.y = (m[1][2] * src->z) + ((m[1][0] * src->x) + (m[1][1] * src->y));
     vTmp.z = (m[2][2] * src->z) + ((m[2][0] * src->x) + (m[2][1] * src->y));
@@ -184,13 +182,13 @@ asm void PSMTX44MultVecSR(const register Mtx m, const register Vec* src, registe
     blr
 }
 
-void C_MTX44MultVecArraySR(Mtx44 m, Vec *srcBase, Vec *dstBase, u32 count) {
+void C_MTX44MultVecArraySR(const Mtx44 m, const Vec* srcBase, Vec* dstBase, u32 count) {
     u32 i;
     Vec vTmp;
 
-    ASSERTMSGLINE(0x17B, m, "MTX44MultVecArraySR():  NULL Mtx44Ptr 'm' ");
-    ASSERTMSGLINE(0x17C, srcBase, "MTX44MultVecArraySR():  NULL VecPtr 'srcBase' ");
-    ASSERTMSGLINE(0x17D, dstBase, "MTX44MultVecArraySR():  NULL VecPtr 'dstBase' ");
+    ASSERTMSGLINE(379, m, "MTX44MultVecArraySR():  NULL Mtx44Ptr 'm' ");
+    ASSERTMSGLINE(380, srcBase, "MTX44MultVecArraySR():  NULL VecPtr 'srcBase' ");
+    ASSERTMSGLINE(381, dstBase, "MTX44MultVecArraySR():  NULL VecPtr 'dstBase' ");
 
     for(i = 0; i < count; i++) {
         vTmp.x = (m[0][2] * srcBase->z) + ((m[0][0] * srcBase->x) + (m[0][1] * srcBase->y));
@@ -204,7 +202,7 @@ void C_MTX44MultVecArraySR(Mtx44 m, Vec *srcBase, Vec *dstBase, u32 count) {
     }
 }
 
-asm void PSMTX44MultVecArraySR(const register Mtx m, const register Vec* srcBase, register Vec* dstBase, register u32 count) {
+asm void PSMTX44MultVecArraySR(const register Mtx44 m, const register Vec* srcBase, register Vec* dstBase, register u32 count) {
     nofralloc
     psq_l f0, 0x0(m), 0, 0
     subi count, count, 0x1
