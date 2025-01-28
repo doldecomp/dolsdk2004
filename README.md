@@ -33,7 +33,7 @@ Currently this repository supports building the following libraries:
 | gd           | :x: |
 | gx           | :warning: |
 | hio          | :heavy_check_mark: |
-| mcc          | :x: |
+| mcc          | :heavy_check_mark: |
 | mix          | :x: |
 | mtx          | :heavy_check_mark: |
 | odemustubs   | :heavy_check_mark: |

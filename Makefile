@@ -204,7 +204,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -277,6 +277,10 @@ amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
 hio_c_files := $(wildcard src/hio/*.c)
 hio.a  : $(addprefix $(BUILD_DIR)/release/,$(hio_c_files:.c=.o))
 hioD.a : $(addprefix $(BUILD_DIR)/debug/,$(hio_c_files:.c=.o))
+
+mcc_c_files := $(wildcard src/mcc/*.c)
+mcc.a  : $(addprefix $(BUILD_DIR)/release/,$(mcc_c_files:.c=.o))
+mccD.a : $(addprefix $(BUILD_DIR)/debug/,$(mcc_c_files:.c=.o))
 
 pad_c_files := $(wildcard src/pad/*.c)
 pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
