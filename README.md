@@ -42,7 +42,7 @@ Currently this repository supports building the following libraries:
 | pad          | :heavy_check_mark: |
 | perf         | :x: |
 | seq          | :x: |
-| si           | :x: |
+| si           | :heavy_check_mark: |
 | sp           | :x: |
 | support      | :x: |
 | syn          | :x: |
