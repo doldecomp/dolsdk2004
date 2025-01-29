@@ -3,8 +3,7 @@
 
 #include <dolphin/types.h>
 
-typedef struct DVDDiskID
-{
+typedef struct DVDDiskID {
     char gameName[4];
     char company[2];
     u8 diskNumber;
@@ -15,21 +14,20 @@ typedef struct DVDDiskID
 } DVDDiskID;
 
 typedef struct DVDCommandBlock DVDCommandBlock;
-typedef void (*DVDCBCallback)(s32 result, DVDCommandBlock *block);
-struct DVDCommandBlock
-{
-    /*0x00*/ DVDCommandBlock *next;
-    /*0x04*/ DVDCommandBlock *prev;
-    /*0x08*/ u32 command;
-    /*0x0C*/ s32 state;
-    /*0x10*/ u32 offset;
-    /*0x14*/ u32 length;
-    /*0x18*/ void *addr;
-    /*0x1C*/ u32 currTransferSize;
-    /*0x20*/ u32 transferredSize;
-    /*0x24*/ DVDDiskID *id;
-    /*0x28*/ DVDCBCallback callback;
-    /*0x2C*/ void *userData;
+typedef void (*DVDCBCallback)(s32 result, DVDCommandBlock* block);
+struct DVDCommandBlock {
+    /* 0x00 */ DVDCommandBlock* next;
+    /* 0x04 */ DVDCommandBlock* prev;
+    /* 0x08 */ u32 command;
+    /* 0x0C */ s32 state;
+    /* 0x10 */ u32 offset;
+    /* 0x14 */ u32 length;
+    /* 0x18 */ void* addr;
+    /* 0x1C */ u32 currTransferSize;
+    /* 0x20 */ u32 transferredSize;
+    /* 0x24 */ DVDDiskID* id;
+    /* 0x28 */ DVDCBCallback callback;
+    /* 0x2C */ void* userData;
 };
 
 typedef struct DVDFileInfo  DVDFileInfo;
