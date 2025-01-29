@@ -170,6 +170,7 @@ CC        = $(MWCC)
 
 CHARFLAGS          := -char unsigned
 RELEASE_OPTLEVEL   := -O4,p
+SYM_ON             := -sym on
 
 # why. Did some SDK libs (like CARD) prefer char signed over unsigned? TODO: Figure out consistency behind this.
 build/debug/src/card/CARDRename.o: CHARFLAGS := -char signed
@@ -183,6 +184,9 @@ build/debug/src/mtx/mtx44.o: CHARFLAGS := -char signed
 build/release/src/mtx/mtx44.o: CHARFLAGS := -char signed
 
 build/release/src/exi/EXIBios.o: RELEASE_OPTLEVEL := -O3,p
+
+# no sym on for GDIndirect?
+build/release/src/gd/GDIndirect.o: SYM_ON := 
 
 %/stub.o: CFLAGS += -warn off
 
@@ -204,7 +208,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -254,7 +258,7 @@ build/debug/src/%.o: src/%.c
 
 build/release/src/%.o: src/%.c
 	@echo 'Compiling $< (release)'
-	$(QUIET)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto -sym on $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
+	$(QUIET)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto $(SYM_ON) $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
 
 ################################ Build AR Files ###############################
 
@@ -269,6 +273,10 @@ cardD.a : $(addprefix $(BUILD_DIR)/debug/,$(card_c_files:.c=.o))
 gx_c_files := $(wildcard src/gx/*.c)
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
 gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
+
+gd_c_files := $(wildcard src/gd/*.c)
+gd.a  : $(addprefix $(BUILD_DIR)/release/,$(gd_c_files:.c=.o))
+gdD.a : $(addprefix $(BUILD_DIR)/debug/,$(gd_c_files:.c=.o))
 
 amcstubs_c_files := $(wildcard src/amcstubs/*.c)
 amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
