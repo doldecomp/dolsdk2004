@@ -20,7 +20,7 @@ Currently this repository supports building the following libraries:
 | ax           | :x: |
 | axart        | :x: |
 | axfx         | :x: |
-| base         | :x: |
+| base         | :heavy_check_mark: |
 | card         | :heavy_check_mark: |
 | db           | :x: |
 | demo         | :x: |
