@@ -213,7 +213,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -291,6 +291,14 @@ baseD.a : $(addprefix $(BUILD_DIR)/debug/,$(base_c_files:.c=.o))
 card_c_files := $(wildcard src/card/*.c)
 card.a  : $(addprefix $(BUILD_DIR)/release/,$(card_c_files:.c=.o))
 cardD.a : $(addprefix $(BUILD_DIR)/debug/,$(card_c_files:.c=.o))
+
+db_c_files := $(wildcard src/db/*.c)
+db.a  : $(addprefix $(BUILD_DIR)/release/,$(db_c_files:.c=.o))
+dbD.a : $(addprefix $(BUILD_DIR)/debug/,$(db_c_files:.c=.o))
+
+dsp_c_files := $(wildcard src/dsp/*.c)
+dsp.a  : $(addprefix $(BUILD_DIR)/release/,$(dsp_c_files:.c=.o))
+dspD.a : $(addprefix $(BUILD_DIR)/debug/,$(dsp_c_files:.c=.o))
 
 dvd_c_files := $(wildcard src/dvd/*.c)
 dvd.a  : $(addprefix $(BUILD_DIR)/release/,$(dvd_c_files:.c=.o))
