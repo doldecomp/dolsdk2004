@@ -163,6 +163,8 @@ endif
 
 DTK     := $(TOOLS_DIR)/dtk$(EXE)
 DTK_VERSION := 0.7.4
+SJISWRAP := $(TOOLS_DIR)/sjiswrap$(EXE)
+SJISWRAP_VERSION := 1.2.0
 
 CC        = $(MWCC)
 
@@ -177,6 +179,9 @@ build/debug/src/card/CARDRename.o: CHARFLAGS := -char signed
 build/release/src/card/CARDRename.o: CHARFLAGS := -char signed
 build/debug/src/card/CARDOpen.o: CHARFLAGS := -char signed
 build/release/src/card/CARDOpen.o: CHARFLAGS := -char signed
+
+build/debug/src/dvd/%.o: CHARFLAGS := -char signed
+build/release/src/dvd/%.o: CHARFLAGS := -char signed
 
 build/debug/src/mtx/mtx.o: CHARFLAGS := -char signed
 build/release/src/mtx/mtx.o: CHARFLAGS := -char signed
@@ -208,7 +213,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -248,17 +253,18 @@ check-dtk: $(TOOLS_DIR)
 	@version=$$($(DTK) --version | awk '{print $$2}'); \
 	if [ "$(DTK_VERSION)" != "$$version" ]; then \
 		$(PYTHON) tools/download_dtk.py dtk $(DTK) --tag "v$(DTK_VERSION)"; \
+    $(PYTHON) tools/download_dtk.py sjiswrap $(SJISWRAP) --tag "v$(SJISWRAP_VERSION)"; \
 	fi
 
 $(DTK): check-dtk
 
 build/debug/src/%.o: src/%.c
 	@echo 'Compiling $< (debug)'
-	$(QUIET)$(CC) -c -opt level=0 -inline off -schedule off -sym on $(CFLAGS) -I- $(INCLUDES) -DDEBUG $< -o $@
+	$(QUIET)$(SJISWRAP)$(CC) -c -opt level=0 -inline off -schedule off -sym on $(CFLAGS) -I- $(INCLUDES) -DDEBUG $< -o $@
 
 build/release/src/%.o: src/%.c
 	@echo 'Compiling $< (release)'
-	$(QUIET)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto $(SYM_ON) $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
+	$(QUIET)$(SJISWRAP)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto $(SYM_ON) $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
 
 ################################ Build AR Files ###############################
 
@@ -269,6 +275,10 @@ amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
 card_c_files := $(wildcard src/card/*.c)
 card.a  : $(addprefix $(BUILD_DIR)/release/,$(card_c_files:.c=.o))
 cardD.a : $(addprefix $(BUILD_DIR)/debug/,$(card_c_files:.c=.o))
+
+dvd_c_files := $(wildcard src/dvd/*.c)
+dvd.a  : $(addprefix $(BUILD_DIR)/release/,$(dvd_c_files:.c=.o))
+dvdD.a  : $(addprefix $(BUILD_DIR)/debug/,$(dvd_c_files:.c=.o))
 
 gx_c_files := $(wildcard src/gx/*.c)
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
