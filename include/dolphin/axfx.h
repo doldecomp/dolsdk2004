@@ -1,6 +1,12 @@
 #ifndef _DOLPHIN_AXFX_H_
 #define _DOLPHIN_AXFX_H_
 
+#include <dolphin/types.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct AXFX_REVSTD_DELAYLINE {
     /* 0x00 */ long inPoint;
     /* 0x04 */ long outPoint;
@@ -145,5 +151,9 @@ int AXFXReverbStdInit(struct AXFX_REVERBSTD * rev);
 int AXFXReverbStdShutdown(struct AXFX_REVERBSTD * rev);
 int AXFXReverbStdSettings(struct AXFX_REVERBSTD * rev);
 void AXFXReverbStdCallback(struct AXFX_BUFFERUPDATE * bufferUpdate, struct AXFX_REVERBSTD * reverb);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_AXFX_H_

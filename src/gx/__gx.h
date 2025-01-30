@@ -1,3 +1,12 @@
+#ifndef _DOLPHIN_GX_INTERNAL_H_
+#define _DOLPHIN_GX_INTERNAL_H_
+
+#include <dolphin/types.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define GX_WRITE_U8(ub)     \
     GXWGFifo.u8 = (u8)(ub)
 
@@ -181,19 +190,19 @@ void __GXFlushTextureState(void);
 
 // GXFifoObj private data
 struct __GXFifoObj {
-    u8 *base;
-    u8 *top;
+    u8* base;
+    u8* top;
     u32 size;
     u32 hiWatermark;
     u32 loWatermark;
-    void *rdPtr;
-    void *wrPtr;
+    void* rdPtr;
+    void* wrPtr;
     s32 count;
     u8 bind_cpu;
     u8 bind_gp;
 };
 
-void __GXSaveCPUFifoAux(struct __GXFifoObj *realFifo);
+void __GXSaveCPUFifoAux(struct __GXFifoObj* realFifo);
 void __GXFifoInit(void);
 void __GXInsaneWatermark(void);
 void __GXCleanGPFifo(void);
@@ -289,11 +298,11 @@ struct __GXData_struct {
     unsigned long dirtyState; // offset 0x5AC, size 0x4
 };
 
-extern struct __GXData_struct * const __GXData;
-extern void *__memReg;
-extern void *__peReg;
-extern void *__cpReg;
-extern void *__piReg;
+extern struct __GXData_struct* const __GXData;
+extern void* __memReg;
+extern void* __peReg;
+extern void* __cpReg;
+extern void* __piReg;
 #if DEBUG
 extern GXBool __GXinBegin;
 #endif
@@ -368,7 +377,7 @@ static inline u32 __GXReadPECounterU32(u32 regAddrL, u32 regAddrH) {
 
 /* GXSave.c */
 
-void __GXShadowDispList(void *list, u32 nbytes);
+void __GXShadowDispList(void* list, u32 nbytes);
 void __GXShadowIndexState(u32 idx_reg, u32 reg_data);
 void __GXPrintShadowState(void);
 
@@ -378,9 +387,9 @@ void __GXSetRange(float nearz, float fgSideX);
 
 /* GXTexture.c */
 
-void __GetImageTileCount(GXTexFmt fmt, u16 wd, u16 ht, u32 *rowTiles, u32 *colTiles, u32 *cmpTiles);
+void __GetImageTileCount(GXTexFmt fmt, u16 wd, u16 ht, u32* rowTiles, u32* colTiles, u32* cmpTiles);
 void __GXSetSUTexRegs(void);
-void __GXGetSUTexSize(GXTexCoordID coord, u16 *width, u16 *height);
+void __GXGetSUTexSize(GXTexCoordID coord, u16* width, u16* height);
 void __GXSetTmemConfig(u32 config);
 
 /* GXTransform.c */
@@ -548,8 +557,8 @@ struct __GXVerifyData {
     u8 xfLightDirty[128]; // offset 0x1378, size 0x80
 };
 
-extern struct __GXVerifyData *__gxVerif;
-extern char *__gxvWarnings[125];
+extern struct __GXVerifyData* __gxVerif;
+extern char* __gxvWarnings[125];
 extern char __gxvDummyStr[256];
 extern GXWarningLevel __gxvWarnLev[];
 
@@ -560,3 +569,9 @@ void __GXVerifyState(GXVtxFmt vtxfmt);
 /* GXVerifXF.c */
 
 void __GXVerifyXF(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

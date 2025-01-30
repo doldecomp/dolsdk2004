@@ -3,6 +3,10 @@
 
 #include <dolphin/syn.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct _SEQTRACK {
     /* 0x00 */ void * sequence;
     /* 0x04 */ u8 * start;
@@ -43,5 +47,9 @@ void SEQSetTempo(SEQSEQUENCE * sequence, u32 trackIndex, float bpm);
 f32 SEQGetTempo(SEQSEQUENCE * sequence, u32 trackIndex);
 void SEQSetVolume(SEQSEQUENCE * sequence, long dB);
 long SEQGetVolume(SEQSEQUENCE * sequence);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_SEQ_H_

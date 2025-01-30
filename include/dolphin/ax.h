@@ -1,6 +1,12 @@
 #ifndef _DOLPHIN_AX_H_
 #define _DOLPHIN_AX_H_
 
+#include <dolphin/types.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct _AXPBMIX {
     /* 0x00 */ u16 vL;
     /* 0x02 */ u16 vDeltaL;
@@ -291,5 +297,9 @@ u32 AXGetDspCycles(void);
 // DSPCode.c
 extern u16 axDspSlaveLength;
 extern u16 axDspSlave[AX_DSP_SLAVE_LENGTH];
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_AX_H_

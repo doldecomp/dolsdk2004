@@ -3,10 +3,13 @@
 
 #include <dolphin/types.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef void (*ARQCallback)(u32 pointerToARQRequest);
 
-struct ARQRequest
-{
+struct ARQRequest {
     /* 0x00 */ struct ARQRequest *next;
     /* 0x04 */ u32 owner;
     /* 0x08 */ u32 type;
@@ -35,27 +38,34 @@ typedef struct ARQRequest ARQRequest;
 #define ARQ_PRIORITY_LOW  0
 #define ARQ_PRIORITY_HIGH 1
 
-// ar.c
+// AR
 ARQCallback ARRegisterDMACallback(ARQCallback callback);
 u32 ARGetDMAStatus(void);
 void ARStartDMA(u32 type, u32 mainmem_addr, u32 aram_addr, u32 length);
 u32 ARAlloc(u32 length);
-u32 ARFree(u32 * length);
-int ARCheckInit(void);
-u32 ARInit(u32 * stack_index_addr, u32 num_entries);
+u32 ARFree(u32* length);
+BOOL ARCheckInit(void);
+u32 ARInit(u32* stack_index_addr, u32 num_entries);
 void ARReset(void);
 void ARSetSize(void);
 u32 ARGetBaseAddress(void);
 u32 ARGetSize(void);
+u32 ARGetInternalSize(void);
+void ARClear(u32 flag);
 
-// arq.c
+// ARQ
 void ARQInit(void);
 void ARQReset(void);
-void ARQPostRequest(struct ARQRequest * request, u32 owner, u32 type, u32 priority, u32 source, u32 dest, u32 length, ARQCallback callback);
-void ARQRemoveRequest(struct ARQRequest * request);
+void ARQPostRequest(ARQRequest* request, u32 owner, u32 type, u32 priority, u32 source, u32 dest, u32 length, ARQCallback callback);
+void ARQRemoveRequest(ARQRequest* request);
 void ARQRemoveOwnerRequest(u32 owner);
 void ARQFlushQueue(void);
 void ARQSetChunkSize(u32 size);
 u32 ARQGetChunkSize(void);
+BOOL ARQCheckInit(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

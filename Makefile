@@ -213,7 +213,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -279,6 +279,10 @@ amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
 amcstubs_c_files := $(wildcard src/amcstubs/*.c)
 amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
 amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
+
+ar_c_files := $(wildcard src/ar/*.c)
+ar.a  : $(addprefix $(BUILD_DIR)/release/,$(ar_c_files:.c=.o))
+arD.a : $(addprefix $(BUILD_DIR)/debug/,$(ar_c_files:.c=.o))
 
 base_c_files := $(wildcard src/base/*.c)
 base.a  : $(addprefix $(BUILD_DIR)/release/,$(base_c_files:.c=.o))

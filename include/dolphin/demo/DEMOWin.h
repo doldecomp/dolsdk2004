@@ -1,6 +1,12 @@
 #ifndef _DOLPHIN_DEMOWIN_H_
 #define _DOLPHIN_DEMOWIN_H_
 
+#include <dolphin/gx.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum DEMOWinItem {
     DEMOWIN_ITEM_CAP,
     DEMOWIN_ITEM_BKGND,
@@ -70,5 +76,9 @@ void DEMOWinDestroyListWindow(struct STRUCT_LISTBOX * list);
 void DEMOWinListSetCursor(struct STRUCT_LISTBOX * list, int x);
 long DEMOWinListScrollList(struct STRUCT_LISTBOX * list, unsigned long dir);
 long DEMOWinListMoveCursor(struct STRUCT_LISTBOX * list, unsigned long dir);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_DEMOWIN_H_

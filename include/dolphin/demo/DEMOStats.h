@@ -1,6 +1,12 @@
 #ifndef _DOLPHIN_DEMOSTATS_H_
 #define _DOLPHIN_DEMOSTATS_H_
 
+#include <dolphin/gx.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum DEMO_STAT_TYPE {
     DEMO_STAT_GP0 = 0,
     DEMO_STAT_GP1 = 1,
@@ -34,5 +40,9 @@ extern unsigned char DemoStatEnable;
 void DEMOSetStats(DemoStatData * stat, unsigned long nstats, DEMO_STAT_DISP disp);
 void DEMOUpdateStats(unsigned char inc);
 void DEMOPrintStats(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_DEMOSTATS_H_

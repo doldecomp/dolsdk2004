@@ -4,6 +4,10 @@
 #include <dolphin/pad.h>
 #include <dolphin/gx.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct STRUCT_MENU_ITEM {
     /* 0x00 */ char * name;
     /* 0x04 */ unsigned long flags;
@@ -68,5 +72,9 @@ extern unsigned long DEMOFontBitmap[768];
 extern void DEMOPrintf(s16 x, s16 y, s16 priority, char *str, ...);
 
 extern struct _GXRenderModeObj *DEMOGetRenderModeObj();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_DEMO_H_

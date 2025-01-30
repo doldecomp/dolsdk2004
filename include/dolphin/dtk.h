@@ -3,6 +3,10 @@
 
 #include <dolphin/dvd.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef void (*DTKCallback)(u32 eventMask);
 typedef void (*DTKFlushCallback)(void);
 
@@ -45,5 +49,9 @@ u32 DTKGetInterruptFrequency(void);
 DTKTrack *DTKGetCurrentTrack(void);
 void DTKSetVolume(u8 left, u8 right);
 u16 DTKGetVolume(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

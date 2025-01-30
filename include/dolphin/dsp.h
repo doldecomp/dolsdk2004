@@ -3,6 +3,10 @@
 
 #include <dolphin/os.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef void (*DSPCallback)(void *task);
 
 typedef struct STRUCT_DSP_TASK
@@ -45,5 +49,9 @@ DSPTaskInfo *DSPCancelTask(DSPTaskInfo *task);
 DSPTaskInfo *DSPAssertTask(DSPTaskInfo *task);
 
 DSPTaskInfo *__DSPGetCurrentTask(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

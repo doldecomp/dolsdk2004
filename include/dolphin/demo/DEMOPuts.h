@@ -1,6 +1,12 @@
 #ifndef _DOLPHIN_DEMOPUTS_H_
 #define _DOLPHIN_DEMOPUTS_H_
 
+#include <dolphin/gx.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum
 {
     DMTF_POINTSAMPLE,
@@ -27,5 +33,9 @@ int DEMORFPutsEx(s16 x, s16 y, s16 z, char * string, s16 maxWidth, int length);
 int DEMORFPrintf(s16 x, s16 y, s16 z, char * fmt, ...);
 char * DEMODumpROMFont(char * string);
 int DEMOGetRFTextWidth(char * string);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

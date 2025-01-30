@@ -1,7 +1,12 @@
 #ifndef _DOLPHIN_MIX_H_
 #define _DOLPHIN_MIX_H_
 
+#include <dolphin/types.h>
 #include <dolphin/ax.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 struct MIXChannel {
     /* 0x00 */ AXVPB * axvpb;
@@ -74,5 +79,9 @@ int MIXGetFader(AXVPB * p);
 void MIXSetDvdStreamFader(int dB);
 int MIXGetDvdStreamFader(void);
 void MIXUpdateSettings(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_MIX_H_

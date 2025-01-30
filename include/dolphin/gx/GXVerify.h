@@ -1,6 +1,10 @@
 #ifndef _DOLPHIN_GX_GXVERIFY_H_
 #define _DOLPHIN_GX_GXVERIFY_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum {
     GX_WARN_NONE,
     GX_WARN_SEVERE,
@@ -14,5 +18,9 @@ void GXSetVerifyLevel(GXWarningLevel level);
 GXVerifyCallback GXSetVerifyCallback(GXVerifyCallback cb);
 
 void __GXVerifyVATImm(GXAttr attr, GXCompCnt cnt, GXCompType type, u8 frac);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

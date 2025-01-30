@@ -3,6 +3,10 @@
 
 #include <dolphin/gx.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void * DemoFrameBuffer1;
 extern void * DemoFrameBuffer2;
 extern void * DemoCurrentBuffer;
@@ -17,5 +21,9 @@ struct _GXRenderModeObj * DEMOGetRenderModeObj();
 u32 DEMOGetCurrentBuffer(void);
 void DEMOEnableBypassWorkaround(unsigned long timeoutFrames);
 void DEMOReInit(struct _GXRenderModeObj * mode);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_DEMOINIT_H_

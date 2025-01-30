@@ -3,6 +3,10 @@
 
 #include <dolphin/pad.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
     /* 0x00 */ struct PADStatus pst;
     /* 0x0C */ u16 buttonDown;
@@ -22,5 +26,9 @@ extern u32 DemoNumValidPads;
 
 void DEMOPadRead();
 void DEMOPadInit();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_DEMOPAD_H_

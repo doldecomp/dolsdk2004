@@ -1,7 +1,13 @@
 #ifndef _DOLPHIN_SYN_H_
 #define _DOLPHIN_SYN_H_
 
+#include <dolphin/types.h>
+
 #include <dolphin/ax.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define SYN_INPUT_BUFFER_SIZE 0x100
 
@@ -156,5 +162,9 @@ u32 SYNGetActiveNotes(struct SYNSYNTH * synth);
 
 // synctrl.c
 u8 SYNGetMidiController(struct SYNSYNTH * synth, u8 midiChannel, u8 function);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_SYN_H_

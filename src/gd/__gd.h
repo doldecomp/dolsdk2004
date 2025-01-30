@@ -1,7 +1,14 @@
+#ifndef _DOLPHIN_GD_INTERNAL_H_
+#define _DOLPHIN_GD_INTERNAL_H_
+
 #include <dolphin/types.h>
 #include <dolphin/gd/GDBase.h>
 #include <dolphin/gx/GXEnum.h>
 #include <dolphin/gx/GXCommandList.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 extern void GDOverflowed();
 
@@ -97,3 +104,9 @@ inline static void GDWriteBPCmd(u32 regval) {
 	GDWrite_u8(GX_LOAD_BP_REG);
 	GDWrite_u32(regval);
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
