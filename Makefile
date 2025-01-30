@@ -213,7 +213,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -268,9 +268,17 @@ build/release/src/%.o: src/%.c
 
 ################################ Build AR Files ###############################
 
+ai_c_files := $(wildcard src/ai/*.c)
+ai.a  : $(addprefix $(BUILD_DIR)/release/,$(ai_c_files:.c=.o))
+aiD.a : $(addprefix $(BUILD_DIR)/debug/,$(ai_c_files:.c=.o))
+
 amcnotstub_c_files := $(wildcard src/amcnotstub/*.c)
 amcnotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(amcnotstub_c_files:.c=.o))
 amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
+
+amcstubs_c_files := $(wildcard src/amcstubs/*.c)
+amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
+amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
 
 base_c_files := $(wildcard src/base/*.c)
 base.a  : $(addprefix $(BUILD_DIR)/release/,$(base_c_files:.c=.o))
@@ -284,6 +292,10 @@ dvd_c_files := $(wildcard src/dvd/*.c)
 dvd.a  : $(addprefix $(BUILD_DIR)/release/,$(dvd_c_files:.c=.o))
 dvdD.a  : $(addprefix $(BUILD_DIR)/debug/,$(dvd_c_files:.c=.o))
 
+exi_c_files := $(wildcard src/exi/*.c)
+exi.a  : $(addprefix $(BUILD_DIR)/release/,$(exi_c_files:.c=.o))
+exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
+
 gx_c_files := $(wildcard src/gx/*.c)
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
 gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
@@ -291,10 +303,6 @@ gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
 gd_c_files := $(wildcard src/gd/*.c)
 gd.a  : $(addprefix $(BUILD_DIR)/release/,$(gd_c_files:.c=.o))
 gdD.a : $(addprefix $(BUILD_DIR)/debug/,$(gd_c_files:.c=.o))
-
-amcstubs_c_files := $(wildcard src/amcstubs/*.c)
-amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
-amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
 
 hio_c_files := $(wildcard src/hio/*.c)
 hio.a  : $(addprefix $(BUILD_DIR)/release/,$(hio_c_files:.c=.o))
@@ -304,17 +312,9 @@ mcc_c_files := $(wildcard src/mcc/*.c)
 mcc.a  : $(addprefix $(BUILD_DIR)/release/,$(mcc_c_files:.c=.o))
 mccD.a : $(addprefix $(BUILD_DIR)/debug/,$(mcc_c_files:.c=.o))
 
-pad_c_files := $(wildcard src/pad/*.c)
-pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
-padD.a : $(addprefix $(BUILD_DIR)/debug/,$(pad_c_files:.c=.o))
-
-si_c_files := $(wildcard src/si/*.c)
-si.a  : $(addprefix $(BUILD_DIR)/release/,$(si_c_files:.c=.o))
-siD.a : $(addprefix $(BUILD_DIR)/debug/,$(si_c_files:.c=.o))
-
-vi_c_files := $(wildcard src/vi/*.c)
-vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))
-viD.a : $(addprefix $(BUILD_DIR)/debug/,$(vi_c_files:.c=.o))
+mtx_c_files := $(wildcard src/mtx/*.c)
+mtx.a  : $(addprefix $(BUILD_DIR)/release/,$(mtx_c_files:.c=.o))
+mtxD.a : $(addprefix $(BUILD_DIR)/debug/,$(mtx_c_files:.c=.o))
 
 odemustubs_c_files := $(wildcard src/odemustubs/*.c)
 odemustubs.a  : $(addprefix $(BUILD_DIR)/release/,$(odemustubs_c_files:.c=.o))
@@ -328,13 +328,17 @@ os_c_files := $(wildcard src/os/*.c)
 os.a  : $(addprefix $(BUILD_DIR)/release/,$(os_c_files:.c=.o))
 osD.a : $(addprefix $(BUILD_DIR)/debug/,$(os_c_files:.c=.o))
 
-exi_c_files := $(wildcard src/exi/*.c)
-exi.a  : $(addprefix $(BUILD_DIR)/release/,$(exi_c_files:.c=.o))
-exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
+pad_c_files := $(wildcard src/pad/*.c)
+pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
+padD.a : $(addprefix $(BUILD_DIR)/debug/,$(pad_c_files:.c=.o))
 
-mtx_c_files := $(wildcard src/mtx/*.c)
-mtx.a  : $(addprefix $(BUILD_DIR)/release/,$(mtx_c_files:.c=.o))
-mtxD.a : $(addprefix $(BUILD_DIR)/debug/,$(mtx_c_files:.c=.o))
+si_c_files := $(wildcard src/si/*.c)
+si.a  : $(addprefix $(BUILD_DIR)/release/,$(si_c_files:.c=.o))
+siD.a : $(addprefix $(BUILD_DIR)/debug/,$(si_c_files:.c=.o))
+
+vi_c_files := $(wildcard src/vi/*.c)
+vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))
+viD.a : $(addprefix $(BUILD_DIR)/debug/,$(vi_c_files:.c=.o))
 
 build/release/baserom.elf: build/release/src/stub.o $(foreach l,$(VERIFY_LIBS),baserom/$(l).a)
 build/release/test.elf:    build/release/src/stub.o $(foreach l,$(VERIFY_LIBS),$(l).a)
