@@ -217,7 +217,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -340,6 +340,10 @@ mcc_c_files := $(wildcard src/mcc/*.c)
 mcc.a  : $(addprefix $(BUILD_DIR)/release/,$(mcc_c_files:.c=.o))
 mccD.a : $(addprefix $(BUILD_DIR)/debug/,$(mcc_c_files:.c=.o))
 
+mix_c_files := $(wildcard src/mix/*.c)
+mix.a  : $(addprefix $(BUILD_DIR)/release/,$(mix_c_files:.c=.o))
+mixD.a : $(addprefix $(BUILD_DIR)/debug/,$(mix_c_files:.c=.o))
+
 mtx_c_files := $(wildcard src/mtx/*.c)
 mtx.a  : $(addprefix $(BUILD_DIR)/release/,$(mtx_c_files:.c=.o))
 mtxD.a : $(addprefix $(BUILD_DIR)/debug/,$(mtx_c_files:.c=.o))
@@ -360,9 +364,17 @@ pad_c_files := $(wildcard src/pad/*.c)
 pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
 padD.a : $(addprefix $(BUILD_DIR)/debug/,$(pad_c_files:.c=.o))
 
+seq_c_files := $(wildcard src/seq/*.c)
+seq.a  : $(addprefix $(BUILD_DIR)/release/,$(seq_c_files:.c=.o))
+seqD.a : $(addprefix $(BUILD_DIR)/debug/,$(seq_c_files:.c=.o))
+
 si_c_files := $(wildcard src/si/*.c)
 si.a  : $(addprefix $(BUILD_DIR)/release/,$(si_c_files:.c=.o))
 siD.a : $(addprefix $(BUILD_DIR)/debug/,$(si_c_files:.c=.o))
+
+syn_c_files := $(wildcard src/syn/*.c)
+syn.a  : $(addprefix $(BUILD_DIR)/release/,$(syn_c_files:.c=.o))
+synD.a : $(addprefix $(BUILD_DIR)/debug/,$(syn_c_files:.c=.o))
 
 vi_c_files := $(wildcard src/vi/*.c)
 vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))

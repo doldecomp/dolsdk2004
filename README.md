@@ -34,18 +34,18 @@ Currently this repository supports building the following libraries:
 | gx           | :warning: |
 | hio          | :heavy_check_mark: |
 | mcc          | :heavy_check_mark: |
-| mix          | :x: |
+| mix          | :heavy_check_mark: |
 | mtx          | :heavy_check_mark: |
 | odemustubs   | :heavy_check_mark: |
 | odenotstub   | :heavy_check_mark: |
 | os           | :heavy_check_mark: |
 | pad          | :heavy_check_mark: |
 | perf         | :x: |
-| seq          | :x: |
+| seq          | :heavy_check_mark: |
 | si           | :heavy_check_mark: |
 | sp           | :x: |
 | support      | :x: |
-| syn          | :x: |
+| syn          | :heavy_check_mark: |
 | texPalette   | :x: |
 | vi           | :warning: |
 
