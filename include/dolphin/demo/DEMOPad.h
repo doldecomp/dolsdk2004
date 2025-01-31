@@ -8,7 +8,7 @@ extern "C" {
 #endif
 
 typedef struct {
-    /* 0x00 */ struct PADStatus pst;
+    /* 0x00 */ PADStatus pst;
     /* 0x0C */ u16 buttonDown;
     /* 0x0E */ u16 buttonUp;
     /* 0x10 */ u16 dirs;
@@ -21,11 +21,10 @@ typedef struct {
 } DEMODMPad;
 
 extern DEMODMPad DemoPad[4];
-
 extern u32 DemoNumValidPads;
 
-void DEMOPadRead();
-void DEMOPadInit();
+void DEMOPadRead(void);
+void DEMOPadInit(void);
 
 #ifdef __cplusplus
 }

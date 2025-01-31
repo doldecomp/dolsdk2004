@@ -188,10 +188,14 @@ build/release/src/mtx/mtx.o: CHARFLAGS := -char signed
 build/debug/src/mtx/mtx44.o: CHARFLAGS := -char signed
 build/release/src/mtx/mtx44.o: CHARFLAGS := -char signed
 
+build/debug/src/demo/%.o: CFLAGS += -char signed
+build/release/src/demo/%.o: CFLAGS += -char signed
+
 build/release/src/exi/EXIBios.o: RELEASE_OPTLEVEL := -O3,p
 
-# no sym on for GDIndirect?
+# no sym on for these?
 build/release/src/gd/GDIndirect.o: SYM_ON := 
+build/release/src/G2D/G2D.o: SYM_ON := 
 
 %/stub.o: CFLAGS += -warn off
 
@@ -213,7 +217,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -296,9 +300,17 @@ db_c_files := $(wildcard src/db/*.c)
 db.a  : $(addprefix $(BUILD_DIR)/release/,$(db_c_files:.c=.o))
 dbD.a : $(addprefix $(BUILD_DIR)/debug/,$(db_c_files:.c=.o))
 
+demo_c_files := $(wildcard src/demo/*.c)
+demo.a  : $(addprefix $(BUILD_DIR)/release/,$(demo_c_files:.c=.o))
+demoD.a : $(addprefix $(BUILD_DIR)/debug/,$(demo_c_files:.c=.o))
+
 dsp_c_files := $(wildcard src/dsp/*.c)
 dsp.a  : $(addprefix $(BUILD_DIR)/release/,$(dsp_c_files:.c=.o))
 dspD.a : $(addprefix $(BUILD_DIR)/debug/,$(dsp_c_files:.c=.o))
+
+dtk_c_files := $(wildcard src/dtk/*.c)
+dtk.a  : $(addprefix $(BUILD_DIR)/release/,$(dtk_c_files:.c=.o))
+dtkD.a : $(addprefix $(BUILD_DIR)/debug/,$(dtk_c_files:.c=.o))
 
 dvd_c_files := $(wildcard src/dvd/*.c)
 dvd.a  : $(addprefix $(BUILD_DIR)/release/,$(dvd_c_files:.c=.o))
@@ -311,6 +323,10 @@ exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
 gx_c_files := $(wildcard src/gx/*.c)
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
 gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
+
+G2D_c_files := $(wildcard src/G2D/*.c)
+G2D.a  : $(addprefix $(BUILD_DIR)/release/,$(G2D_c_files:.c=.o))
+G2DD.a : $(addprefix $(BUILD_DIR)/debug/,$(G2D_c_files:.c=.o))
 
 gd_c_files := $(wildcard src/gd/*.c)
 gd.a  : $(addprefix $(BUILD_DIR)/release/,$(gd_c_files:.c=.o))

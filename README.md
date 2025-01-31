@@ -23,13 +23,13 @@ Currently this repository supports building the following libraries:
 | base         | :heavy_check_mark: |
 | card         | :heavy_check_mark: |
 | db           | :heavy_check_mark: |
-| demo         | :x: |
+| demo         | :heavy_check_mark: |
 | dsp          | :heavy_check_mark: |
-| dtk          | :x: |
+| dtk          | :heavy_check_mark: |
 | dvd          | :heavy_check_mark: |
 | exi          | :heavy_check_mark: |
 | fileCache    | :x: |
-| G2D          | :x: |
+| G2D          | :heavy_check_mark: |
 | gd           | :heavy_check_mark: |
 | gx           | :warning: |
 | hio          | :heavy_check_mark: |
