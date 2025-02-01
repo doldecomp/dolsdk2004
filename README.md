@@ -28,7 +28,7 @@ Currently this repository supports building the following libraries:
 | dtk          | :heavy_check_mark: |
 | dvd          | :heavy_check_mark: |
 | exi          | :heavy_check_mark: |
-| fileCache    | :x: |
+| fileCache    | :heavy_check_mark: |
 | G2D          | :heavy_check_mark: |
 | gd           | :heavy_check_mark: |
 | gx           | :warning: |
@@ -40,13 +40,13 @@ Currently this repository supports building the following libraries:
 | odenotstub   | :heavy_check_mark: |
 | os           | :heavy_check_mark: |
 | pad          | :heavy_check_mark: |
-| perf         | :x: |
+| perf         | :heavy_check_mark: |
 | seq          | :heavy_check_mark: |
 | si           | :heavy_check_mark: |
 | sp           | :x: |
-| support      | :x: |
+| support      | :heavy_check_mark: |
 | syn          | :heavy_check_mark: |
-| texPalette   | :x: |
+| texPalette   | :heavy_check_mark: |
 | vi           | :warning: |
 
 ## Preparation

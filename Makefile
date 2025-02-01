@@ -217,7 +217,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a perf.a perfD.a support.a supportD.a fileCache.a fileCacheD.a texPalette.a texPaletteD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -320,6 +320,10 @@ exi_c_files := $(wildcard src/exi/*.c)
 exi.a  : $(addprefix $(BUILD_DIR)/release/,$(exi_c_files:.c=.o))
 exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
 
+fileCache_c_files := $(wildcard src/fileCache/*.c)
+fileCache.a  : $(addprefix $(BUILD_DIR)/release/,$(fileCache_c_files:.c=.o))
+fileCacheD.a : $(addprefix $(BUILD_DIR)/debug/,$(fileCache_c_files:.c=.o))
+
 gx_c_files := $(wildcard src/gx/*.c)
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
 gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
@@ -364,6 +368,10 @@ pad_c_files := $(wildcard src/pad/*.c)
 pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
 padD.a : $(addprefix $(BUILD_DIR)/debug/,$(pad_c_files:.c=.o))
 
+perf_c_files := $(wildcard src/perf/*.c)
+perf.a  : $(addprefix $(BUILD_DIR)/release/,$(perf_c_files:.c=.o))
+perfD.a : $(addprefix $(BUILD_DIR)/debug/,$(perf_c_files:.c=.o))
+
 seq_c_files := $(wildcard src/seq/*.c)
 seq.a  : $(addprefix $(BUILD_DIR)/release/,$(seq_c_files:.c=.o))
 seqD.a : $(addprefix $(BUILD_DIR)/debug/,$(seq_c_files:.c=.o))
@@ -372,9 +380,17 @@ si_c_files := $(wildcard src/si/*.c)
 si.a  : $(addprefix $(BUILD_DIR)/release/,$(si_c_files:.c=.o))
 siD.a : $(addprefix $(BUILD_DIR)/debug/,$(si_c_files:.c=.o))
 
+support_c_files := $(wildcard src/support/*.c)
+support.a  : $(addprefix $(BUILD_DIR)/release/,$(support_c_files:.c=.o))
+supportD.a : $(addprefix $(BUILD_DIR)/debug/,$(support_c_files:.c=.o))
+
 syn_c_files := $(wildcard src/syn/*.c)
 syn.a  : $(addprefix $(BUILD_DIR)/release/,$(syn_c_files:.c=.o))
 synD.a : $(addprefix $(BUILD_DIR)/debug/,$(syn_c_files:.c=.o))
+
+texPalette_c_files := $(wildcard src/texPalette/*.c)
+texPalette.a  : $(addprefix $(BUILD_DIR)/release/,$(texPalette_c_files:.c=.o))
+texPaletteD.a : $(addprefix $(BUILD_DIR)/debug/,$(texPalette_c_files:.c=.o))
 
 vi_c_files := $(wildcard src/vi/*.c)
 vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))
