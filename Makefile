@@ -217,7 +217,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a perf.a perfD.a support.a supportD.a fileCache.a fileCacheD.a texPalette.a texPaletteD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a perf.a perfD.a support.a supportD.a fileCache.a fileCacheD.a texPalette.a texPaletteD.a ax.a axD.a axfx.a axfxD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -287,6 +287,14 @@ amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
 ar_c_files := $(wildcard src/ar/*.c)
 ar.a  : $(addprefix $(BUILD_DIR)/release/,$(ar_c_files:.c=.o))
 arD.a : $(addprefix $(BUILD_DIR)/debug/,$(ar_c_files:.c=.o))
+
+ax_c_files := $(wildcard src/ax/*.c)
+ax.a  : $(addprefix $(BUILD_DIR)/release/,$(ax_c_files:.c=.o))
+axD.a : $(addprefix $(BUILD_DIR)/debug/,$(ax_c_files:.c=.o))
+
+axfx_c_files := $(wildcard src/axfx/*.c)
+axfx.a  : $(addprefix $(BUILD_DIR)/release/,$(axfx_c_files:.c=.o))
+axfxD.a : $(addprefix $(BUILD_DIR)/debug/,$(axfx_c_files:.c=.o))
 
 base_c_files := $(wildcard src/base/*.c)
 base.a  : $(addprefix $(BUILD_DIR)/release/,$(base_c_files:.c=.o))
