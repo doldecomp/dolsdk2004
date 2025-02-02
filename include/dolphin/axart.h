@@ -4,6 +4,10 @@
 #include <dolphin/types.h>
 #include <dolphin/ax.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum __axart_type {
     AXART_TYPE_NONE,
     AXART_TYPE_3D,
@@ -33,126 +37,110 @@ typedef struct {
 } AXART_ART;
 
 typedef struct {
-    // total size: 0x20
-    f32* lfo; // offset 0x0, size 0x4
-    u32 length; // offset 0x4, size 0x4
-    f32 delta; // offset 0x8, size 0x4
-    u32 sampleIndex; // offset 0xC, size 0x4
-    f32 counter; // offset 0x10, size 0x4
-    f32 sample1; // offset 0x14, size 0x4
-    f32 sample; // offset 0x18, size 0x4
-    f32 output; // offset 0x1C, size 0x4
+    f32* lfo;
+    u32 length;
+    f32 delta;
+    u32 sampleIndex;
+    f32 counter;
+    f32 sample1;
+    f32 sample;
+    f32 output;
 } AXART_LFO;
 
 typedef struct {
-
     AXART_ART art;
-    f32 hAngle; // offset 0x8, size 0x4
-    f32 vAngle; // offset 0xC, size 0x4
-    f32 dist; // offset 0x10, size 0x4
-    f32 closingSpeed; // offset 0x14, size 0x4
-    u32 update; // offset 0x18, size 0x4
-    u8 pan; // offset 0x1C, size 0x1
-    u8 span; // offset 0x1D, size 0x1
-    u8 src; // offset 0x1E, size 0x1
-    u16 itdL; // offset 0x20, size 0x2
-    u16 itdR; // offset 0x22, size 0x2
-    f32 pitch; // offset 0x24, size 0x4
+    f32 hAngle;
+    f32 vAngle;
+    f32 dist;
+    f32 closingSpeed;
+    u32 update;
+    u8 pan;
+    u8 span;
+    u8 src;
+    u16 itdL;
+    u16 itdR;
+    f32 pitch;
     s32 attenuation;
 } AXART_3D;
 
 typedef struct {
-    // total size: 0xC
     AXART_ART art;
-    u8 pan; // offset 0x8, size 0x1
-    u8 span; // offset 0x9, size 0x1
+    u8 pan;
+    u8 span;
 } AXART_PANNING;
 
 typedef struct {
-    // total size: 0xC
     AXART_ART art;
-    u16 itdL; // offset 0x8, size 0x2
-    u16 itdR; // offset 0xA, size 0x2
+    u16 itdL;
+    u16 itdR;
 } AXART_ITD;
 
 typedef struct {
-        // total size: 0xC
     AXART_ART art;
-    u8 src; // offset 0x8, size 0x1
+    u8 src;
 } AXART_SRC;
 
 typedef struct {
-    // total size: 0xC
     AXART_ART art;
-    s32 cents; // offset 0x8, size 0x4
+    s32 cents;
 } AXART_PITCH;
 
 typedef struct {
-    // total size: 0x14
     AXART_ART art;
-    s32 delta; // offset 0x8, size 0x4
-    s32 target; // offset 0xC, size 0x4
-    s32 cents; // offset 0x10, size 0x4
+    s32 delta;
+    s32 target;
+    s32 cents;
 } AXART_PITCH_ENV;
 
 typedef struct {
-
     AXART_ART art;
     AXART_LFO lfo;
     s32 cents;
 } AXART_PITCH_MOD;
 
 typedef struct {
-    // total size: 0xC
     AXART_ART art;
-    s32 attenuation; // offset 0x8, size 0x4
+    s32 attenuation;
 } AXART_VOLUME;
 
 typedef struct {
-    // total size: 0xC
     AXART_ART art;
-    s32 attenuation; // offset 0x8, size 0x4
+    s32 attenuation;
 } AXART_AUXA_VOLUME;
 
 typedef struct {
-    // total size: 0xC
     AXART_ART art;
-    s32 attenuation; // offset 0x8, size 0x4
+    s32 attenuation;
 } AXART_AUXB_VOLUME;
 
 typedef struct {
-    // total size: 0x14
     AXART_ART art;
-    s32 delta; // offset 0x8, size 0x4
-    s32 target; // offset 0xC, size 0x4
-    s32 attenuation; // offset 0x10, size 0x4
+    s32 delta;
+    s32 target;
+    s32 attenuation;
 } AXART_VOLUME_ENV;
 
 typedef struct {
-    // total size: 0x14
     AXART_ART art;
-    s32 delta; // offset 0x8, size 0x4
-    s32 target; // offset 0xC, size 0x4
-    s32 attenuation; // offset 0x10, size 0x4
+    s32 delta;
+    s32 target;
+    s32 attenuation;
 } AXART_AUXA_VOLUME_ENV;
 
 typedef struct {
-    // total size: 0x14
     AXART_ART art;
-    s32 delta; // offset 0x8, size 0x4
-    s32 target; // offset 0xC, size 0x4
-    s32 attenuation; // offset 0x10, size 0x4
+    s32 delta;
+    s32 target;
+    s32 attenuation;
 } AXART_AUXB_VOLUME_ENV;
 
 typedef struct {
-
     AXART_ART art;
     AXART_LFO lfo;
     s32 attenuation;
 } AXART_VOLUME_MOD;
 
 typedef struct {
-
     AXART_ART art;
     AXART_LFO lfo;
     s32 attenuation;
@@ -182,7 +170,7 @@ typedef struct {
 #define AXART_SINE_CNT 64
 extern f32 AXARTSine[AXART_SINE_CNT];
 
-// axart.c
+// axart
 void AXARTInit(void);
 void AXARTQuit(void);
 void AXARTServiceSounds(void);
@@ -207,26 +195,30 @@ void AXARTInitArtAuxAVolumeMod(AXART_AUXA_VOLUME_MOD* articulator);
 void AXARTInitArtAuxBVolumeMod(AXART_AUXB_VOLUME_MOD* articulator);
 void AXARTInitArtLpf(AXART_LPF* articulator);
 
-// axart3d.c
+// axart3d
 void AXARTSet3DDistanceScale(f32 scale);
 void AXARTSet3DDopplerScale(f32 scale);
 void AXART3DSound(AXART_3D* articulator);
 
-// axartcents.c
+// axartcents
 f32 AXARTCents(s32 cents);
 
-// axartenv.c
+// axartenv
 void AXARTPitchEnv(AXART_PITCH_ENV* articulator);
 void AXARTVolumeEnv(AXART_VOLUME_ENV* articulator);
 
-// axartlfo.c
+// axartlfo
 void AXARTLfo(AXART_LFO* lfo);
 
-// axartsound.c
+// axartsound
 void AXARTServiceSound(AXART_SOUND* sound);
 void AXARTAddArticulator(AXART_SOUND* sound, AXART_ART* articulator);
 
 // axartlpf
 void AXARTLpf(AXART_LPF*, AXVPB*);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _DOLPHIN_AXART_H_

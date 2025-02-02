@@ -13,7 +13,7 @@ Currently this repository supports building the following libraries:
 | Library Name | Progress |
 | ------------ | ---------- |
 | ai           | :heavy_check_mark: |
-| am           | :x: |
+| am           | :heavy_check_mark: |
 | amcnotstub   | :heavy_check_mark: |
 | amcstubs     | :heavy_check_mark: |
 | ar           | :heavy_check_mark: |
@@ -43,7 +43,7 @@ Currently this repository supports building the following libraries:
 | perf         | :heavy_check_mark: |
 | seq          | :heavy_check_mark: |
 | si           | :heavy_check_mark: |
-| sp           | :x: |
+| sp           | :heavy_check_mark: |
 | support      | :heavy_check_mark: |
 | syn          | :heavy_check_mark: |
 | texPalette   | :heavy_check_mark: |

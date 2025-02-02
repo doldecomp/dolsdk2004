@@ -217,7 +217,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a perf.a perfD.a support.a supportD.a fileCache.a fileCacheD.a texPalette.a texPaletteD.a ax.a axD.a axfx.a axfxD.a axart.a axartD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a perf.a perfD.a support.a supportD.a fileCache.a fileCacheD.a texPalette.a texPaletteD.a ax.a axD.a axfx.a axfxD.a axart.a axartD.a sp.a spD.a am.a amD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -275,6 +275,10 @@ build/release/src/%.o: src/%.c
 ai_c_files := $(wildcard src/ai/*.c)
 ai.a  : $(addprefix $(BUILD_DIR)/release/,$(ai_c_files:.c=.o))
 aiD.a : $(addprefix $(BUILD_DIR)/debug/,$(ai_c_files:.c=.o))
+
+am_c_files := $(wildcard src/am/*.c)
+am.a  : $(addprefix $(BUILD_DIR)/release/,$(am_c_files:.c=.o))
+amD.a : $(addprefix $(BUILD_DIR)/debug/,$(am_c_files:.c=.o))
 
 amcnotstub_c_files := $(wildcard src/amcnotstub/*.c)
 amcnotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(amcnotstub_c_files:.c=.o))
@@ -391,6 +395,10 @@ seqD.a : $(addprefix $(BUILD_DIR)/debug/,$(seq_c_files:.c=.o))
 si_c_files := $(wildcard src/si/*.c)
 si.a  : $(addprefix $(BUILD_DIR)/release/,$(si_c_files:.c=.o))
 siD.a : $(addprefix $(BUILD_DIR)/debug/,$(si_c_files:.c=.o))
+
+sp_c_files := $(wildcard src/sp/*.c)
+sp.a  : $(addprefix $(BUILD_DIR)/release/,$(sp_c_files:.c=.o))
+spD.a : $(addprefix $(BUILD_DIR)/debug/,$(sp_c_files:.c=.o))
 
 support_c_files := $(wildcard src/support/*.c)
 support.a  : $(addprefix $(BUILD_DIR)/release/,$(support_c_files:.c=.o))
