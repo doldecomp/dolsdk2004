@@ -19,5 +19,6 @@
 #include <dolphin/ai.h>
 #include <dolphin/demo.h>
 #include <dolphin/exi.h>
+#include <dolphin/si.h>
 
 #endif

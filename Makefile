@@ -163,6 +163,8 @@ endif
 
 DTK     := $(TOOLS_DIR)/dtk$(EXE)
 DTK_VERSION := 0.7.4
+SJISWRAP := $(TOOLS_DIR)/sjiswrap$(EXE)
+SJISWRAP_VERSION := 1.2.0
 
 CC        = $(MWCC)
 
@@ -178,15 +180,22 @@ build/release/src/card/CARDRename.o: CHARFLAGS := -char signed
 build/debug/src/card/CARDOpen.o: CHARFLAGS := -char signed
 build/release/src/card/CARDOpen.o: CHARFLAGS := -char signed
 
+build/debug/src/dvd/%.o: CHARFLAGS := -char signed
+build/release/src/dvd/%.o: CHARFLAGS := -char signed
+
 build/debug/src/mtx/mtx.o: CHARFLAGS := -char signed
 build/release/src/mtx/mtx.o: CHARFLAGS := -char signed
 build/debug/src/mtx/mtx44.o: CHARFLAGS := -char signed
 build/release/src/mtx/mtx44.o: CHARFLAGS := -char signed
 
+build/debug/src/demo/%.o: CFLAGS += -char signed
+build/release/src/demo/%.o: CFLAGS += -char signed
+
 build/release/src/exi/EXIBios.o: RELEASE_OPTLEVEL := -O3,p
 
-# no sym on for GDIndirect?
+# no sym on for these?
 build/release/src/gd/GDIndirect.o: SYM_ON := 
+build/release/src/G2D/G2D.o: SYM_ON := 
 
 %/stub.o: CFLAGS += -warn off
 
@@ -208,7 +217,7 @@ TARGET_LIBS_DEBUG := $(addprefix baserom/,$(addsuffix .a,$(TARGET_LIBS_DEBUG)))
 
 default: all
 
-all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a
+all: $(DTK) amcnotstub.a amcnotstubD.a gx.a gxD.a hio.a hioD.a amcstubs.a amcstubsD.a odemustubs.a odemustubsD.a odenotstub.a odenotstubD.a vi.a viD.a os.a osD.a card.a cardD.a pad.a padD.a exi.a exiD.a mtx.a mtxD.a mcc.a mccD.a gd.a gdD.a si.a siD.a dvd.a dvdD.a base.a baseD.a ai.a aiD.a ar.a arD.a db.a dbD.a dsp.a dspD.a G2D.a G2DD.a dtk.a dtkD.a demo.a demoD.a seq.a seqD.a syn.a synD.a mix.a mixD.a perf.a perfD.a support.a supportD.a fileCache.a fileCacheD.a texPalette.a texPaletteD.a ax.a axD.a axfx.a axfxD.a axart.a axartD.a sp.a spD.a am.a amD.a
 
 verify: build/release/test.bin build/debug/test.bin build/verify.sha1
 	@sha1sum -c build/verify.sha1
@@ -248,39 +257,100 @@ check-dtk: $(TOOLS_DIR)
 	@version=$$($(DTK) --version | awk '{print $$2}'); \
 	if [ "$(DTK_VERSION)" != "$$version" ]; then \
 		$(PYTHON) tools/download_dtk.py dtk $(DTK) --tag "v$(DTK_VERSION)"; \
+    $(PYTHON) tools/download_dtk.py sjiswrap $(SJISWRAP) --tag "v$(SJISWRAP_VERSION)"; \
 	fi
 
 $(DTK): check-dtk
 
 build/debug/src/%.o: src/%.c
 	@echo 'Compiling $< (debug)'
-	$(QUIET)$(CC) -c -opt level=0 -inline off -schedule off -sym on $(CFLAGS) -I- $(INCLUDES) -DDEBUG $< -o $@
+	$(QUIET)$(SJISWRAP)$(CC) -c -opt level=0 -inline off -schedule off -sym on $(CFLAGS) -I- $(INCLUDES) -DDEBUG $< -o $@
 
 build/release/src/%.o: src/%.c
 	@echo 'Compiling $< (release)'
-	$(QUIET)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto $(SYM_ON) $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
+	$(QUIET)$(SJISWRAP)$(CC) -c $(RELEASE_OPTLEVEL) -inline auto $(SYM_ON) $(CFLAGS) -I- $(INCLUDES) -DRELEASE $< -o $@
 
 ################################ Build AR Files ###############################
+
+ai_c_files := $(wildcard src/ai/*.c)
+ai.a  : $(addprefix $(BUILD_DIR)/release/,$(ai_c_files:.c=.o))
+aiD.a : $(addprefix $(BUILD_DIR)/debug/,$(ai_c_files:.c=.o))
+
+am_c_files := $(wildcard src/am/*.c)
+am.a  : $(addprefix $(BUILD_DIR)/release/,$(am_c_files:.c=.o))
+amD.a : $(addprefix $(BUILD_DIR)/debug/,$(am_c_files:.c=.o))
 
 amcnotstub_c_files := $(wildcard src/amcnotstub/*.c)
 amcnotstub.a  : $(addprefix $(BUILD_DIR)/release/,$(amcnotstub_c_files:.c=.o))
 amcnotstubD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcnotstub_c_files:.c=.o))
 
+amcstubs_c_files := $(wildcard src/amcstubs/*.c)
+amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
+amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
+
+ar_c_files := $(wildcard src/ar/*.c)
+ar.a  : $(addprefix $(BUILD_DIR)/release/,$(ar_c_files:.c=.o))
+arD.a : $(addprefix $(BUILD_DIR)/debug/,$(ar_c_files:.c=.o))
+
+ax_c_files := $(wildcard src/ax/*.c)
+ax.a  : $(addprefix $(BUILD_DIR)/release/,$(ax_c_files:.c=.o))
+axD.a : $(addprefix $(BUILD_DIR)/debug/,$(ax_c_files:.c=.o))
+
+axart_c_files := $(wildcard src/axart/*.c)
+axart.a  : $(addprefix $(BUILD_DIR)/release/,$(axart_c_files:.c=.o))
+axartD.a : $(addprefix $(BUILD_DIR)/debug/,$(axart_c_files:.c=.o))
+
+axfx_c_files := $(wildcard src/axfx/*.c)
+axfx.a  : $(addprefix $(BUILD_DIR)/release/,$(axfx_c_files:.c=.o))
+axfxD.a : $(addprefix $(BUILD_DIR)/debug/,$(axfx_c_files:.c=.o))
+
+base_c_files := $(wildcard src/base/*.c)
+base.a  : $(addprefix $(BUILD_DIR)/release/,$(base_c_files:.c=.o))
+baseD.a : $(addprefix $(BUILD_DIR)/debug/,$(base_c_files:.c=.o))
+
 card_c_files := $(wildcard src/card/*.c)
 card.a  : $(addprefix $(BUILD_DIR)/release/,$(card_c_files:.c=.o))
 cardD.a : $(addprefix $(BUILD_DIR)/debug/,$(card_c_files:.c=.o))
+
+db_c_files := $(wildcard src/db/*.c)
+db.a  : $(addprefix $(BUILD_DIR)/release/,$(db_c_files:.c=.o))
+dbD.a : $(addprefix $(BUILD_DIR)/debug/,$(db_c_files:.c=.o))
+
+demo_c_files := $(wildcard src/demo/*.c)
+demo.a  : $(addprefix $(BUILD_DIR)/release/,$(demo_c_files:.c=.o))
+demoD.a : $(addprefix $(BUILD_DIR)/debug/,$(demo_c_files:.c=.o))
+
+dsp_c_files := $(wildcard src/dsp/*.c)
+dsp.a  : $(addprefix $(BUILD_DIR)/release/,$(dsp_c_files:.c=.o))
+dspD.a : $(addprefix $(BUILD_DIR)/debug/,$(dsp_c_files:.c=.o))
+
+dtk_c_files := $(wildcard src/dtk/*.c)
+dtk.a  : $(addprefix $(BUILD_DIR)/release/,$(dtk_c_files:.c=.o))
+dtkD.a : $(addprefix $(BUILD_DIR)/debug/,$(dtk_c_files:.c=.o))
+
+dvd_c_files := $(wildcard src/dvd/*.c)
+dvd.a  : $(addprefix $(BUILD_DIR)/release/,$(dvd_c_files:.c=.o))
+dvdD.a  : $(addprefix $(BUILD_DIR)/debug/,$(dvd_c_files:.c=.o))
+
+exi_c_files := $(wildcard src/exi/*.c)
+exi.a  : $(addprefix $(BUILD_DIR)/release/,$(exi_c_files:.c=.o))
+exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
+
+fileCache_c_files := $(wildcard src/fileCache/*.c)
+fileCache.a  : $(addprefix $(BUILD_DIR)/release/,$(fileCache_c_files:.c=.o))
+fileCacheD.a : $(addprefix $(BUILD_DIR)/debug/,$(fileCache_c_files:.c=.o))
 
 gx_c_files := $(wildcard src/gx/*.c)
 gx.a  : $(addprefix $(BUILD_DIR)/release/,$(gx_c_files:.c=.o))
 gxD.a : $(addprefix $(BUILD_DIR)/debug/,$(gx_c_files:.c=.o))
 
+G2D_c_files := $(wildcard src/G2D/*.c)
+G2D.a  : $(addprefix $(BUILD_DIR)/release/,$(G2D_c_files:.c=.o))
+G2DD.a : $(addprefix $(BUILD_DIR)/debug/,$(G2D_c_files:.c=.o))
+
 gd_c_files := $(wildcard src/gd/*.c)
 gd.a  : $(addprefix $(BUILD_DIR)/release/,$(gd_c_files:.c=.o))
 gdD.a : $(addprefix $(BUILD_DIR)/debug/,$(gd_c_files:.c=.o))
-
-amcstubs_c_files := $(wildcard src/amcstubs/*.c)
-amcstubs.a  : $(addprefix $(BUILD_DIR)/release/,$(amcstubs_c_files:.c=.o))
-amcstubsD.a : $(addprefix $(BUILD_DIR)/debug/,$(amcstubs_c_files:.c=.o))
 
 hio_c_files := $(wildcard src/hio/*.c)
 hio.a  : $(addprefix $(BUILD_DIR)/release/,$(hio_c_files:.c=.o))
@@ -290,13 +360,13 @@ mcc_c_files := $(wildcard src/mcc/*.c)
 mcc.a  : $(addprefix $(BUILD_DIR)/release/,$(mcc_c_files:.c=.o))
 mccD.a : $(addprefix $(BUILD_DIR)/debug/,$(mcc_c_files:.c=.o))
 
-pad_c_files := $(wildcard src/pad/*.c)
-pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
-padD.a : $(addprefix $(BUILD_DIR)/debug/,$(pad_c_files:.c=.o))
+mix_c_files := $(wildcard src/mix/*.c)
+mix.a  : $(addprefix $(BUILD_DIR)/release/,$(mix_c_files:.c=.o))
+mixD.a : $(addprefix $(BUILD_DIR)/debug/,$(mix_c_files:.c=.o))
 
-vi_c_files := $(wildcard src/vi/*.c)
-vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))
-viD.a : $(addprefix $(BUILD_DIR)/debug/,$(vi_c_files:.c=.o))
+mtx_c_files := $(wildcard src/mtx/*.c)
+mtx.a  : $(addprefix $(BUILD_DIR)/release/,$(mtx_c_files:.c=.o))
+mtxD.a : $(addprefix $(BUILD_DIR)/debug/,$(mtx_c_files:.c=.o))
 
 odemustubs_c_files := $(wildcard src/odemustubs/*.c)
 odemustubs.a  : $(addprefix $(BUILD_DIR)/release/,$(odemustubs_c_files:.c=.o))
@@ -310,13 +380,41 @@ os_c_files := $(wildcard src/os/*.c)
 os.a  : $(addprefix $(BUILD_DIR)/release/,$(os_c_files:.c=.o))
 osD.a : $(addprefix $(BUILD_DIR)/debug/,$(os_c_files:.c=.o))
 
-exi_c_files := $(wildcard src/exi/*.c)
-exi.a  : $(addprefix $(BUILD_DIR)/release/,$(exi_c_files:.c=.o))
-exiD.a : $(addprefix $(BUILD_DIR)/debug/,$(exi_c_files:.c=.o))
+pad_c_files := $(wildcard src/pad/*.c)
+pad.a  : $(addprefix $(BUILD_DIR)/release/,$(pad_c_files:.c=.o))
+padD.a : $(addprefix $(BUILD_DIR)/debug/,$(pad_c_files:.c=.o))
 
-mtx_c_files := $(wildcard src/mtx/*.c)
-mtx.a  : $(addprefix $(BUILD_DIR)/release/,$(mtx_c_files:.c=.o))
-mtxD.a : $(addprefix $(BUILD_DIR)/debug/,$(mtx_c_files:.c=.o))
+perf_c_files := $(wildcard src/perf/*.c)
+perf.a  : $(addprefix $(BUILD_DIR)/release/,$(perf_c_files:.c=.o))
+perfD.a : $(addprefix $(BUILD_DIR)/debug/,$(perf_c_files:.c=.o))
+
+seq_c_files := $(wildcard src/seq/*.c)
+seq.a  : $(addprefix $(BUILD_DIR)/release/,$(seq_c_files:.c=.o))
+seqD.a : $(addprefix $(BUILD_DIR)/debug/,$(seq_c_files:.c=.o))
+
+si_c_files := $(wildcard src/si/*.c)
+si.a  : $(addprefix $(BUILD_DIR)/release/,$(si_c_files:.c=.o))
+siD.a : $(addprefix $(BUILD_DIR)/debug/,$(si_c_files:.c=.o))
+
+sp_c_files := $(wildcard src/sp/*.c)
+sp.a  : $(addprefix $(BUILD_DIR)/release/,$(sp_c_files:.c=.o))
+spD.a : $(addprefix $(BUILD_DIR)/debug/,$(sp_c_files:.c=.o))
+
+support_c_files := $(wildcard src/support/*.c)
+support.a  : $(addprefix $(BUILD_DIR)/release/,$(support_c_files:.c=.o))
+supportD.a : $(addprefix $(BUILD_DIR)/debug/,$(support_c_files:.c=.o))
+
+syn_c_files := $(wildcard src/syn/*.c)
+syn.a  : $(addprefix $(BUILD_DIR)/release/,$(syn_c_files:.c=.o))
+synD.a : $(addprefix $(BUILD_DIR)/debug/,$(syn_c_files:.c=.o))
+
+texPalette_c_files := $(wildcard src/texPalette/*.c)
+texPalette.a  : $(addprefix $(BUILD_DIR)/release/,$(texPalette_c_files:.c=.o))
+texPaletteD.a : $(addprefix $(BUILD_DIR)/debug/,$(texPalette_c_files:.c=.o))
+
+vi_c_files := $(wildcard src/vi/*.c)
+vi.a  : $(addprefix $(BUILD_DIR)/release/,$(vi_c_files:.c=.o))
+viD.a : $(addprefix $(BUILD_DIR)/debug/,$(vi_c_files:.c=.o))
 
 build/release/baserom.elf: build/release/src/stub.o $(foreach l,$(VERIFY_LIBS),baserom/$(l).a)
 build/release/test.elf:    build/release/src/stub.o $(foreach l,$(VERIFY_LIBS),$(l).a)

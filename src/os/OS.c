@@ -1,6 +1,7 @@
 #include <dolphin.h>
 #include <dolphin/exi.h>
 #include <dolphin/os.h>
+#include <dolphin/si.h>
 #include <dolphin/db.h>
 
 #include "__os.h"

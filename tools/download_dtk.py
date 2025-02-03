@@ -36,9 +36,13 @@ def dtk_url(tag: str) -> str:
     repo = "https://github.com/encounter/decomp-toolkit"
     return f"{repo}/releases/download/{tag}/dtk-{system}-{arch}{suffix}"
 
+def sjiswrap_url(tag: str) -> str:
+    repo = "https://github.com/encounter/sjiswrap"
+    return f"{repo}/releases/download/{tag}/sjiswrap-windows-x86.exe"
 
 TOOLS: Dict[str, Callable[[str], str]] = {
     "dtk": dtk_url,
+    "sjiswrap": sjiswrap_url,
 }
 
 
