@@ -5,9 +5,9 @@
 include util.mk
 
 # Apr 20 2004 - 0
-# May 21 2004 - 1
-# Nov 10 2004 - 2
-SDK_REVISION := 1
+# May 21 2004 - 1 (Patch 1)
+# Nov 10 2004 - 2 (Patch 2)
+SDK_REVISION := 2
 
 # If 0, tells the console to chill out. (Quiets the make process.)
 VERBOSE ?= 0

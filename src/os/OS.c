@@ -26,6 +26,10 @@ extern void __OSInitMemoryProtection(void);
 #define BUILD_DATE  "May 21 2004"
 #define DBUILD_TIME "09:15:32"
 #define RBUILD_TIME "09:28:09"
+#else
+#define BUILD_DATE  "Nov 10 2004"
+#define DBUILD_TIME "06:08:19"
+#define RBUILD_TIME "06:26:41"
 #endif
 
 #ifdef DEBUG
