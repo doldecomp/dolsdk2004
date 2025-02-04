@@ -4,6 +4,11 @@
 
 include util.mk
 
+# Apr 20 2004 - 0
+# May 21 2004 - 1 (Patch 1)
+# Nov 10 2004 - 2 (Patch 2)
+SDK_REVISION := 2
+
 # If 0, tells the console to chill out. (Quiets the make process.)
 VERBOSE ?= 0
 
@@ -199,7 +204,7 @@ build/release/src/G2D/G2D.o: SYM_ON :=
 
 %/stub.o: CFLAGS += -warn off
 
-CFLAGS = $(CHARFLAGS) -nodefaults -proc gekko -fp hard -Cpp_exceptions off -enum int -warn pragmas -requireprotos -pragma 'cats off' -D__GEKKO__
+CFLAGS = $(CHARFLAGS) -nodefaults -proc gekko -fp hard -Cpp_exceptions off -enum int -warn pragmas -requireprotos -pragma 'cats off' -D__GEKKO__ -DSDK_REVISION=$(SDK_REVISION)
 INCLUDES := -Iinclude -Iinclude/libc -ir src
 
 ASFLAGS = -mgekko -I src -I include
